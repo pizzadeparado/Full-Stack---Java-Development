@@ -27,7 +27,5 @@ public class SalvoController {
         .map(gamePlayer -> makeGamePlayerD(gamePlayer))
         .collect(Collectors.toList());
   }
-
-  ME FALTA TERMINAR ESTO
-
+  
 }
