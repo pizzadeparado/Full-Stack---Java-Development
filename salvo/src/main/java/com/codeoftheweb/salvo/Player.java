@@ -37,4 +37,15 @@ public class Player {
     return userName;
   }
 
+  public Set<GamePlayer> getGamePlayers() {
+    return gamePlayers;
+  }
+
+  public Map<String, Object> getDto() {
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("id", this.id);
+    dto.put("email", this.gamePlayers);
+    return dto;
+  }
+
 }
