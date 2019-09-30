@@ -8,26 +8,27 @@ import java.util.stream.*;
 
 @RestController
 @RequestMapping("/api")
-
 public class SalvoController {
 
   @Autowired
   private GameRepository gameRepository;
 
+  @Autowired
+  private GamePlayerRepository gamePlayerRepository;
+
   @RequestMapping("/games")
-  public List<Map<String, Object>> getGames() {
-    return gameRepository.findAll()
-        .stream()
-        .map(game -> game.getDto())
-        .collect(Collectors.toList());
+  public Map<String, Object> getAllGames() {
+    Map<String, Object> dto = new HashMap<>();
+    dto.put("games", gameRepository.findAll().stream().map(Game::createGameDTO).collect(Collectors.toList()));
+    return dto;
   }
 
-  public List<Map<String, Object>> getAllGamePlayers(Set<GamePlayer> gamePlayers) {
-    return gamePlayers.stream()
-        .map(gamePlayer -> makeGamePlayerD(gamePlayer))
-        .collect(Collectors.toList());
+  @RequestMapping("/game_view/{gamePlayerId}")
+  public Map<String,Object> getGameView(@PathVariable Long gamePlayerId) {
+    Optional<GamePlayer> gamePlayer = gamePlayerRepository.findById(gamePlayerId);
+    if(gamePlayer.isPresent())
+      return gamePlayer.get().dto_gameView();
+    else
+      return null;
   }
-
-  ME FALTA TERMINAR ESTO
-
 }

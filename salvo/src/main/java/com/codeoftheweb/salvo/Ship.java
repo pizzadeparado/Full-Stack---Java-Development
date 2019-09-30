@@ -13,11 +13,10 @@ public class Ship {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long id;
-
   private String shipType;
 
   @Transient
-  private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Destroyer", "Cruiser", "Submarine", "Battleship"));
+  private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Destroyer", "Cruiser", "Submarine", "Battleship", "PatrolBoat"));
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name="gamePlayer_id")
@@ -25,18 +24,18 @@ public class Ship {
 
   @ElementCollection
   @Column(name="location")
-  private Set<String> locations;
+  private List<String> locations;
 
   public Ship() { }
 
-  public Ship(GamePlayer gamePlayer, String shipType, Set<String> locations) throws Exception {
+  public Ship(GamePlayer gamePlayer, String shipType, List<String> locations) throws Exception {
     if (this.possibleTypes.contains(shipType)) {
       this.gamePlayer = gamePlayer;
       this.shipType = shipType;
       this.locations = locations;
     }
     else {
-      throw new Exception("No existe ese tipo de barco");
+      throw new Exception("There are no ships by this name.");
     }
   }
 
@@ -48,8 +47,14 @@ public class Ship {
     return shipType;
   }
 
-  public Set<String> getLocations() {
+  public List<String> getLocations() {
     return locations;
+  }
+
+  public Map<String, Object> createGameDTO_Ship () {
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("shipType", this.getShipType());
+    dto.put("locations", this.getLocations());
   }
 
 }

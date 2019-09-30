@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 
@@ -16,7 +17,10 @@ public class Player {
   private String userName = "";
 
   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
-  Set<GamePlayer> gamePlayers;
+  private Set<GamePlayer> gamePlayers;
+
+  @OneToMany(mappedBy="player", fetch= FetchType.EAGER)
+  Set<Score> scores = new HashSet();
 
   public Player() {
   }
@@ -41,10 +45,15 @@ public class Player {
     return gamePlayers;
   }
 
-  public Map<String, Object> getDto() {
+  @JsonIgnore
+  public List<Game> getGame(){
+    return gamePlayers.stream().map(sub -> sub.getGame()).collect(Collectors.toList());
+  }
+
+  public Map<String, Object> createGameDTO_Player() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("id", this.id);
-    dto.put("email", this.gamePlayers);
+    dto.put("id", this.getPlayerId());
+    dto.put("userName", this.getUserName());
     return dto;
   }
 
