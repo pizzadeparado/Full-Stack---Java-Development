@@ -19,22 +19,22 @@ public class Ship {
   private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Destroyer", "Cruiser", "Submarine", "Battleship", "PatrolBoat"));
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name="gamePlayer_id")
+  @JoinColumn(name = "gamePlayer_id")
   private GamePlayer gamePlayer;
 
   @ElementCollection
-  @Column(name="location")
+  @Column(name = "location")
   private List<String> locations;
 
-  public Ship() { }
+  public Ship() {
+  }
 
   public Ship(GamePlayer gamePlayer, String shipType, List<String> locations) throws Exception {
     if (this.possibleTypes.contains(shipType)) {
       this.gamePlayer = gamePlayer;
       this.shipType = shipType;
       this.locations = locations;
-    }
-    else {
+    } else {
       throw new Exception("There are no ships by this name.");
     }
   }
@@ -51,10 +51,10 @@ public class Ship {
     return locations;
   }
 
-  public Map<String, Object> createGameDTO_Ship () {
+  public Map<String, Object> createGameDTO_Ship() {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("shipType", this.getShipType());
     dto.put("locations", this.getLocations());
+    return dto;
   }
-
 }

@@ -7,16 +7,6 @@ var app = new Vue({
   }
 });
 
-//Idealmente quiero usar fetch en vez del metodo get de jquery, lo dejo para más adelante
-
-// fetch("http://localhost:8080/api/games", { method: "get" })
-//   .then(function(games) {
-//     gamesJSON = games;
-//   })
-//   .then(function(games) {
-//     console.log(games);
-//   });
-
 $.get("/api/games")
   .done(function(games) {
     gamesJSON = games;
@@ -27,7 +17,6 @@ $.get("/api/games")
     });
 
     app.vueGames = gamesJSON;
-    //console.log(gamesJSON);
   })
   .fail(function(jqXHR, textStatus) {
     showOutput("Failed: " + textStatus);
