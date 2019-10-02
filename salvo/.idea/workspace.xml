@@ -4,25 +4,42 @@
     <list default="true" id="104a2a0f-1dd2-4530-a3e0-d9e841773b69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/game.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/games.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/manager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/scripts/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/game.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/games.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/manager.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GameRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/PlayerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Score.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/ScoreRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/ShipRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/games.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/jquery-3.3.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/manager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scripts/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/game.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/games.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/styles/manager.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +150,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.salvo [bootRun]">
+  <component name="RunManager" selected="Gradle.salvo [clean]">
     <configuration name="salvo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -210,11 +227,31 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="salvo [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="testClasses" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.salvo [testClasses]" />
+        <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [buildNeeded]" />
         <item itemvalue="Gradle.salvo [classes]" />
-        <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [bootRun]" />
       </list>
     </recent_temporary>
