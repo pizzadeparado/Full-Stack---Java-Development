@@ -50,7 +50,7 @@ public class Game {
     Map<String, Object> gameDTO = new LinkedHashMap<>();
     gameDTO.put("id", this.getGameId());
     gameDTO.put("created", this.getGameDate().getTime());
-    gameDTO.put("gamePlayers", this.getGamePlayers().stream().map(GamePlayer::createGameDTO_gamePlayers));
+    gameDTO.put("gamePlayers", this.getGamePlayers());
     return gameDTO;
   }
 }

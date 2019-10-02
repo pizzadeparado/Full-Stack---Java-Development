@@ -31,7 +31,7 @@ $(function() {
       data: JSON.stringify({ "userName": userName })
     })
     .done(function( ) {
-      showOutput( "Saved -- reloading");
+      showOutput( "Saved -- Reloading");
       loadData();
     })
     .fail(function( jqXHR, textStatus ) {

@@ -26,7 +26,7 @@ public class Ship {
   @Column(name = "location")
   private List<String> locations;
 
-  public Ship() {
+  public Ship(GamePlayer gamePlayer1, String destroyer, Set<String> shipL1) {
   }
 
   public Ship(GamePlayer gamePlayer, String shipType, List<String> locations) throws Exception {
