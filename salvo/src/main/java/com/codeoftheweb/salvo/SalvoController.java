@@ -31,7 +31,6 @@ public class SalvoController {
     List<Map<String, Object>> shipsDto = gamePlayer.getShips().stream().map(ship -> ship.createGameDTO_Ship()).collect(Collectors.toList());
     dto.put("ships", shipsDto);
     dto.put("salvoes", gamePlayer.getGame().getGamePlayers().stream().flatMap(gp -> gp.getSalvoes().stream().map(Salvo::createGameDTO_Salvo)).collect(Collectors.toList()));
-
     return dto;
   }
 }
