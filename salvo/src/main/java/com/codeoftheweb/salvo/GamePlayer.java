@@ -69,25 +69,12 @@ public class GamePlayer {
     return game;
   }
 
-  public void addShip(Ship ship) {
-    ships.add(ship);
-  }
-
-  public Map<String, Object> createGameDTO_GamePlayer() {
-    Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("gamePlayerId", this.getGamePlayerId());
-    dto.put("player", this.getPlayer().createGameDTO_Player());
-    dto.put("ships", this.getShips().stream().map(Ship::createGameDTO_Ship));
-    return dto;
-  }
-
   public Map<String, Object> dto_gameView (){
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.getGameId());
     dto.put("created", this.getGame().getGameDate());
-    dto.put("gamePlayers", this.game.getGamePlayers().stream().map(GamePlayer::createGameDTO_GamePlayer));
-    dto.put("ships", this.getShips().stream().map(Ship::createGameDTO_Ship));
-    dto.put("salvoes", this.game.getGamePlayers().stream().flatMap(gp -> gp.getSalvoes().stream().map(Salvo::createGameDTO_Salvo)).collect(Collectors.toList()));
+    dto.put("player", this.getPlayer().createGameDTO_Player());
+
     return dto;
   }
 }
