@@ -16,6 +16,9 @@ public class SalvoController {
   @Autowired
   private GamePlayerRepository gamePlayerRepository;
 
+  @Autowired
+  private PlayerRepository playerRepository;
+
   @RequestMapping("/games")
   public Map<String, Object> getAllGames() {
     Map<String, Object> dto = new HashMap<>();
@@ -31,5 +34,11 @@ public class SalvoController {
     dto.put("ships", shipsDto);
     dto.put("salvoes", gamePlayer.getGame().getGamePlayers().stream().flatMap(gp -> gp.getSalvoes().stream().map(Salvo::createGameDTO_Salvo)).collect(Collectors.toList()));
     return dto;
+
+  }
+
+  @RequestMapping("/leaderboard")
+  public Stream<Map<String, Object>> getScores() {
+    return playerRepository.findAll().stream().map(Player::createScoresDTO);
   }
 }

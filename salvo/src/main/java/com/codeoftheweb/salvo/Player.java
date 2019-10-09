@@ -57,4 +57,12 @@ public class Player {
     return dto;
   }
 
+  public Map<String, Object> createScoresDTO() {
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("userName", this.getUserName());
+    dto.put("win", this.scores.stream().filter(score -> score.getScore()==1).count());
+    dto.put("lose", this.scores.stream().filter(score -> score.getScore()==0).count());
+    dto.put("tie", this.scores.stream().filter(score -> score.getScore()==0.5).count());
+    return dto;
+  }
 }

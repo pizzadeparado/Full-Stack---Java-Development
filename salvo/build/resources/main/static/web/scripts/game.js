@@ -8,7 +8,7 @@ function getParameterByName(name) {
 };
 
 function loadData(){
-    $.get('/api/game_view/'+getParameterByName('gp'))
+    $.get('/api/game_view/' + getParameterByName('gp'))
         .done(function(data) {
             console.log(data)
             let playerInfo;
