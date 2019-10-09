@@ -26,7 +26,6 @@ public class SalvoController {
   @RequestMapping("/game_view/{gamePlayerId}")
   public Map<String,Object> getGameView(@PathVariable Long gamePlayerId) {
     GamePlayer gamePlayer = gamePlayerRepository.getOne(gamePlayerId);
-
     Map<String, Object> dto = gamePlayer.getGame().createGameDTO();
     List<Map<String, Object>> shipsDto = gamePlayer.getShips().stream().map(ship -> ship.createGameDTO_Ship()).collect(Collectors.toList());
     dto.put("ships", shipsDto);
