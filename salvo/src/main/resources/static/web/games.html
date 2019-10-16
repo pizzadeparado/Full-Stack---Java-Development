@@ -10,18 +10,61 @@
 </head>
 
 <body>
-<div class="container-fluid mb-4 text-center">
-  <h1>Salvo - Game On!</h1>
-</div>
-
-<div class="container-fluid mb-3">
-  <h2>Games List</h2>
-</div>
-
 <div id="app">
-  <ul>
-    <li v-for="game in vueGames.games">{{game.created}}</li>
-  </ul>
+
+  <div class="container-fluid mb-4 text-center">
+    <h1>Salvo - Game On!</h1>
+  </div>
+
+  <div class="container-fluid mb-5">
+    <h2>Game Score</h2>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Player</th>
+        <th>Won</th>
+        <th>Tied</th>
+        <th>Lost</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr v-for="player in vueScore">
+        <td>{{player.userName}}</td>
+        <td>{{player.won}}</td>
+        <td>{{player.lost}}</td>
+        <td>{{player.tied}}</td>
+        <td>{{player.total}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container-fluid mb-3">
+    <h2>Games List</h2>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Player 1</th>
+        <th>Player 2</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr v-for="games in vueSalvo.salvo">
+        <td>{{salvo.id}}</td>
+        <td>{{salvo.created}}</td>
+        <td>{{salvo.gamePlayers[0].Player.user}}</td>
+        <td>{{salvo.gamePlayers[1].Player.user}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!--jquery-->

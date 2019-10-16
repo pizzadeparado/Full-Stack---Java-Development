@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Entity
 
@@ -25,10 +24,10 @@ public class GamePlayer {
   private Game game;
 
   @OneToMany(mappedBy = "gamePlayer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  Set<Salvo> salvoes = new HashSet<>();
+  Set<Ship> ships = new HashSet<>();
 
   @OneToMany(mappedBy = "gamePlayer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-  Set<Ship> ships = new HashSet<>();
+  Set<Salvo> salvos = new HashSet<>();
 
   public GamePlayer() {
   }
@@ -39,8 +38,8 @@ public class GamePlayer {
     this.joinDate = joinDate;
   }
 
-  public Set<Salvo> getSalvoes() {
-    return salvoes;
+  public Set<Salvo> getSalvos() {
+    return salvos;
   }
 
   public Set<Ship> getShips() {
@@ -69,12 +68,11 @@ public class GamePlayer {
     return game;
   }
 
-  public Map<String, Object> dto_gameView (){
+  public Map<String, Object> gameViewDTO (){
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.getGameId());
     dto.put("created", this.getGame().getGameDate());
-    dto.put("player", this.getPlayer().createGameDTO_Player());
-
+    dto.put("player", this.getPlayer().createPlayerDTO());
     return dto;
   }
 }

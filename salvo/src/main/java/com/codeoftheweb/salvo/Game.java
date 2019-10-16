@@ -47,10 +47,10 @@ public class Game {
   }
 
   public Map<String, Object> createGameDTO() {
-    Map<String, Object> gameDTO = new LinkedHashMap<>();
-    gameDTO.put("id", this.getGameId());
-    gameDTO.put("created", this.getGameDate().getTime());
-    gameDTO.put("gamePlayers", this.getGamePlayers().stream().map(gp -> gp.dto_gameView()));
-    return gameDTO;
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("id", this.getGameId());
+    dto.put("created", this.getGameDate().getTime());
+    dto.put("game_players", this.getGamePlayers().stream().map(gp -> gp.gameViewDTO()));
+    return dto;
   }
 }

@@ -4,6 +4,10 @@ background-color: yellow;
 
 h1 {
 font-family: ccbiffbamboomoutline,sans-serif;
-font-weight: 400;
+font-style: normal;
+}
+
+h2 {
+font-family: ccbiffbamboom,sans-serif;
 font-style: normal;
 }

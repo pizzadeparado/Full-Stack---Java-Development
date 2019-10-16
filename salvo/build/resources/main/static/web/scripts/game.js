@@ -1,3 +1,5 @@
+
+
 $(function() {
     loadData();
 });
@@ -28,4 +30,8 @@ function loadData(){
         .fail(function( jqXHR, textStatus ) {
           alert( "Failed: " + textStatus );
         });
+
+        $.get('api/leaderboard/')
+        .done(function(data) {
+        })
 };

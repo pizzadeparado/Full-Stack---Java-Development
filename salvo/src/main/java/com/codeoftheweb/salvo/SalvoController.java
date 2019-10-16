@@ -1,6 +1,9 @@
 package com.codeoftheweb.salvo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -19,6 +22,9 @@ public class SalvoController {
   @Autowired
   private PlayerRepository playerRepository;
 
+  @Autowired
+  PasswordEncoder passwordEncoder;
+
   @RequestMapping("/games")
   public Map<String, Object> getAllGames() {
     Map<String, Object> dto = new HashMap<>();
@@ -30,15 +36,14 @@ public class SalvoController {
   public Map<String,Object> getGameView(@PathVariable Long gamePlayerId) {
     GamePlayer gamePlayer = gamePlayerRepository.getOne(gamePlayerId);
     Map<String, Object> dto = gamePlayer.getGame().createGameDTO();
-    List<Map<String, Object>> shipsDto = gamePlayer.getShips().stream().map(ship -> ship.createGameDTO_Ship()).collect(Collectors.toList());
+    List<Map<String, Object>> shipsDto = gamePlayer.getShips().stream().map(Ship::createShipDTO).collect(Collectors.toList());
     dto.put("ships", shipsDto);
-    dto.put("salvoes", gamePlayer.getGame().getGamePlayers().stream().flatMap(gp -> gp.getSalvoes().stream().map(Salvo::createGameDTO_Salvo)).collect(Collectors.toList()));
+    dto.put("salvos", gamePlayer.getGame().getGamePlayers().stream().flatMap(gp -> gp.getSalvos().stream().map(Salvo::createSalvoDTO)).collect(Collectors.toList()));
     return dto;
-
   }
 
   @RequestMapping("/leaderboard")
-  public Stream<Map<String, Object>> getScores() {
-    return playerRepository.findAll().stream().map(Player::createScoresDTO);
+  public List<Map<String, Object>> getScore() {
+    return playerRepository.findAll().stream().map(player -> player.createScoreDTO()).collect(Collectors.toList());
   }
 }

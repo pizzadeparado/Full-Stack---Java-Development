@@ -22,9 +22,9 @@ public class Score {
   @JoinColumn(name="player_id")
   private Player player;
 
-  public Score(){}
+  public Score() {}
 
-  public Score(Game game, Player player, float score, Date endGameDate){
+  public Score(Game game, Player player, float score, Date endGameDate) {
     this.score = score;
     this.game = game;
     this.player = player;
@@ -46,6 +46,5 @@ public class Score {
   public Player getPlayer() {
     return player;
   }
-
 
 }

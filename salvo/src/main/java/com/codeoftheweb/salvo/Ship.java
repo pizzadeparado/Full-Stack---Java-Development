@@ -19,7 +19,7 @@ public class Ship {
   private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Destroyer", "Cruiser", "Submarine", "Battleship", "PatrolBoat"));
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "gamePlayer_id")
+  @JoinColumn(name = "game_player_id")
   private GamePlayer gamePlayer;
 
   @ElementCollection
@@ -51,9 +51,9 @@ public class Ship {
     return locations;
   }
 
-  public Map<String, Object> createGameDTO_Ship() {
+  public Map<String, Object> createShipDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("shipType", this.getShipType());
+    dto.put("ship_type", this.getShipType());
     dto.put("locations", this.getLocations());
     return dto;
   }

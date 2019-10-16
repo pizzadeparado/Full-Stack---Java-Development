@@ -14,7 +14,8 @@ public class Player {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long id;
-  private String userName = "";
+  private String userName;
+  private String password;
 
   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
   private Set<GamePlayer> gamePlayers;
@@ -25,8 +26,17 @@ public class Player {
   public Player() {
   }
 
-  public Player(String user) {
+  public Player(String user, password) {
     this.userName = user;
+    this.password = password;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public String getUserName() {
@@ -37,6 +47,7 @@ public class Player {
     return id;
   }
 
+/*
   public String toString() {
     return userName;
   }
@@ -44,22 +55,23 @@ public class Player {
   public Set<GamePlayer> getGamePlayers() {
     return gamePlayers;
   }
+*/
 
   @JsonIgnore
   public List<Game> getGame(){
     return gamePlayers.stream().map(sub -> sub.getGame()).collect(Collectors.toList());
   }
 
-  public Map<String, Object> createGameDTO_Player() {
+  public Map<String, Object> createPlayerDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.getPlayerId());
-    dto.put("userName", this.getUserName());
+    dto.put("user", this.getUserName());
     return dto;
   }
 
-  public Map<String, Object> createScoresDTO() {
+  public Map<String, Object> createScoreDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("userName", this.getUserName());
+    dto.put("user", this.getUserName());
     dto.put("win", this.scores.stream().filter(score -> score.getScore()==1).count());
     dto.put("lose", this.scores.stream().filter(score -> score.getScore()==0).count());
     dto.put("tie", this.scores.stream().filter(score -> score.getScore()==0.5).count());
