@@ -43,7 +43,7 @@ $.get("api/leaderboard")
 
 //---------- login and logout ----------//
 function login() {
-  $.post("/api/login", {
+  $.post("/api/login") {
     username: document.getElementById("loginEmail").value,
     password: document.getElementById("loginPassword").value
   })
@@ -63,4 +63,5 @@ function logout() {
 }
 
 function signup() {
+$.post("/api/signup").done(function())
 }

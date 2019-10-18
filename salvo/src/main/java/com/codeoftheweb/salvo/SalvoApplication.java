@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class SalvoApplication {
@@ -77,11 +76,11 @@ public class SalvoApplication {
 
 			gamePlayerRepository.saveAll(Arrays.asList(gamePlayer1,gamePlayer2,gamePlayer3,gamePlayer4,gamePlayer5,gamePlayer6,gamePlayer7,gamePlayer8,gamePlayer9,gamePlayer10,gamePlayer11,gamePlayer12,gamePlayer13,gamePlayer14,gamePlayer15,gamePlayer16,gamePlayer17,gamePlayer18,gamePlayer19,gamePlayer20));
 
-			List<String> shipL1 = new HashSet<>(Arrays.asList("H2","H3","H4")).stream().collect(Collectors.toList());
-			List<String> shipL2 = new HashSet<>(Arrays.asList("E1","F1","G1")).stream().collect(Collectors.toList());
-			List<String> shipL3 = new HashSet<>(Arrays.asList("B4","B5")).stream().collect(Collectors.toList());
-			List<String> shipL4 = new HashSet<>(Arrays.asList("B5","C5","D5")).stream().collect(Collectors.toList());
-			List<String> shipL5 = new HashSet<>(Arrays.asList("B5","C5","D5")).stream().collect(Collectors.toList());
+			List<String> shipL1 = new ArrayList<>(new HashSet<>(Arrays.asList("H2", "H3", "H4")));
+			List<String> shipL2 = new ArrayList<>(new HashSet<>(Arrays.asList("E1", "F1", "G1")));
+			List<String> shipL3 = new ArrayList<>(new HashSet<>(Arrays.asList("B4", "B5")));
+			List<String> shipL4 = new ArrayList<>(new HashSet<>(Arrays.asList("B5", "C5", "D5")));
+			List<String> shipL5 = new ArrayList<>(new HashSet<>(Arrays.asList("B5", "C5", "D5")));
 
 			Ship ship1 = new Ship(gamePlayer1,"Destroyer",shipL1);
 			Ship ship2 = new Ship(gamePlayer2,"Cruiser",shipL2);

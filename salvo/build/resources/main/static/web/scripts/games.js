@@ -9,8 +9,6 @@ var app = new Vue({
 	}
 });
 
-Vue.config.devtools = true;
-
 
 //---------- games list ----------//
 $.get("/api/games")
@@ -41,3 +39,29 @@ $.get("api/leaderboard")
 .fail(function(jqXHR, textStatus) {
 	showOutput("Failed: " + textStatus);
 });
+
+
+//---------- login and logout ----------//
+function login() {
+  $.post("/api/login") {
+    username: document.getElementById("loginEmail").value,
+    password: document.getElementById("loginPassword").value
+  })
+    .done(function() {
+      alert("Logged in.");
+      window.location.reload();
+    })
+    .fail(function() {
+      alert("Username or password is wrong. Try again.");
+    });
+}
+
+function logout() {
+  $.post("/api/logout").done(function() {
+    console.log("logged out");
+  });
+}
+
+function signup() {
+$.post("/api/signup").done(function())
+}
