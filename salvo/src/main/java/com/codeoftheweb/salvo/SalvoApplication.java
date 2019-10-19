@@ -1,9 +1,27 @@
 package com.codeoftheweb.salvo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.WebAttributes;
+import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @SpringBootApplication
@@ -14,18 +32,24 @@ public class SalvoApplication {
 	}
 
 	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+	}
+
+	@Bean
 	public CommandLineRunner initData(PlayerRepository playerRepository,
 																		GameRepository gameRepository,
 																		GamePlayerRepository gamePlayerRepository,
 																		ShipRepository shipRepository,
-																		SalvoRepository salvoRepository) {
+																		SalvoRepository salvoRepository,
+																		ScoreRepository scoreRepository) {
 		return (args) -> {
 
-			Player player1 = new Player("j.bauer@ctu.gov");
-			Player player2 = new Player("c.obrian@ctu.gov");
-			Player player3 = new Player("t.almeida@ctu.gov");
-			Player player4 = new Player("d.palmer@whitehouse.gov");
-			Player player5 = new Player("laura.palmer@twinpeaks.com");
+			Player player1 = new Player("j.bauer@ctu.gov", passwordEncoder().encode("24"));
+			Player player2 = new Player("c.obrian@ctu.gov", passwordEncoder().encode("42"));
+			Player player3 = new Player("kim_bauer@gmail.com", passwordEncoder().encode("kb"));
+			Player player4 = new Player("t.almeida@ctu.gov", passwordEncoder().encode("mole"));
+			Player player5 = new Player("laura.palmer@twinpeaks.com", passwordEncoder().encode("redroom"));
 
 			playerRepository.saveAll(Arrays.asList(player1,player2,player3,player4,player5));
 
@@ -76,17 +100,17 @@ public class SalvoApplication {
 
 			gamePlayerRepository.saveAll(Arrays.asList(gamePlayer1,gamePlayer2,gamePlayer3,gamePlayer4,gamePlayer5,gamePlayer6,gamePlayer7,gamePlayer8,gamePlayer9,gamePlayer10,gamePlayer11,gamePlayer12,gamePlayer13,gamePlayer14,gamePlayer15,gamePlayer16,gamePlayer17,gamePlayer18,gamePlayer19,gamePlayer20));
 
-			List<String> shipL1 = new ArrayList<>(new HashSet<>(Arrays.asList("H2", "H3", "H4")));
-			List<String> shipL2 = new ArrayList<>(new HashSet<>(Arrays.asList("E1", "F1", "G1")));
-			List<String> shipL3 = new ArrayList<>(new HashSet<>(Arrays.asList("B4", "B5")));
-			List<String> shipL4 = new ArrayList<>(new HashSet<>(Arrays.asList("B5", "C5", "D5")));
-			List<String> shipL5 = new ArrayList<>(new HashSet<>(Arrays.asList("B5", "C5", "D5")));
+			List<String> shipL1 = new ArrayList<>(new HashSet<>(Arrays.asList("A1", "A2", "A3", "A4", "A5")));
+			List<String> shipL2 = new ArrayList<>(new HashSet<>(Arrays.asList("B1", "B2", "B3", "B4")));
+			List<String> shipL3 = new ArrayList<>(new HashSet<>(Arrays.asList("C1", "C2", "C3")));
+			List<String> shipL4 = new ArrayList<>(new HashSet<>(Arrays.asList("D1", "D2", "D3")));
+			List<String> shipL5 = new ArrayList<>(new HashSet<>(Arrays.asList("E1", "E2")));
 
-			Ship ship1 = new Ship(gamePlayer1,"Destroyer",shipL1);
-			Ship ship2 = new Ship(gamePlayer2,"Cruiser",shipL2);
+			Ship ship1 = new Ship(gamePlayer1,"Carrier",shipL1);
+			Ship ship2 = new Ship(gamePlayer2,"Battleship",shipL2);
 			Ship ship3 = new Ship(gamePlayer3,"Submarine",shipL3);
-			Ship ship4 = new Ship(gamePlayer4,"Battleship",shipL4);
-			Ship ship5 = new Ship(gamePlayer5,"PatrolBoat",shipL5);
+			Ship ship4 = new Ship(gamePlayer4,"Destroyer",shipL4);
+			Ship ship5 = new Ship(gamePlayer5,"Patrol Boat",shipL5);
 
 			shipRepository.saveAll(Arrays.asList(ship1,ship2,ship3,ship4,ship5));
 
@@ -97,7 +121,76 @@ public class SalvoApplication {
 			Salvo salvo5 = new Salvo(1, Arrays.asList("D4", "D5", "D6"), gamePlayer5);
 
 			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5));
-
 		};
+	}
+}
+
+//-------------------- web security authentication --------------------//
+
+@Configuration
+class WebSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
+
+	@Autowired
+	PlayerRepository playerRepository;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
+	@Override
+	public void init(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(inputName-> {
+			Player player = playerRepository.findByUserName(inputName);
+			if (player != null) {
+				return new User(player.getUserName(), player.getPassword(),
+						AuthorityUtils.createAuthorityList("USER"));
+			} else {
+				throw new UsernameNotFoundException("User" + inputName + "unknown.");
+			}
+		});
+	}
+}
+
+//-------------------- web security authorization --------------------//
+
+@EnableWebSecurity
+@Configuration
+class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.antMatchers("/web/*",
+																			"/web/**",
+																			"/api/games",
+																			"/api/players",
+																			"/api/leaderboard",
+																			"/api/login",
+																			"/api/logout").permitAll()
+				.antMatchers("/rest/**").hasAuthority("ADMIN")
+				.antMatchers("/api/**",
+																			"/web/game.html**").hasAuthority("USER")
+				.anyRequest().denyAll();
+
+		http.formLogin()
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.loginPage("/api/login");
+
+		http.logout().logoutUrl("/api/logout");
+
+		http.csrf().disable();
+
+		http.exceptionHandling().authenticationEntryPoint((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
+
+		http.formLogin().successHandler((req, res, auth) -> clearAuthenticationAttributes(req));
+
+		http.formLogin().failureHandler((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
+
+		http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
+	}
+
+	private void clearAuthenticationAttributes(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+		}
 	}
 }

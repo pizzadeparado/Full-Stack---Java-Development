@@ -1,42 +1,41 @@
 package com.codeoftheweb.salvo;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
-
 public class Ship {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long id;
-  private String shipType;
-
-  @Transient
-  private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Destroyer", "Cruiser", "Submarine", "Battleship", "PatrolBoat"));
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "game_player_id")
-  private GamePlayer gamePlayer;
 
   @ElementCollection
-  @Column(name = "location")
-  private List<String> locations;
+  @Column(name = "shipLocation")
+  private String shipType;
+  private Set<String> shipLocation;
+
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "gamePlayer_id")
+  private GamePlayer gamePlayer;
+
+  // @Transient
+  // private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Carrier",
+  // "Battleship", "Submarine", "Destroyer", "Patrol Boat"));
 
   public Ship() {
   }
 
-  public Ship(GamePlayer gamePlayer, String shipType, List<String> locations) throws Exception {
-    if (this.possibleTypes.contains(shipType)) {
-      this.gamePlayer = gamePlayer;
-      this.shipType = shipType;
-      this.locations = locations;
-    } else {
-      throw new Exception("There are no ships by this name.");
-    }
+  public Ship(GamePlayer gamePlayer, String shipType, Set<String> shipLocation) {
+    this.gamePlayer = gamePlayer;
+    this.shipType = shipType;
+    this.shipLocation = shipLocation;
+  }
+
+  private long getId() {
+    return id;
   }
 
   public GamePlayer getGamePlayer() {
@@ -47,14 +46,14 @@ public class Ship {
     return shipType;
   }
 
-  public List<String> getLocations() {
-    return locations;
+  public Set<String> getShipLocation() {
+    return shipLocation;
   }
 
   public Map<String, Object> createShipDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("ship_type", this.getShipType());
-    dto.put("locations", this.getLocations());
+    dto.put("shipType", this.getShipType());
+    dto.put("shipLocation", this.getShipLocation());
     return dto;
   }
 }

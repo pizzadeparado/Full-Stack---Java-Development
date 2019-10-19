@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 
@@ -68,11 +69,21 @@ public class GamePlayer {
     return game;
   }
 
+  public Map<String, Object> createGamePlayerDTO() {
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("gamePlayerId", this.getGamePlayerId());
+    dto.put("id", this.getPlayer().getPlayerId());
+    dto.put("user", this.getPlayer().getUserName());
+    return dto;
+  }
+
   public Map<String, Object> gameViewDTO (){
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.getGameId());
     dto.put("created", this.getGame().getGameDate());
-    dto.put("player", this.getPlayer().createPlayerDTO());
+    dto.put("player", this.game.getGamePlayers());
+    dto.put("ships", this.getShips().stream().map(ship -> ship.createShipDTO()));
+    dto.put("salvos", this.game.getGamePlayers().stream().flatMap(gamePlayer -> gamePlayer.getSalvos().stream().map(salvo -> salvo.createSalvoDTO())));
     return dto;
   }
 }

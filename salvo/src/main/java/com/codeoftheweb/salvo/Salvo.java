@@ -1,7 +1,6 @@
 package com.codeoftheweb.salvo;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -12,43 +11,46 @@ public class Salvo {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long id;
-  private long turn;
-
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "game_player_id")
-  private GamePlayer gamePlayer;
 
   @ElementCollection
-  @Column(name = "salvo_location")
-  private List<String> salvoLocations = new ArrayList<>();
+  @Column(name = "salvoLocation")
+  private int turn;
+  private Set<String> salvoLocation;
+
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "gamePlayer_id")
+  private GamePlayer gamePlayer;
 
   public Salvo() {
   }
 
-  public Salvo(long turn, List<String> salvoLocations, GamePlayer gamePlayer) {
-    this.salvoLocations = salvoLocations;
-    this.turn = turn;
+  public Salvo(GamePlayer gamePlayer, int turn, Set<String> salvoLocation) {
     this.gamePlayer = gamePlayer;
+    this.turn = turn;
+    this.salvoLocation = salvoLocation;
   }
 
-  public long getTurn() {
-    return turn;
+  public long getId() {
+    return id;
   }
 
   public GamePlayer getGamePlayer() {
     return gamePlayer;
   }
 
-  public List<String> getSalvoLocations() {
-    return salvoLocations;
+  public int getTurn() {
+    return turn;
+  }
+
+  public Set<String> getSalvoLocation() {
+    return salvoLocation;
   }
 
   public Map<String, Object> createSalvoDTO (){
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("turn", this.getTurn());
-    dto.put("player", this.getGamePlayer().getPlayer().getUserName());
-    dto.put("game_player_id", this.getGamePlayer().getGamePlayerId());
-    dto.put("locations", this.getSalvoLocations());
+    dto.put("player", this.getGamePlayer().getPlayer().getPlayerId());
+    dto.put("salvoLocation", this.getSalvoLocation());
     return dto;
   }
 }

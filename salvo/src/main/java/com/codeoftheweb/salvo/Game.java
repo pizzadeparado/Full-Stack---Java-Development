@@ -7,7 +7,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
-
 public class Game {
 
   @Id
@@ -50,7 +49,7 @@ public class Game {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.getGameId());
     dto.put("created", this.getGameDate().getTime());
-    dto.put("game_players", this.getGamePlayers().stream().map(gp -> gp.gameViewDTO()));
+    dto.put("players", this.getGamePlayers().stream().map(gamePlayer -> gamePlayer.gameViewDTO()));
     return dto;
   }
 }
