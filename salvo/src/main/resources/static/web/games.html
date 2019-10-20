@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8" />
   <title>Game List</title>
-  <link rel="stylesheet" href="styles/games.css">
+  <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
 </head>
 
 <body>
-<div id="app">
+<div class="container-fluid" id="app">
 
-  <div class="container-fluid mb-4 text-center">
+  <div class="container mb-5 text-center" id="title">
     <h1>Salvo - Game On!</h1>
   </div>
 
-  <div class="container-fluid mb-4">
+  <div class="container mb-5" id="login">
     <h2>Login In</h2>
     <form class="col-6">
       <div class="form-group mb-4">
@@ -29,7 +29,7 @@
     </form>
   </div>
 
-  <div class="container-fluid mb-4">
+  <div class="container mb-5" id="leaderboard">
     <h2>Game Score</h2>
 
     <table class="table table-bordered">
@@ -55,7 +55,7 @@
     </table>
   </div>
 
-  <div class="container-fluid mb-4">
+  <div class="container mb-5" id="games">
     <h2>Games List</h2>
 
     <table class="table table-bordered">
@@ -78,6 +78,7 @@
       </tbody>
     </table>
   </div>
+
 </div>
 
 <!--jquery-->
@@ -89,7 +90,7 @@
 <!--vue js-->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <!--content scripts-->
-<script src="scripts/games.js"></script>
+<script src="js/games.js"></script>
 
 </body>
 </html>

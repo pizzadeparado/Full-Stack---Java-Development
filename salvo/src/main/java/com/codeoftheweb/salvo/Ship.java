@@ -10,15 +10,15 @@ public class Ship {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
-  private long id;
+  private long ID;
+  private String shipType;
 
   @ElementCollection
   @Column(name = "shipLocation")
-  private String shipType;
   private Set<String> shipLocation;
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "gamePlayer_id")
+  @JoinColumn(name = "gamePlayerID")
   private GamePlayer gamePlayer;
 
   // @Transient
@@ -34,8 +34,8 @@ public class Ship {
     this.shipLocation = shipLocation;
   }
 
-  private long getId() {
-    return id;
+  private long getID() {
+    return ID;
   }
 
   public GamePlayer getGamePlayer() {

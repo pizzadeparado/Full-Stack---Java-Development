@@ -7,13 +7,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
-
 public class Player {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
-  private long id;
+  private long ID;
   private String userName;
   private String password;
 
@@ -42,8 +41,8 @@ public class Player {
     return userName;
   }
 
-  public long getPlayerId() {
-    return id;
+  public long getPlayerID() {
+    return ID;
   }
 
   public String toString() {
@@ -56,12 +55,12 @@ public class Player {
 
   @JsonIgnore
   public List<Game> getGame(){
-    return gamePlayers.stream().map(sub -> sub.getGame()).collect(Collectors.toList());
+    return gamePlayers.stream().map(GamePlayer::getGame).collect(Collectors.toList());
   }
 
   public Map<String, Object> createPlayerDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("id", this.getPlayerId());
+    dto.put("ID", this.getPlayerID());
     dto.put("user", this.getUserName());
     return dto;
   }
