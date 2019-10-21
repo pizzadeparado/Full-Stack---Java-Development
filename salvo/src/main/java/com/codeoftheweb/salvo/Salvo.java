@@ -22,6 +22,7 @@ public class Salvo {
   private GamePlayer gamePlayer;
 
   public Salvo() {
+
   }
 
   public Salvo(GamePlayer gamePlayer, int turn, Set<String> salvoLocation) {

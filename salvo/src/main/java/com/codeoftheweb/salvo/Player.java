@@ -22,7 +22,9 @@ public class Player {
   @OneToMany(mappedBy="player", fetch= FetchType.EAGER)
   Set<Score> scores = new HashSet();
 
-  public Player(String s) {}
+  public Player () {
+
+  }
 
   public Player(String user, String password) {
     this.userName = user;
@@ -68,9 +70,9 @@ public class Player {
   public Map<String, Object> createScoreDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("user", this.getUserName());
-    dto.put("win", this.scores.stream().filter(score -> score.getScore()==1).count());
-    dto.put("lose", this.scores.stream().filter(score -> score.getScore()==0).count());
-    dto.put("tie", this.scores.stream().filter(score -> score.getScore()==0.5).count());
+    dto.put("won", this.scores.stream().filter(score -> score.getScore()==1).count());
+    dto.put("lost", this.scores.stream().filter(score -> score.getScore()==0).count());
+    dto.put("tied", this.scores.stream().filter(score -> score.getScore()==0.5).count());
     return dto;
   }
 }

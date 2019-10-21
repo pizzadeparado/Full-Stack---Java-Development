@@ -17,16 +17,27 @@
   </div>
 
   <div class="container mb-5" id="login">
-    <h2>Login In</h2>
-    <form class="col-6">
-      <div class="form-group mb-4">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+    <div class="row">
+      <div class="col text-center">
+        <h2>Login In</h2>
+        <form>
+          <div class="form-group mb-4">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="button" class="btn btn-success mr-4">Log In</button>
+          <button type="button" class="btn btn-danger mr-4">Log Out</button>
+        </form>
       </div>
-      <div class="form-group mb-4">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <div class="col text-center">
+        <h2>Start Game</h2>
+        <button type="button" class="btn btn-info m-4">Start Game</button>
       </div>
-      <button type="button" class="btn btn-primary">Log In</button>
-    </form>
+
+    </div>
+
   </div>
 
   <div class="container mb-5" id="leaderboard">
@@ -44,7 +55,7 @@
       </thead>
 
       <tbody>
-      <tr v-for="player in vueScore">
+      <tr v-if="player in vueScore">
         <td>{{player.userName}}</td>
         <td>{{player.won}}</td>
         <td>{{player.lost}}</td>
@@ -81,16 +92,102 @@
 
 </div>
 
+<!-----------------------------------------------------------------------------------------------------
+
+<div class="container" id="app">
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th>Top</th>
+            <th>Email</th>
+            <th>Games</th>
+            <th>Won</th>
+            <th>Losses</th>
+            <th>Ties</th>
+            <th>Total(Pts)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(player, index) in players">
+            <th scope="row"> {{ index + 1 }} </th>
+            <td>{{player.email}}</td>
+            <td>{{player.games}}</td>
+            <td>{{player.won}}</td>
+            <td>{{player.lost}}</td>
+            <td>{{player.ties}}</td>
+            <td>{{player.total}}</td>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div>
+            <button onclick="createGame()">Create game</button>
+        </div>
+
+        <table class="table">
+            <h3>Games completed</h3>
+            <thead class="thead-dark">
+                <tr>
+                    <th>N°</th>
+                    <th>Player one</th>
+                    <th>Player two</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr v-for="game in games">
+                <th scope="row"> {{game.id}}</th>
+                <td>{{game.players[0].name}}</td>
+                <td>{{game.players[1].name}}</td>
+                <td v-show="currentUser != 'Guest' && currentUser != game.players[0].name">
+
+                </td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div v-if="currentUser == 'Guest'">
+        <form id="login-form" onsubmit="return false" >
+            <label>Username: <input type="text" name="username"></label>
+            <label>Password: <input type="password" name="password"></label>
+            <button onclick="login()">LOGIN</button>
+        </form>
+        <form id="register-form" onsubmit="return false" class="d-flex flex-column w-25">
+            <label>Username: <input type="email" name="username" required></label>
+            <label>Password: <input type="password" name="password" required></label>
+            <label>password2: <input type="password" name="password2" required></label>
+            <button onclick="register()">Register</button>
+        </form>
+        </div>
+        <form id="logout-form" onsubmit="return false" v-else>
+            <button onclick="logout()">Log out</button>
+        </form>
+      </div>
+
+-------------------------------------------------------------------------------------------------->
+
 <!--jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <!--popper-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <!--bootstrap-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- react js -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!-- react component -->
+<script src=""></script>
 <!--vue js-->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <!--content scripts-->
 <script src="js/games.js"></script>
+
+
+
+
+</body>
 
 </body>
 </html>

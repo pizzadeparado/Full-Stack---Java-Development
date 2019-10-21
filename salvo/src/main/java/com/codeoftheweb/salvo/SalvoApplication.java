@@ -30,6 +30,9 @@ public class SalvoApplication {
 		SpringApplication.run(SalvoApplication.class);
 	}
 
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -166,8 +169,7 @@ public class SalvoApplication {
 			Salvo salvo9 = new Salvo(gamePlayer5, 4, salvoLocation9);
 			Salvo salvo10 = new Salvo(gamePlayer5, 4, salvoLocation10);
 
-			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5,salvo6,salvo7,
-					salvo8,salvo9,salvo10));
+			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5,salvo6,salvo7,salvo8,salvo9,salvo10));
 
 			Score score1 = new Score(game1, player1, 1);
 			Score score2 = new Score(game2, player1, 0.5);
@@ -183,14 +185,12 @@ public class SalvoApplication {
 
 //-------------------- web security authentication --------------------//
 
+@EnableWebSecurity
 @Configuration
 class WebSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
 	@Autowired
 	PlayerRepository playerRepository;
-
-	@Autowired
-	PasswordEncoder passwordEncoder;
 
 	@Override
 	public void init(AuthenticationManagerBuilder auth) throws Exception {
@@ -208,9 +208,10 @@ class WebSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
 //-------------------- web security authorization --------------------//
 
-@EnableWebSecurity
 @Configuration
 class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
+
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/web/*",
@@ -218,11 +219,12 @@ class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
 																			"/api/games",
 																			"/api/players",
 																			"/api/leaderboard",
-																			"/api/login",
-																			"/api/logout").permitAll()
+																			"/api/game_view/**").permitAll()
+
+				.antMatchers("/web/game.html**").hasAuthority("USER")
+
 				.antMatchers("/rest/**").hasAuthority("ADMIN")
-				.antMatchers("/api/**",
-																			"/web/game.html**").hasAuthority("USER")
+
 				.anyRequest().denyAll();
 
 		http.formLogin()
