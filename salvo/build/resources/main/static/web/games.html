@@ -16,38 +16,54 @@
     <h1>Salvo - Game On!</h1>
   </div>
 
-  <div class="container mb-5" id="login">
+  <div class="container mb-5" id="playerAccess">
     <div class="row">
 
-      <div class="col-sm-4 text-center">
+      <div class="col-sm-4 mb-5 text-center" id="signUp">
         <div class="card shadow-lg rounded p-5">
           <h3>Sign Up</h3>
-        </div>
-      </div>
-
-      <div class="col-sm-4 text-center">
-        <div class="card shadow-lg rounded p-5">
-          <h3>Log In</h3>
-          <form id="login-form">
-            <div class="form-group mb-4">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-            </div>
-            <div class="form-group mb-4">
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-          </form>
-          <div>
-            <button type="button" class="btn btn-success mr-3" onclick="login()">Log In</button>
-            <button type="button" class="btn btn-danger ml-3" onclick="logout()">Log Out</button>
+          <button class="btn btn-info m-3" type="button" data-toggle="collapse"
+                  data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+          <div class="collapse" id="registrationCollapse">
+            <form id="registration">
+              <div class="form-group mb-4">
+                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
+              </div>
+              <button class="btn btn-outline-info" type="button" onclick="register()">Continue
+              </button>
+            </form>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-4 text-center">
+      <div class="col-sm-4 mb-5 text-center" id="logIn">
+        <div class="card shadow-lg rounded p-5">
+          <h3>Log In</h3>
+          <button class="btn btn-success m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+          <div class="collapse" id="loginCollapse">
+            <form id="login-form">
+              <div class="form-group mb-4">
+                <input type="email" class="form-control" id="loginEmail"
+                       aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" class="form-control" id="loginPassword"
+                       placeholder="Password">
+              </div>
+              <button class="btn btn-success mr-3" type="button" onclick="login()">Log In</button>
+              <button class="btn btn-danger ml-3" type="button" onclick="logout()">Log Out</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 mb-5 text-center" id="startGame">
         <div class="card shadow-lg rounded p-5">
           <h3>Start Game</h3>
-          <button type="button" class="btn btn-info m-4" onclick="register()">Start Game</button>
-          <div id="like_button_container"></div>
+          <button class="btn btn-warning m-3" type="button" onclick="">Ready, set, go!</button>
         </div>
       </div>
     </div>
@@ -58,8 +74,8 @@
     <div class="row">
       <div class="col" id="games">
         <h3>Game List</h3>
-        <table class="table table-bordered table-hover">
-          <thead>
+        <table class="table table-hover shadow">
+          <thead class="bg-info">
           <tr>
             <th>ID</th>
             <th>Date</th>
@@ -68,20 +84,20 @@
           </tr>
           </thead>
 
-          <tbody>
-          <tr v-for="game in games">
-            <td>{{games.id}}</td>
-            <td>{{games.created}}</td>
-            <td>{{games.player.user}}</td>
-            <td>{{games.player.user}}</td>
+          <tbody class="bg-white">
+          <tr v-for="(game, index) in games">
+            <td>{{game.gameID}}</td>
+            <td>{{game.created}}</td>
+            <td v-for="value in game[index].player">{{value.user}}</td>
+            <td v-for="value in game[index].player">{{value.user}}</td>
           </tr>
           </tbody>
         </table>
       </div>
       <div class="col" id="leaderboard">
         <h3>Leaderboard</h3>
-        <table class="table table-bordered table-hover">
-          <thead>
+        <table class="table table-hover shadow">
+          <thead class="bg-danger">
           <tr>
             <th>Player</th>
             <th>Won</th>
@@ -91,7 +107,7 @@
           </tr>
           </thead>
 
-          <tbody>
+          <tbody class="bg-white">
           <tr v-for="player in players">
             <td>{{player.user}}</td>
             <td>{{player.won}}</td>
@@ -114,14 +130,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <!--bootstrap-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--vue js-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <!-- react js -->
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 <!-- react component -->
-<script src="like_button.js"></script>
-<!--vue js-->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src=""></script>
 <!--content scripts-->
 <script src="js/games.js"></script>
 

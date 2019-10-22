@@ -47,10 +47,10 @@ public class Salvo {
     return salvoLocation;
   }
 
-  public Map<String, Object> createSalvoDTO (){
+  public Map<String, Object> createSalvoDTO () {
     Map<String, Object> dto = new LinkedHashMap<>();
+    //dto.put("playerID", this.getGamePlayer().getPlayer().getPlayerID());
     dto.put("turn", this.getTurn());
-    dto.put("playerID", this.getGamePlayer().getPlayer().getPlayerID());
     dto.put("location", this.getSalvoLocation());
     return dto;
   }

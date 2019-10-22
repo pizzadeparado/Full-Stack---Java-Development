@@ -69,11 +69,11 @@ public class Player {
 
   public Map<String, Object> createScoreDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("ID", this.getPlayerID());
+    dto.put("playerID", this.getPlayerID());
     dto.put("user", this.getUserName());
     dto.put("won", this.scores.stream().filter(score -> score.getScore()==1).count());
-    dto.put("lost", this.scores.stream().filter(score -> score.getScore()==0).count());
     dto.put("tied", this.scores.stream().filter(score -> score.getScore()==0.5).count());
+    dto.put("lost", this.scores.stream().filter(score -> score.getScore()==0).count());
     return dto;
   }
 }

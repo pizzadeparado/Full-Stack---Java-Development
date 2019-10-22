@@ -1,3 +1,11 @@
+body {
+  height: 100%;
+  background-image: url(fire.png);
+  background-repeat: repeat-x;
+  background-size: 50%;
+  background-position: center 40%;
+}
+
 h1 {
 font-family: ccbiffbamboomoutline,sans-serif;
 font-style: normal;

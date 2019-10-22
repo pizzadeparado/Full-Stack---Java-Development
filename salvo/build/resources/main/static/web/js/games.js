@@ -24,6 +24,7 @@ function loadGames() {
   $.get("/api/games")
     .done(function (data) {
       app.games = data;
+      app.player = data;
     })
     .fail(function (jqXHR, textStatus) {
       alert('Failed to load: ' + textStatus);
@@ -60,7 +61,7 @@ function joinGame(gamePlayerID){
 /********** sign up **********/
 
 function signUp() {
-	var form = document.getElementById("register-form");
+	var form = document.getElementById("registration");
 
 		$.post("/api/players", {
       email: form["username"].value,
@@ -107,27 +108,4 @@ function logout() {
     .fail(function (jqXHR, textStatus) {
       alert('Failed: ' + textStatus);
     });
-}
-
-'use strict';
-
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-
-    return e(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
-  }
 }

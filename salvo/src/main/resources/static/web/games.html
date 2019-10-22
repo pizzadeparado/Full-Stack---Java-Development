@@ -85,11 +85,11 @@
           </thead>
 
           <tbody class="bg-white">
-          <tr v-for="game in games">
-            <td>{{games.id}}</td>
-            <td>{{games.created}}</td>
-            <td>{{games.player.user}}</td>
-            <td>{{games.player.user}}</td>
+          <tr v-for="(game, index) in games">
+            <td>{{game.gameID}}</td>
+            <td>{{game.created}}</td>
+            <td v-for="value in game[index].player">{{value.user}}</td>
+            <td v-for="value in game[index].player">{{value.user}}</td>
           </tr>
           </tbody>
         </table>
