@@ -120,10 +120,10 @@ public class SalvoApplication {
 			Ship ship3 = new Ship(gamePlayer3,"Patrol Boat",shipLocation3);
 			Ship ship4 = new Ship(gamePlayer4,"Destroyer",shipLocation4);
 			Ship ship5 = new Ship(gamePlayer5,"Patrol Boat",shipLocation5);
-			Ship ship6 = new Ship(gamePlayer5,"Destroyer",shipLocation6);
-			Ship ship7 = new Ship(gamePlayer5,"Patrol Boat",shipLocation7);
-			Ship ship8 = new Ship(gamePlayer5,"Submarine",shipLocation8);
-			Ship ship9 = new Ship(gamePlayer5,"Patrol Boat",shipLocation9);
+			Ship ship6 = new Ship(gamePlayer6,"Destroyer",shipLocation6);
+			Ship ship7 = new Ship(gamePlayer7,"Patrol Boat",shipLocation7);
+			Ship ship8 = new Ship(gamePlayer8,"Submarine",shipLocation8);
+			Ship ship9 = new Ship(gamePlayer9,"Patrol Boat",shipLocation9);
 			/*
 			Ship ship10 = new Ship(gamePlayer5,"Destroyer",shipLocation10);
 			Ship ship11 = new Ship(gamePlayer5,"Patrol Boat",shipLocation11);
@@ -162,12 +162,12 @@ public class SalvoApplication {
 			Salvo salvo2 = new Salvo(gamePlayer1, 2, salvoLocation2);
 			Salvo salvo3 = new Salvo(gamePlayer2, 3, salvoLocation3);
 			Salvo salvo4 = new Salvo(gamePlayer2, 4, salvoLocation4);
-			Salvo salvo5 = new Salvo(gamePlayer3, 4, salvoLocation5);
-			Salvo salvo6 = new Salvo(gamePlayer3, 4, salvoLocation6);
-			Salvo salvo7 = new Salvo(gamePlayer4, 4, salvoLocation7);
-			Salvo salvo8 = new Salvo(gamePlayer4, 4, salvoLocation8);
-			Salvo salvo9 = new Salvo(gamePlayer5, 4, salvoLocation9);
-			Salvo salvo10 = new Salvo(gamePlayer5, 4, salvoLocation10);
+			Salvo salvo5 = new Salvo(gamePlayer3, 5, salvoLocation5);
+			Salvo salvo6 = new Salvo(gamePlayer3, 6, salvoLocation6);
+			Salvo salvo7 = new Salvo(gamePlayer4, 7, salvoLocation7);
+			Salvo salvo8 = new Salvo(gamePlayer4, 8, salvoLocation8);
+			Salvo salvo9 = new Salvo(gamePlayer5, 9, salvoLocation9);
+			Salvo salvo10 = new Salvo(gamePlayer5, 10, salvoLocation10);
 
 			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5,salvo6,salvo7,salvo8,salvo9,salvo10));
 

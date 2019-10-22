@@ -1,13 +1,17 @@
-body {
-background-color: ;
-}
-
 h1 {
 font-family: ccbiffbamboomoutline,sans-serif;
 font-style: normal;
 }
 
-h2 {
+h3 {
 font-family: ccbiffbamboom,sans-serif;
 font-style: normal;
+}
+
+.ship-piece {
+background-color: darkmagenta;
+}
+
+.salvo {
+background-color: crimson
 }

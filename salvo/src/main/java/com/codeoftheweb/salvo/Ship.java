@@ -21,10 +21,6 @@ public class Ship {
   @JoinColumn(name = "gamePlayerID")
   private GamePlayer gamePlayer;
 
-  // @Transient
-  // private List<String> possibleTypes = new LinkedList<String>(Arrays.asList("Carrier",
-  // "Battleship", "Submarine", "Destroyer", "Patrol Boat"));
-
   public Ship() {
   }
 
@@ -52,8 +48,8 @@ public class Ship {
 
   public Map<String, Object> createShipDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("shipType", this.getShipType());
-    dto.put("shipLocation", this.getShipLocation());
+    dto.put("type", this.getShipType());
+    dto.put("location", this.getShipLocation());
     return dto;
   }
 }

@@ -50,8 +50,8 @@ public class Salvo {
   public Map<String, Object> createSalvoDTO (){
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("turn", this.getTurn());
-    dto.put("player", this.getGamePlayer().getPlayer().getPlayerID());
-    dto.put("salvoLocation", this.getSalvoLocation());
+    dto.put("playerID", this.getGamePlayer().getPlayer().getPlayerID());
+    dto.put("location", this.getSalvoLocation());
     return dto;
   }
 }

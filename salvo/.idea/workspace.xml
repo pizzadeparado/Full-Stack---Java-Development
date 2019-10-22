@@ -11,22 +11,29 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/GamePlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Salvo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityAuthentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityAuthorization.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/WebSecurityAuthorization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/Ship.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/css/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/css/games.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/js/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/web/js/games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/GamePlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Salvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Salvo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" afterDir="false" />
@@ -114,7 +121,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -158,7 +165,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="salvo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="salvo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -262,7 +269,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [testClasses]" />
         <item itemvalue="Gradle.salvo [buildNeeded]" />

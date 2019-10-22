@@ -8,8 +8,8 @@ var app = new Vue({
 })
 
 $(function () {
-  loadData();
-  loadUser();
+  loadGames();
+  loadScore();
 });
 
 function getParameterByName(name) {
@@ -17,70 +17,85 @@ function getParameterByName(name) {
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
+
+/********** games list **********/
+
+function loadGames() {
+  $.get("/api/games")
+    .done(function (data) {
+      app.games = data;
+    })
+    .fail(function (jqXHR, textStatus) {
+      alert('Failed to load: ' + textStatus);
+    })
+}
+
+
+/********** score list **********/
+
 function loadScore() {
-  $.get('/api/leaderboard')
+  $.get("/api/leaderboard")
     .done(function (data) {
       app.players = data;
     })
     .fail(function (jqXHR, textStatus) {
-      alert('Failed: ' + textStatus);
+      alert('Failed to load: ' + textStatus);
     });
 }
 
-function loadUser() {
-  $.get("/api/games")
-    .done(function (data) {
-      app.games = data.games.reverse();
-      app.currentUser = data.player.email;
-      console.log(data.player.email)
-    })
-    .fail(function (jqXHR, textStatus) {
-      alert('Failed: ' + textStatus);
-    })
+
+/********** create game **********/
+
+function createGame() {
 }
 
-function createGame(){
 
-}
+/********** join game **********/
 
 function joinGame(gamePlayerID){
-    location.href = "/web/games.html?gp=" + gamePlayerID;
+    location.href = "/web/game.html?gp=" + gamePlayerID;
 }
+
 
 /********** sign up **********/
 
-function signUp(){
-    var form = document.getElementById("register-form");
-    $.post("/api/players", {
-        email: form["username"].value,
-        password: form["password"].value
+function signUp() {
+	var form = document.getElementById("register-form");
+
+		$.post("/api/players", {
+      email: form["username"].value,
+      password: form["password"].value
     })
-    .done(function () {
-            alert('Success');
-          })
-    .done(function (){
+    .done(function() {
+      alert('Sign up successful.');
+    })
+
+    .done(function() {
       location.reload();
     })
-    .fail(function (jqXHR, textStatus) {
-            alert('Failed: ' + jqXHR.status);
-          });
+
+    .fail(function(jqXHR, textStatus) {
+      alert('Failed: ' + jqXHR.status);
+    });
 }
 
 /********** login **********/
 
 function login() {
-  if (app.currentUser == "Guest") {
-    var form = document.getElementById('login-form')
-    $.post("/api/login", {
-        username: form["username"].value,
-        password: form["password"].value
-      })
-      .done(setTimeout(function(){ loadUser(); }, 1000))
+	if (app.currentUser == "guest") {
+		var form = document.getElementById('login-form')
+			$.post("/api/login", {
+				username: form["username"].value,
+				password: form["password"].value
+			})
+
+			.done(setTimeout(function() { loadUser(); }, 1000))
       .fail(function (jqXHR, textStatus) {
-        alert('Failed: ' + jqXHR.status);
+        alert('Failed to login: ' + jqXHR.status);
       });
+
   } else {
-    console.log("")
+      console.log("")
   }
 }
 
@@ -92,4 +107,27 @@ function logout() {
     .fail(function (jqXHR, textStatus) {
       alert('Failed: ' + textStatus);
     });
+}
+
+'use strict';
+
+const e = React.createElement;
+
+class LikeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  render() {
+    if (this.state.liked) {
+      return 'You liked this.';
+    }
+
+    return e(
+      'button',
+      { onClick: () => this.setState({ liked: true }) },
+      'Like'
+    );
+  }
 }

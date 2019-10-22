@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Game List</title>
+  <title>Salvo | Game List</title>
   <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
@@ -12,160 +12,117 @@
 <body>
 <div class="container-fluid" id="app">
 
-  <div class="container mb-5 text-center" id="title">
+  <div class="container m-5 text-center" id="title">
     <h1>Salvo - Game On!</h1>
   </div>
 
-  <div class="container mb-5" id="login">
+  <div class="container mb-5" id="playerAccess">
     <div class="row">
-      <div class="col text-center">
-        <h2>Login In</h2>
-        <form>
-          <div class="form-group mb-4">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+
+      <div class="col-sm-4 mb-5 text-center" id="signUp">
+        <div class="card shadow-lg rounded p-5">
+          <h3>Sign Up</h3>
+          <button class="btn btn-info m-3" type="button" data-toggle="collapse"
+                  data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+          <div class="collapse" id="registrationCollapse">
+            <form id="registration">
+              <div class="form-group mb-4">
+                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
+              </div>
+              <button class="btn btn-outline-info" type="button" onclick="register()">Continue
+              </button>
+            </form>
           </div>
-          <div class="form-group mb-4">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <button type="button" class="btn btn-success mr-4">Log In</button>
-          <button type="button" class="btn btn-danger mr-4">Log Out</button>
-        </form>
-      </div>
-      <div class="col text-center">
-        <h2>Start Game</h2>
-        <button type="button" class="btn btn-info m-4">Start Game</button>
+        </div>
       </div>
 
+      <div class="col-sm-4 mb-5 text-center" id="logIn">
+        <div class="card shadow-lg rounded p-5">
+          <h3>Log In</h3>
+          <button class="btn btn-success m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+          <div class="collapse" id="loginCollapse">
+            <form id="login-form">
+              <div class="form-group mb-4">
+                <input type="email" class="form-control" id="loginEmail"
+                       aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" class="form-control" id="loginPassword"
+                       placeholder="Password">
+              </div>
+              <button class="btn btn-success mr-3" type="button" onclick="login()">Log In</button>
+              <button class="btn btn-danger ml-3" type="button" onclick="logout()">Log Out</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 mb-5 text-center" id="startGame">
+        <div class="card shadow-lg rounded p-5">
+          <h3>Start Game</h3>
+          <button class="btn btn-warning m-3" type="button" onclick="">Ready, set, go!</button>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div class="container mb-5" id="leaderboard">
-    <h2>Game Score</h2>
+  <div class="container mb-5" id="info">
+    <div class="row">
+      <div class="col" id="games">
+        <h3>Game List</h3>
+        <table class="table table-hover shadow">
+          <thead class="bg-info">
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Player 1</th>
+            <th>Player 2</th>
+          </tr>
+          </thead>
 
-    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th>Player</th>
-        <th>Won</th>
-        <th>Tied</th>
-        <th>Lost</th>
-        <th>Total</th>
-      </tr>
-      </thead>
+          <tbody class="bg-white">
+          <tr v-for="game in games">
+            <td>{{games.id}}</td>
+            <td>{{games.created}}</td>
+            <td>{{games.player.user}}</td>
+            <td>{{games.player.user}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col" id="leaderboard">
+        <h3>Leaderboard</h3>
+        <table class="table table-hover shadow">
+          <thead class="bg-danger">
+          <tr>
+            <th>Player</th>
+            <th>Won</th>
+            <th>Tied</th>
+            <th>Lost</th>
+            <th>Total</th>
+          </tr>
+          </thead>
 
-      <tbody>
-      <tr v-if="player in vueScore">
-        <td>{{player.userName}}</td>
-        <td>{{player.won}}</td>
-        <td>{{player.lost}}</td>
-        <td>{{player.tied}}</td>
-        <td>{{player.total}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="container mb-5" id="games">
-    <h2>Games List</h2>
-
-    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>Player 1</th>
-        <th>Player 2</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <tr v-for="games in vueSalvo.salvo">
-        <td>{{salvo.id}}</td>
-        <td>{{salvo.created}}</td>
-        <td>{{salvo.gamePlayers[0].Player.user}}</td>
-        <td>{{salvo.gamePlayers[1].Player.user}}</td>
-      </tr>
-      </tbody>
-    </table>
+          <tbody class="bg-white">
+          <tr v-for="player in players">
+            <td>{{player.user}}</td>
+            <td>{{player.won}}</td>
+            <td>{{player.tied}}</td>
+            <td>{{player.lost}}</td>
+            <td>{{player.total}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
 </div>
 
-<!-----------------------------------------------------------------------------------------------------
-
-<div class="container" id="app">
-        <table class="table">
-          <thead class="thead-dark">
-          <tr>
-            <th>Top</th>
-            <th>Email</th>
-            <th>Games</th>
-            <th>Won</th>
-            <th>Losses</th>
-            <th>Ties</th>
-            <th>Total(Pts)</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="(player, index) in players">
-            <th scope="row"> {{ index + 1 }} </th>
-            <td>{{player.email}}</td>
-            <td>{{player.games}}</td>
-            <td>{{player.won}}</td>
-            <td>{{player.lost}}</td>
-            <td>{{player.ties}}</td>
-            <td>{{player.total}}</td>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-
-        <div>
-            <button onclick="createGame()">Create game</button>
-        </div>
-
-        <table class="table">
-            <h3>Games completed</h3>
-            <thead class="thead-dark">
-                <tr>
-                    <th>N°</th>
-                    <th>Player one</th>
-                    <th>Player two</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr v-for="game in games">
-                <th scope="row"> {{game.id}}</th>
-                <td>{{game.players[0].name}}</td>
-                <td>{{game.players[1].name}}</td>
-                <td v-show="currentUser != 'Guest' && currentUser != game.players[0].name">
-
-                </td>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div v-if="currentUser == 'Guest'">
-        <form id="login-form" onsubmit="return false" >
-            <label>Username: <input type="text" name="username"></label>
-            <label>Password: <input type="password" name="password"></label>
-            <button onclick="login()">LOGIN</button>
-        </form>
-        <form id="register-form" onsubmit="return false" class="d-flex flex-column w-25">
-            <label>Username: <input type="email" name="username" required></label>
-            <label>Password: <input type="password" name="password" required></label>
-            <label>password2: <input type="password" name="password2" required></label>
-            <button onclick="register()">Register</button>
-        </form>
-        </div>
-        <form id="logout-form" onsubmit="return false" v-else>
-            <button onclick="logout()">Log out</button>
-        </form>
-      </div>
-
--------------------------------------------------------------------------------------------------->
 
 <!--jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -173,21 +130,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <!--bootstrap-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--vue js-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <!-- react js -->
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 <!-- react component -->
 <script src=""></script>
-<!--vue js-->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <!--content scripts-->
 <script src="js/games.js"></script>
-
-
-
-
-</body>
 
 </body>
 </html>
