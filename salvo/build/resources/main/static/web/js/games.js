@@ -23,8 +23,7 @@ function getParameterByName(name) {
 function loadGames() {
   $.get("/api/games")
     .done(function (data) {
-      app.games = data;
-      app.player = data;
+      app.games = data.games;
     })
     .fail(function (jqXHR, textStatus) {
       alert('Failed to load: ' + textStatus);
@@ -64,19 +63,20 @@ function signUp() {
 	var form = document.getElementById("registration");
 
 		$.post("/api/players", {
-      email: form["username"].value,
-      password: form["password"].value
-    })
-    .done(function() {
-      alert('Sign up successful.');
+      email: form["registrationEmail"].value,
+      password: form["registrationPassword"].value
     })
 
     .done(function() {
-      location.reload();
+      alert('Account created successfully.');
+    })
+
+    .done(function() {
+      location.reload;
     })
 
     .fail(function(jqXHR, textStatus) {
-      alert('Failed: ' + jqXHR.status);
+      alert('Failed to create an account: ' + jqXHR.status);
     });
 }
 
@@ -90,7 +90,9 @@ function login() {
 				password: form["password"].value
 			})
 
-			.done(setTimeout(function() { loadUser(); }, 1000))
+			.done(setTimeout(function() {
+				loadUser(); }, 1000))
+
       .fail(function (jqXHR, textStatus) {
         alert('Failed to login: ' + jqXHR.status);
       });

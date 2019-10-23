@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
 </head>
 
 <body>
@@ -22,8 +23,7 @@
       <div class="col-sm-4 mb-5 text-center" id="signUp">
         <div class="card shadow-lg rounded p-5">
           <h3>Sign Up</h3>
-          <button class="btn btn-info m-3" type="button" data-toggle="collapse"
-                  data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+          <button class="btn btn-info m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
           <div class="collapse" id="registrationCollapse">
             <form id="registration">
               <div class="form-group mb-4">
@@ -32,8 +32,7 @@
               <div class="form-group mb-4">
                 <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
               </div>
-              <button class="btn btn-outline-info" type="button" onclick="register()">Continue
-              </button>
+              <button class="btn btn-outline-info" type="button" onclick="post()">Continue</button>
             </form>
           </div>
         </div>
@@ -46,12 +45,10 @@
           <div class="collapse" id="loginCollapse">
             <form id="login-form">
               <div class="form-group mb-4">
-                <input type="email" class="form-control" id="loginEmail"
-                       aria-describedby="emailHelp" placeholder="Email">
+                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Email">
               </div>
               <div class="form-group mb-4">
-                <input type="password" class="form-control" id="loginPassword"
-                       placeholder="Password">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password">
               </div>
               <button class="btn btn-success mr-3" type="button" onclick="login()">Log In</button>
               <button class="btn btn-danger ml-3" type="button" onclick="logout()">Log Out</button>
@@ -67,15 +64,15 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="container mb-5" id="info">
     <div class="row">
-      <div class="col" id="games">
-        <h3>Game List</h3>
+
+      <div class="col" id="gamesTable">
+        <h4>Game List</h4>
         <table class="table table-hover shadow">
-          <thead class="bg-info">
+          <thead class="thead-dark">
           <tr>
             <th>ID</th>
             <th>Date</th>
@@ -88,16 +85,23 @@
           <tr v-for="(game, index) in games">
             <td>{{game.gameID}}</td>
             <td>{{game.created}}</td>
-            <td v-for="value in game[index].player">{{value.user}}</td>
-            <td v-for="value in game[index].player">{{value.user}}</td>
+            <td v-for="value in game[0].player">{{value.user}}</td>
+            <td v-for="value in game[1].player">{{value.user}}</td>
+            <!--
+            <td>{{game.gameID}}</td>
+            <td>{{game.created}}</td>
+            <td>{{game.player[0].user}}</td>
+            <td>{{game.player[1].user}}</td>
+            -->
           </tr>
           </tbody>
         </table>
       </div>
-      <div class="col" id="leaderboard">
-        <h3>Leaderboard</h3>
+
+      <div class="col" id="leaderboardTable">
+        <h4>Leaderboard</h4>
         <table class="table table-hover shadow">
-          <thead class="bg-danger">
+          <thead class="thead-dark">
           <tr>
             <th>Player</th>
             <th>Won</th>
@@ -110,19 +114,25 @@
           <tbody class="bg-white">
           <tr v-for="player in players">
             <td>{{player.user}}</td>
-            <td>{{player.won}}</td>
-            <td>{{player.tied}}</td>
-            <td>{{player.lost}}</td>
-            <td>{{player.total}}</td>
+            <td class="text-center">{{player.won}}</td>
+            <td class="text-center">{{player.tied}}</td>
+            <td class="text-center">{{player.lost}}</td>
+            <td class="text-center">{{player.total}}</td>
           </tr>
           </tbody>
         </table>
       </div>
+
     </div>
   </div>
 
 </div>
 
+<footer class="footer mt-auto py-3 bg-dark">
+  <div class="container">
+    <span class="text-muted">Created with 💚 by pizzadeparado.</span>
+  </div>
+</footer>
 
 <!--jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -131,7 +141,7 @@
 <!--bootstrap-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!--vue js-->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- react js -->
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
