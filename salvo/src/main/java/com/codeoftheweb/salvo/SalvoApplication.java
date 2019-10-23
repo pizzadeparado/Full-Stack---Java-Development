@@ -217,7 +217,7 @@ class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
 				.antMatchers("/web/*",
 																			"/web/**",
 																			"/api/games",
-																			"/api/games/**",
+																			"/api/games/games/*",
 																			"/api/players",
 																			"/api/leaderboard",
 																			"/api/game_view/**").permitAll()

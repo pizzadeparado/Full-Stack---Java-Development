@@ -1,0 +1,21 @@
+body {
+  background-image: url(fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+}
+
+h1 {
+	font-family: ccbiffbamboomoutline,sans-serif;
+	font-style: normal;
+}
+
+h3, h4 {
+	font-family: ccbiffbamboom,sans-serif;
+	font-style: normal;
+}
+
+
+tbody {
+	font-family: 'Roboto Slab', serif;
+}
