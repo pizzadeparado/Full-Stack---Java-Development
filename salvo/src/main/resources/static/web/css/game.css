@@ -3,21 +3,33 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
-  background-color: darkgreen;
 }
 
-h1 {
+#title {
 	font-family: ccbiffbamboomoutline,sans-serif;
 	font-style: normal;
+	font-size: 45px;
 }
 
-h3 {
-	font-family: ccbiffbamboom,sans-serif;
-	font-style: normal;
+#playerInfo {
+	font-family: 'Bungee Shade', cursive;
+	font-size: 30px;
+}
+
+
+/********** game boards **********/
+
+h4 {
+	font-family: 'Bungee', cursive;
 }
 
 table {
 	background: rgba(255, 255, 255, 0.8);
+}
+
+tr {
+	font-weight: bold;
+	text-align: center;
 }
 
 .ship-piece {

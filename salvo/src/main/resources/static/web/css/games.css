@@ -3,22 +3,23 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
-  background-color: darkgreen;
-}
-
-#playerAccess {
-	background-color: red;
 }
 
 #title {
 	font-family: ccbiffbamboomoutline,sans-serif;
 	font-style: normal;
-	font-size: 50px;
+	font-size: 45px;
 }
 
-h3, h4 {
-	font-family: ccbiffbamboom,sans-serif;
-	font-style: normal;
+h3 {
+	font-family: 'Bungee Shade', cursive;
+}
+
+
+/********** tables **********/
+
+h4 {
+	font-family: 'Bungee', cursive;
 }
 
 tbody {

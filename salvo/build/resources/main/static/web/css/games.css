@@ -3,12 +3,12 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
-  background-color: darkgreen;
 }
 
-h1 {
+#title {
 	font-family: ccbiffbamboomoutline,sans-serif;
 	font-style: normal;
+	font-size: 45px;
 }
 
 h3, h4 {
@@ -16,7 +16,7 @@ h3, h4 {
 	font-style: normal;
 }
 
-
 tbody {
 	font-family: 'Roboto Slab', serif;
+	background: rgba(255, 255, 255, 0.8);
 }

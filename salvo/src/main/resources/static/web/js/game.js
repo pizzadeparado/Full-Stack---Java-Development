@@ -7,7 +7,7 @@ function getParameterByName(name) {
     .done(function (data) {
       console.log(data);
       var playerInfo;
-      if (data.gamePlayers[0].id == getParameterByName('gp'))
+      if (data.games.playerID[0] == getParameterByName('gp'))
         playerInfo = [data.gamePlayers[0].player, data.gamePlayers[1].player];
       else
         playerInfo = [data.gamePlayers[1].player, data.gamePlayers[0].player];

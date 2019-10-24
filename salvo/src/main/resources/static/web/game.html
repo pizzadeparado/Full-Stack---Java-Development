@@ -8,21 +8,29 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
 </head>
 
 <body>
-<div class="container-fluid" id="app">
+<div class="container" id="app">
 
-  <div class="container m-5 text-center" id="title">
-    <h1>Salvo - Game On!</h1>
+  <div class="container-fluid mb-5" id="containerTop">
+
+    <div class="row m-5">
+      <span class="container text-center" id="title">Salvo - Game On!</span>
+    </div>
+
+    <div class="row m-5">
+      <span class="container text-center" id="playerInfo">bla v bla</span>
+    </div>
+
   </div>
 
-  <div class="container mb-5 text-center" id="boards">
-    <span id="playerInfo"></span>
+  <div class="container mb-5" id="boards">
 
-    <div class="row justify-content-center">
-      <div class="col m-5">
-        <h3 class="bg-info">Game Board</h3>
+    <div class="row">
+      <div class="col">
+        <h4 class="bg-info">Game Board</h4>
         <table class="table table-bordered shadow">
           <thead>
           <tr>
@@ -174,8 +182,8 @@
         </table>
       </div>
 
-      <div class="col m-5">
-        <h3 class="bg-warning">Salvo Board</h3>
+      <div class="col">
+        <h4 class="bg-warning">Salvo Board</h4>
         <table class="table table-bordered shadow">
           <thead>
           <tr>
@@ -327,8 +335,8 @@
         </table>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
 <footer class="footer mt-auto py-3 bg-dark">

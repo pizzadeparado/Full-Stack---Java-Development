@@ -1,17 +1,29 @@
+body {
+  background-image: url(fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+  background-color: darkgreen;
+}
+
 h1 {
-font-family: ccbiffbamboomoutline,sans-serif;
-font-style: normal;
+	font-family: ccbiffbamboomoutline,sans-serif;
+	font-style: normal;
 }
 
 h3 {
-font-family: ccbiffbamboom,sans-serif;
-font-style: normal;
+	font-family: ccbiffbamboom,sans-serif;
+	font-style: normal;
+}
+
+table {
+	background: rgba(255, 255, 255, 0.8);
 }
 
 .ship-piece {
-background-color: darkmagenta;
+	background-color: darkmagenta;
 }
 
 .salvo {
-background-color: crimson
+	background-color: crimson
 }
