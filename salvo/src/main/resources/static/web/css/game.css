@@ -33,9 +33,9 @@ tr {
 }
 
 .ship-piece {
-	background-color: darkmagenta;
+	background-color: rgb(0, 204, 153);
 }
 
 .salvo {
-	background-color: crimson
+	background-color: rgb(255, 80, 80);
 }

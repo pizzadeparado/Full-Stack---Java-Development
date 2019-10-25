@@ -11,12 +11,26 @@ body {
 	font-size: 45px;
 }
 
-h3, h4 {
-	font-family: ccbiffbamboom,sans-serif;
-	font-style: normal;
+h3 {
+	font-family: 'Bungee Shade', cursive;
+}
+
+.btn {
+	font-family: 'Space Mono', monospace;
+}
+
+
+/********** tables **********/
+
+h4 {
+	font-family: 'Bungee', cursive;
+}
+
+th {
+	font-family: 'Space Mono', monospace;
 }
 
 tbody {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	background: rgba(255, 255, 255, 0.8);
 }

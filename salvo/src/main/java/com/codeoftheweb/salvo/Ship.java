@@ -30,10 +30,6 @@ public class Ship {
     this.shipLocation = shipLocation;
   }
 
-  private long getID() {
-    return ID;
-  }
-
   public GamePlayer getGamePlayer() {
     return gamePlayer;
   }

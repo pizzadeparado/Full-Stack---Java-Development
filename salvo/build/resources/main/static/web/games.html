@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Space+Mono:400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
 </head>
 
 <body>
@@ -40,18 +43,24 @@
 
       <div class="col-sm-4 mb-5 text-center" id="logIn">
         <div class="card shadow-lg rounded p-5">
-          <h3>Log In</h3>
-          <button class="btn btn-success m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+          <h3 v-show="vueGames == 'guest'">Log In</h3>
+          <h3 v-show="vueGames.player !== 'guest'">Welcome {{ vueGames.user }}</h3>
+          <button class="btn btn-success m-3" type="button" data-toggle="collapse"
+                  data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse" v-show="vueGames == 'guest'">Press to Continue</button>
           <div class="collapse" id="loginCollapse">
-            <form id="login-form">
+            <form id="login-form"v-show="vueGames == 'guest'">
               <div class="form-group mb-4">
                 <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Email">
               </div>
               <div class="form-group mb-4">
                 <input type="password" class="form-control" id="loginPassword" placeholder="Password">
               </div>
-              <button class="btn btn-success mr-3" type="button" onclick="login()">Log In</button>
-              <button class="btn btn-danger ml-3" type="button" onclick="logout()">Log Out</button>
+
+              <button class="btn btn-success mr-3" type="button" onclick="login()"
+                      v-show="vueGames == 'guest'">Log In</button>
+              <button class="btn btn-danger ml-3" type="button" onclick="logout()"
+                      v-show="vueGames !== 'guest'">Log Out</button>
+
             </form>
           </div>
         </div>
@@ -60,7 +69,10 @@
       <div class="col-sm-4 mb-5 text-center" id="startGame">
         <div class="card shadow-lg rounded p-5">
           <h3>Start Game</h3>
-          <button class="btn btn-warning m-3" type="button" onclick="">Ready, set, go!</button>
+          <p v-show="vueGames.player == 'guest'">You need to log in before starting a new game.</p>
+          <button class="btn btn-warning m-3" type="button" onclick="createGame()"
+                  v-show="vueGames.player !== 'guest'">Ready,
+            set, go!</button>
         </div>
       </div>
     </div>
@@ -84,7 +96,7 @@
           </thead>
 
           <tbody>
-          <tr v-for="(game, index) in games">
+          <tr v-for="(game, index) in vueGames">
             <td class="text-center">{{game.gameID}}</td>
             <!--<td>{{game.created}}</td>-->
             <td>{{game.player[0].user}}</td>
@@ -111,7 +123,7 @@
           </thead>
 
           <tbody>
-          <tr v-for="player in players">
+          <tr v-for="player in vueScore">
             <td>{{player.user}}</td>
             <td class="text-center">{{player.won}}</td>
             <td class="text-center">{{player.tied}}</td>

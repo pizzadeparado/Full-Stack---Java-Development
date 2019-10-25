@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 public class GamePlayer {
@@ -67,23 +68,22 @@ public class GamePlayer {
     return game;
   }
 
-  //public Map<String, Object> createGamePlayerDTO() {
-    //Map<String, Object> dto = new LinkedHashMap<>();
-    //dto.put("ID", this.getPlayer().getPlayerID());
-    //dto.put("user", this.getPlayer().getUserName());
-    //dto.put("gamePlayerID", this.getGamePlayerID());
-    //return dto;
-  //}
+  public Map<String, Object> createGamePlayerDTO() {
+    Map<String, Object> dto = new LinkedHashMap<>();
+    dto.put("playerID", this.getPlayer().getPlayerID());
+    dto.put("user", this.getPlayer().getUserName());
+    dto.put("gamePlayerID", this.getGamePlayerID());
+    return dto;
+  }
 
   public Map<String, Object> gameViewDTO () {
     Map<String, Object> dto = new LinkedHashMap<>();
-    //dto.put("ID", this.getGameID());
-    //dto.put("created", this.getGame().getCreationDate());
+    dto.put("gameID", this.getGameID());
+    dto.put("created", this.getGame().getCreationDate());
     dto.put("playerID", this.getPlayer().getPlayerID());
     dto.put("user", this.getPlayer().getUserName());
-    dto.put("created", this.getGame().getCreationDate());
     dto.put("ships", this.getShip().stream().map(Ship::createShipDTO));
-    dto.put("salvos", this.salvo.stream().map(Salvo::createSalvoDTO));
+    dto.put("salvos", this.game.getGamePlayer().stream().flatMap(gamePlayer -> gamePlayer.getSalvo().stream().map(Salvo::createSalvoDTO)).collect(Collectors.toList()));
     return dto;
   }
 }

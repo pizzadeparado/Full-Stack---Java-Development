@@ -171,12 +171,12 @@ public class SalvoApplication {
 
 			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5,salvo6,salvo7,salvo8,salvo9,salvo10));
 
-			Score score1 = new Score(game1, player1, 1);
-			Score score2 = new Score(game2, player1, 0.5);
-			Score score3 = new Score(game3, player2, 1);
-			Score score4 = new Score(game4, player2, 0.5);
-			Score score5 = new Score(game5, player4, 0);
-			Score score6 = new Score(game6, player3, 0);
+			Score score1 = new Score(game1, player1, 1, date1);
+			Score score2 = new Score(game2, player1, 0.5, date2);
+			Score score3 = new Score(game3, player2, 1, date3);
+			Score score4 = new Score(game4, player2, 0.5, date4);
+			Score score5 = new Score(game5, player4, 0, date5);
+			Score score6 = new Score(game6, player3, 0, date6);
 
 			scoreRepository.saveAll(Arrays.asList(score1,score2,score3,score4,score5,score6));
 		};
@@ -216,16 +216,14 @@ class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/web/*",
 																			"/web/**",
+																			"/api/login",
+																			"/api/logout",
 																			"/api/games",
 																			"/api/games/games/*",
 																			"/api/players",
-																			"/api/leaderboard",
-																			"/api/game_view/**").permitAll()
-
-				.antMatchers("/web/game.html**").hasAuthority("USER")
-
+																			"/api/leaderboard").permitAll()
+				.antMatchers("/api/**", "/web/game.html**").hasAuthority("USER")
 				.antMatchers("/rest/**").hasAuthority("ADMIN")
-
 				.anyRequest().denyAll();
 
 		http.formLogin()

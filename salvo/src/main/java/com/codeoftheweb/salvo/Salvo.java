@@ -31,15 +31,12 @@ public class Salvo {
     this.salvoLocation = salvoLocation;
   }
 
-  public long getID() {
-    return ID;
-  }
 
   public GamePlayer getGamePlayer() {
     return gamePlayer;
   }
 
-  public int getTurn() {
+  public long getTurn() {
     return turn;
   }
 
@@ -49,7 +46,7 @@ public class Salvo {
 
   public Map<String, Object> createSalvoDTO () {
     Map<String, Object> dto = new LinkedHashMap<>();
-    //dto.put("playerID", this.getGamePlayer().getPlayer().getPlayerID());
+    dto.put("playerID", this.getGamePlayer().getGamePlayerID());
     dto.put("turn", this.getTurn());
     dto.put("location", this.getSalvoLocation());
     return dto;

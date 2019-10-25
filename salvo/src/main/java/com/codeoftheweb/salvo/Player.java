@@ -55,6 +55,22 @@ public class Player {
     return gamePlayers;
   }
 
+  public float scoreWon() {
+    return scores.stream().filter(score -> score.getScore() == 1).count();
+  }
+
+  public float scoreLost() {
+    return scores.stream().filter(score -> score.getScore() == 0).count();
+  }
+
+  public float scoreTied() {
+    return scores.stream().filter(score -> score.getScore() == 0.5).count();
+  }
+
+  public float scoreTotal() {
+    return 1f * scoreWon() + 0.5f * scoreLost() + 0 * scoreTied();
+  }
+
   @JsonIgnore
   public List<Game> getGame(){
     return gamePlayers.stream().map(GamePlayer::getGame).collect(Collectors.toList());
@@ -71,9 +87,10 @@ public class Player {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("playerID", this.getPlayerID());
     dto.put("user", this.getUserName());
-    dto.put("won", this.scores.stream().filter(score -> score.getScore()==1).count());
-    dto.put("tied", this.scores.stream().filter(score -> score.getScore()==0.5).count());
-    dto.put("lost", this.scores.stream().filter(score -> score.getScore()==0).count());
+    dto.put("won", this.scoreWon());
+    dto.put("tied", this.scoreTied());
+    dto.put("lost", this.scoreLost());
+    dto.put("total", this.scoreTotal());
     return dto;
   }
 }
