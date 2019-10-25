@@ -6,7 +6,7 @@ var app = new Vue({
     currentUser: ''
   },
   methods: {
-    returnToGame(ID) {
+    gameReturn(ID) {
       window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
     },
 
@@ -37,6 +37,7 @@ function loadGames() {
   $.get("/api/games")
     .done(function (data) {
       app.vueGames = data.games;
+      app.currentUser = data.player;
       })
     .fail(function (jqXHR, textStatus) {
       alert('Failed to load: ' + textStatus);
@@ -62,7 +63,6 @@ function loadScore() {
 function createGame() {
   $.post("/api/games")
     .done(function(data) {
-      app.vueGames = data.games.player;
       window.location.href = "game.html?gp=" + data.gamePlayerID;
     })
     .fail(function() {
@@ -71,63 +71,44 @@ function createGame() {
 }
 
 
-/********** join game **********/
-
-function joinGame(gamePlayerID){
-  location.href = "/web/game.html?gp=" + gamePlayerID;
-}
-
-
 /********** sign up **********/
 
 function signUp() {
-	var form = document.getElementByID("registration");
-
-		$.post("/api/players", {
-      email: form["registrationEmail"].value,
-      password: form["registrationPassword"].value
-    })
-
+  $.post("/api/players", {
+    username: document.getElementById("registrationEmail").value,
+    password: document.getElementById("registrationPassword").value
+  })
     .done(function() {
-      alert('Account created successfully.');
+      alert("Account created successfully. Please log in.");
+      window.location.reload();
     })
-
-    .done(function() {
-      location.reload;
-    })
-
-    .fail(function(jqXHR, textStatus) {
-      alert('Failed to create an account: ' + jqXHR.status);
+    .fail(function() {
+      alert("Failed to create an account: " + jqXHR.status);
     });
 }
+
 
 /********** login **********/
 
 function login() {
-	if (app.currentUser == "guest") {
-		var form = document.getElementByID('login-form')
-			$.post("/api/login", {
-				username: form["username"].value,
-				password: form["password"].value
-			})
-
-			.done(setTimeout(function() {
-				loadUser(); }, 1000))
-
-      .fail(function (jqXHR, textStatus) {
-        alert('Failed to login: ' + jqXHR.status);
-      });
-
-  } else {
-      console.log("")
-  }
+  $.post("/api/login", {
+    username: document.getElementById("loginEmail").value,
+    password: document.getElementById("loginPassword").value
+  })
+    .done(function() {
+      alert("Log in successful.");
+      window.location.reload();
+    })
+    .fail(function() {
+      alert("Incorrect username or password");
+    });
 }
 
 /********** logout **********/
 
 function logout() {
   $.post("/api/logout")
-    .done(window.location.replace("game.html"))
+    .done(window.location.reload())
     .fail(function (jqXHR, textStatus) {
       alert('Failed: ' + textStatus);
     });
