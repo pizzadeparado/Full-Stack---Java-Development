@@ -25,6 +25,9 @@ p {
 	font-family: 'Space Mono', monospace;
 }
 
+.card {
+	min-height: 210px;
+}
 
 /********** tables **********/
 
