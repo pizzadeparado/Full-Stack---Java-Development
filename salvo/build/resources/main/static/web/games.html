@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
 </head>
 
@@ -69,7 +69,12 @@
       <div class="col-sm-4 mb-5 text-center" id="startGame">
         <div class="card shadow-lg rounded p-5">
           <h3>Start Game</h3>
-          <button class="btn btn-warning m-3" type="button" onclick="createGame()">Ready, set, go!</button>
+          <div v-show="currentUser == 'guest'">
+            <p>You need to log in before starting a new game.</p>
+          </div>
+          <div v-show="currentUser != 'guest'">
+            <button class="btn btn-warning m-3" type="button" onclick="createGame()">Ready, set, go!</button>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +93,9 @@
             <!--<th>Date</th>-->
             <th>Player 1</th>
             <th>Player 2</th>
-            <th>Join</th>
+            <th v-show="currentUser != 'guest'"></th>
+            <th v-show="currentUser == 'game.player[0].user'">Join</th>
+
           </tr>
           </thead>
           <tbody>
@@ -97,8 +104,13 @@
             <!--<td>{{game.created}}</td>-->
             <td>{{game.player[0].user}}</td>
             <td>{{game.player[1] == null ? "" : game.player[1].user}}</td>
-            <td v-if="currentUser != 'guest' && currentUser != game.player[0].user">
+            <div v-show="currentUser != 'guest'"></div>
+            <td v-show="currentUser == 'game.player[0].user'">
               <button type="button" class="btn btn-warning btn-sm" onclick="joinGame(game.player[0].playerID)">Join Game</button>
+            </td>
+            <td v-show="game.player[0] && game.player[1]">Game Full</td>
+            <td v-show="game.player[1] == null">
+              <button type="button" class="btn btn-warning btn-sm" onclick="joinGame(game.player[1].playerID)">Return Game</button>
             </td>
           </tr>
           </tbody>

@@ -83,7 +83,7 @@ function signUp() {
       window.location.reload();
     })
     .fail(function() {
-      alert("Failed to create an account: " + jqXHR.status);
+      alert("Failed to create an account.");
     });
 }
 
@@ -100,7 +100,7 @@ function login() {
       window.location.reload();
     })
     .fail(function() {
-      alert("Incorrect username or password");
+      alert("Incorrect username or password.");
     });
 }
 

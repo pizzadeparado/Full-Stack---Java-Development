@@ -15,6 +15,12 @@ h3 {
 	font-family: 'Bungee Shade', cursive;
 }
 
+p {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+}
+
 .btn {
 	font-family: 'Space Mono', monospace;
 }
