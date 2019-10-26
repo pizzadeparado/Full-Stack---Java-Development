@@ -17,11 +17,10 @@ var app = new Vue({
         .fail(function () {
           swal("Unable to join game. Reloading", {
             closeOnClickOutside: false,
-            icon: "warning",
             buttons: false,
-            timer: 2500,
+            timer: 3000,
           });
-          window.setTimeout(function () { window.location.reload() }, 2500);
+          window.setTimeout(function () { window.location.reload() }, 3000);
         });
     }
   }
@@ -48,11 +47,10 @@ function loadGames() {
     .fail(function () {
       swal("Failed to load the game list. Reloading.", {
         closeOnClickOutside: false,
-        icon: "warning",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
 
@@ -66,11 +64,10 @@ function loadScore() {
     .fail(function () {
       swal("Failed to load the score list. Reloading.", {
         closeOnClickOutside: false,
-        icon: "warning",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
 
@@ -81,20 +78,18 @@ function createGame() {
     .done(function (data) {
       swal("Starting game in 3, 2, 1 ...", {
         closeOnClickOutside: false,
-        icon: "info",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.href = "game.html?gp=" + data.gamePlayerID; }, 2500);
+      window.setTimeout(function () { window.location.href = "game.html?gp=" + data.gamePlayerID; }, 3000);
     })
     .fail(function () {
       swal("Game couldn't be created. Please try again.", {
         closeOnClickOutside: false,
-        icon: "error",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
 
@@ -108,20 +103,18 @@ function signUp() {
     .done(function () {
       swal("Account created successfully. Redirecting...", {
         closeOnClickOutside: false,
-        icon: "success",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     })
     .fail(function () {
       swal("Sorry, we couldn't create your account. Please try again.", {
         closeOnClickOutside: false,
-        icon: "warning",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
 
@@ -135,20 +128,18 @@ function login() {
     .done(function () {
       swal("You're now logged in.", {
         closeOnClickOutside: false,
-        icon: "success",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     })
     .fail(function () {
       swal("Incorrect username or password.", {
         closeOnClickOutside: false,
-        icon: "error",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
 
@@ -158,19 +149,17 @@ function logout() {
     .done(function () {
       swal("You're now logged out. Redirecting you.", {
         closeOnClickOutside: false,
-        icon: "success",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     })
     .fail(function () {
       swal("There was a problem and we couldn't log you out. Please try again.", {
         closeOnClickOutside: false,
-        icon: "error",
         buttons: false,
-        timer: 2500,
+        timer: 3000,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      window.setTimeout(function () { window.location.reload() }, 3000);
     });
 }
