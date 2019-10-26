@@ -79,7 +79,7 @@ function signUp() {
     password: document.getElementById("registrationPassword").value
   })
     .done(function() {
-      alert("Account created successfully. Please log in.");
+      alert("Account created successfully. Redirecting...");
       window.location.reload();
     })
     .fail(function() {

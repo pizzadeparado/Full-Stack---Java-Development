@@ -11,8 +11,18 @@ body {
 	font-size: 45px;
 }
 
+
+/******************** FONTS ********************/
 h3 {
 	font-family: 'Bungee Shade', cursive;
+}
+
+h4 {
+	font-family: 'Bungee', cursive;
+}
+
+h6 {
+	font-family: 'Bungee', cursive;
 }
 
 p {
@@ -21,20 +31,8 @@ p {
 	font-weight: bold;
 }
 
-.btn {
-	font-family: 'Space Mono', monospace;
-}
 
-.card {
-	min-height: 210px;
-}
-
-/********** tables **********/
-
-h4, h6 {
-	font-family: 'Bungee', cursive;
-}
-
+/******************** TABLES ********************/
 th {
 	font-family: 'Space Mono', monospace;
 }
@@ -42,4 +40,14 @@ th {
 tbody {
 	font-family: 'Roboto Condensed', sans-serif;
 	background: rgba(255, 255, 255, 0.8);
+}
+
+
+/******************** DECORATIONS ********************/
+.btn {
+	font-family: 'Space Mono', monospace;
+}
+
+.card {
+	min-height: 210px;
 }

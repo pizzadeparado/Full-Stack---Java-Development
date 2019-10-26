@@ -7,31 +7,46 @@
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
 </head>
 
 <body>
-<div class="container" id="app">
+<div class="container-fluid" id="app">
 
-  <div class="container-fluid mb-5" id="containerTop">
+  <!------------------------------ TITLE ------------------------------>
+  <div class="row m-5 justify-content-center" id="title">Salvo - Game On!</div>
 
-    <div class="row m-5">
-      <span class="container text-center" id="title">Salvo - Game On!</span>
+  <!------------------------------ MENU ------------------------------>
+  <div class="row m-5 justify-content-center" id="menu">
+    <div class="col-sm-4 text-center" id="currentGame">
+      <div class="card shadow-lg rounded">
+        <h4 class="card-header bg-success">Current Game</h4>
+        <div class="card-body">
+          <h5 class="card-title justify-content-center mb-4" id="playerInfo">Player 1 v Player 2</h5>
+          <a class="btn btn-warning shadow-lg" href="http://localhost:8080/web/games.html">Homepage</a>
+        </div>
+      </div>
     </div>
-
-    <div class="row m-5">
-      <span class="container text-center" id="playerInfo">bla v bla</span>
+    <div class="col-sm-6 text-center" id="playerInventory">
+      <div class="card shadow-lg rounded">
+        <h4 class="card-header">Your Inventory</h4>
+        <div class="card-body">
+          <span class="card-title justify-content-center">Your ships, your salvos, and everything in between.</span>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div class="container mb-5" id="boards">
+  <div class="row m-5" id="spacer"></div>
 
-    <div class="row">
-      <div class="col">
-        <h4 class="bg-info">Game Board</h4>
-        <table class="table table-bordered shadow">
+  <!------------------------------ GAME BOARDS ------------------------------>
+  <div class="row m-5" id="boards">
+    <div class="col">
+      <h4 class="bg-info">Game Board</h4>
+      <table class="table table-bordered shadow">
           <thead>
           <tr>
             <th></th>
@@ -180,11 +195,11 @@
           </tr>
           </tbody>
         </table>
-      </div>
+    </div>
 
-      <div class="col">
-        <h4 class="bg-warning">Salvo Board</h4>
-        <table class="table table-bordered shadow">
+    <div class="col">
+      <h4 class="bg-danger">Salvo Board</h4>
+      <table class="table table-bordered shadow">
           <thead>
           <tr>
             <th></th>
@@ -333,15 +348,13 @@
           </tr>
           </tbody>
         </table>
-      </div>
     </div>
-
   </div>
 </div>
 
 <footer class="footer mt-auto py-3 bg-dark">
   <div class="container">
-    <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado">pizzadeparado</a> in Buenos Aires.</span>
+    <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
   </div>
 </footer>
 

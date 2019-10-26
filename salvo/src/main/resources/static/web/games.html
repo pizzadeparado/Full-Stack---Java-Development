@@ -8,22 +8,22 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
 </head>
 
 <body>
 <div class="container-fluid" id="app">
 
   <!------------------------------ TITLE ------------------------------>
-  <div class="row m-5 align-items-center justify-content-center" id="title">Salvo - Game On!</div>
+  <div class="row m-5 justify-content-center" id="title">Salvo - Game On!</div>
 
   <!------------------------------ MENU ------------------------------>
   <div class="row m-5 align-items-center" id="playerAccess">
     <div class="col-sm-4 text-center" id="signUp">
         <div class="card shadow-lg rounded p-5">
           <h3>Sign Up</h3>
-          <button class="btn btn-info m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+          <button class="btn btn-info shadow-lg m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
           <div class="collapse" id="registrationCollapse">
             <form id="registration">
               <div class="form-group mb-4">
@@ -44,7 +44,7 @@
           <!----------if no user is logged in show this---------->
           <div v-show="currentUser == 'guest'">
             <h3>Log In</h3>
-            <button class="btn btn-success m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+            <button class="btn btn-success shadow-lg m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
             <div class="collapse" id="loginCollapse">
               <form id="loginForm">
                 <div class="form-group mb-4">
@@ -172,7 +172,7 @@
 
 <footer class="footer mt-auto py-3 bg-dark">
   <div class="container">
-    <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado">pizzadeparado</a> in Buenos Aires.</span>
+    <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
   </div>
 </footer>
 
