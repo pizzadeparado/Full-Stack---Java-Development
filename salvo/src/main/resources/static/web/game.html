@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Salvo | Current game...</title>
-  <link rel="stylesheet" href="css/game.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
+  <link href="css/game.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" rel="stylesheet">
+  <link href="https://use.typekit.net/ize1xyw.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
   <div class="row m-5 text-center justify-content-center" id="menu">
     <div class="col-sm-4" id="currentGame">
       <div class="card shadow-lg rounded">
-        <h4 class="card-header bg-success">Current Game</h4>
+        <h4 class="card-header bg-gradient-success">Current Game</h4>
         <div class="card-body">
           <h5 class="card-title" id="playerInfo">Player 1 v Player 2</h5>
           <a class="btn btn-warning btn-block shadow-lg" href="http://localhost:8080/web/games.html">Homepage</a>
@@ -45,7 +45,7 @@
   <!------------------------------ GAME BOARDS ------------------------------>
   <div class="row m-5" id="boards">
     <div class="col">
-      <h4 class="bg-info shadow-lg">Game Board</h4>
+      <h4 class="bg-info shadow-lg" id="gradient">Game Board</h4>
       <table class="table table-bordered shadow">
           <thead>
           <tr>
@@ -198,7 +198,7 @@
     </div>
 
     <div class="col">
-      <h4 class="bg-danger shadow-lg">Salvo Board</h4>
+      <h4 class="bg-danger shadow-lg" id="gradient2">Salvo Board</h4>
       <table class="table table-bordered shadow">
           <thead>
           <tr>
@@ -374,6 +374,7 @@
 <script src=""></script>
 <!--content scripts-->
 <script src="js/game.js"></script>
+<script src="js/gradient.js"></script>
 
 </body>
 </html>

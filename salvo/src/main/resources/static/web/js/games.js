@@ -79,7 +79,7 @@ function loadScore() {
 function createGame() {
   $.post("/api/games")
     .done(function (data) {
-      swal("Starting game in 3, 2, 1 ...", {
+      swal("Starting a new game in 3, 2, 1...", {
         closeOnClickOutside: false,
         icon: "info",
         buttons: false,
@@ -89,12 +89,12 @@ function createGame() {
     })
     .fail(function () {
       swal("Game couldn't be created. Please try again.", {
-        closeOnClickOutside: false,
+        closeOnClickOutside: true,
         icon: "error",
         buttons: false,
         timer: 2500,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
@@ -116,12 +116,12 @@ function signUp() {
     })
     .fail(function () {
       swal("Sorry, we couldn't create your account. Please try again.", {
-        closeOnClickOutside: false,
+        closeOnClickOutside: true,
         icon: "warning",
         buttons: false,
         timer: 2500,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
@@ -133,7 +133,7 @@ function login() {
     password: document.getElementById("loginPassword").value
   })
     .done(function () {
-      swal("You're now logged in.", {
+      swal("You're now logged in. Redirecting you...", {
         closeOnClickOutside: false,
         icon: "success",
         buttons: false,
@@ -143,12 +143,12 @@ function login() {
     })
     .fail(function () {
       swal("Incorrect username or password.", {
-        closeOnClickOutside: false,
+        closeOnClickOutside: true,
         icon: "error",
         buttons: false,
         timer: 2500,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
+      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
@@ -156,7 +156,7 @@ function login() {
 function logout() {
   $.post("/api/logout")
     .done(function () {
-      swal("You're now logged out. Redirecting you.", {
+      swal("You're now logged out. Redirecting you...", {
         closeOnClickOutside: false,
         icon: "success",
         buttons: false,
@@ -166,11 +166,58 @@ function logout() {
     })
     .fail(function () {
       swal("There was a problem and we couldn't log you out. Please try again.", {
-        closeOnClickOutside: false,
+        closeOnClickOutside: true,
         icon: "error",
         buttons: false,
         timer: 2500,
       });
       window.setTimeout(function () { window.location.reload() }, 2500);
     });
+}
+
+
+/******************** JOIN & RETURN ********************/
+function joinGame() {
+$.get("/api/games")
+	window.setTimeout(function () {
+    window.location.href = "http://localhost:8080/web/game.html?gp=" + game.player[0].gamePlayerID;
+  }, 2500);
+  swal("Joining game. Please wait.", {
+    closeOnClickOutside: false,
+    icon: "info",
+    buttons: false,
+    timer: 2500,
+  });
+}
+
+function returnGame() {
+$.get("/api/games")
+  window.setTimeout(function () {
+    window.location.href = "http://localhost:8080/web/game.html?gp=" + game.player[1].gamePlayerID;
+  }, 2500);
+  swal("Taking you back to your game. Please wait.", {
+    closeOnClickOutside: false,
+    icon: "info",
+    buttons: false,
+    timer: 2500,
+  });
+}
+
+/******************** VARIOUS ACTIONS ********************/
+function newGameAlert() {
+  swal("You need to log in before starting a new game!", {
+    closeOnClickOutside: true,
+    icon: "info",
+    buttons: false,
+    timer: 2500,
+  })
+}
+
+function signUpAfterLogIn() {
+  swal("You're already logged in. You can't create a new account!", {
+    closeOnClickOutside: true,
+    icon: "info",
+    buttons: false,
+    timer: 2500,
+  })
 }

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Salvo | Game List</title>
-  <link rel="stylesheet" href="css/games.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
+  <link href="css/games.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" rel="stylesheet">
+  <link href="https://use.typekit.net/ize1xyw.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,22 +23,32 @@
     <div class="col-sm-4 text-center" id="signUp">
         <div class="card shadow-lg rounded p-5">
           <h3>Sign Up</h3>
-          <button class="btn btn-info shadow-lg m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
-          <div class="collapse" id="registrationCollapse">
-            <form id="registration">
-              <div class="form-group mb-4">
-                <input type="email" class="form-control" id="registrationEmail" placeholder="Email">
-              </div>
-              <div class="form-group mb-4">
-                <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
-              </div>
-              <button class="btn btn-outline-info" type="button" onclick="signUp()">Continue</button>
-            </form>
+
+          <!----------if no user is logged in show this---------->
+          <div v-show="currentUser == 'guest'">
+            <button class="btn btn-info shadow-lg m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+            <div class="collapse" id="registrationCollapse">
+              <form id="registration">
+                <div class="form-group mb-4">
+                  <input type="email" class="form-control" id="registrationEmail" placeholder="Email">
+                </div>
+                <div class="form-group mb-4">
+                  <input type="password" class="form-control" id="registrationPassword" placeholder="Password">
+                </div>
+                <button class="btn btn-outline-info shadow-lg" type="button" onclick="signUp()">Continue</button>
+              </form>
+            </div>
+          </div>
+
+          <!----------if the user is logged in show this---------->
+          <div v-show="currentUser != 'guest'">
+            <!--<p>You already have an account. You can't sign up.</p>-->
+            <button class="btn btn-info shadow-lg m-3" type="button" onclick="signUpAfterLogIn()">Register</button>
           </div>
         </div>
       </div>
 
-    <div class="col-sm-4 text-center" id="logIn">
+      <div class="col-sm-4 text-center" id="logIn">
         <div class="card shadow-lg rounded p-5">
 
           <!----------if no user is logged in show this---------->
@@ -54,16 +64,16 @@
                   <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
                 </div>
                 <div>
-                  <button class="btn btn-success mr-3" type="button" onclick="login()">Log In</button>
+                  <button class="btn btn-success shadow-lg mr-3" type="button" onclick="login()">Log In</button>
                 </div>
               </form>
             </div>
           </div>
 
-          <!----------if no user is logged in show this---------->
+          <!----------if the user is logged in show this---------->
           <div v-show="currentUser != 'guest'">
             <h3>Welcome <h6 class="mt-3">{{currentUser.user}}</h6></h3>
-            <button class="btn btn-danger" id="logoutForm" type="button" onclick="logout()">Log Out</button>
+            <button class="btn btn-danger shadow-lg" id="logoutForm" type="button" onclick="logout()">Log Out</button>
           </div>
         </div>
       </div>
@@ -74,12 +84,13 @@
 
           <!----------if no user is logged in show this---------->
           <div v-show="currentUser == 'guest'">
-            <p>You need to log in before starting a new game.</p>
+            <!--<p>You need to log in before starting a new game.</p>-->
+            <button class="btn btn-warning shadow-lg m-3" type="button" onclick="newGameAlert()">Ready, set, go!</button>
           </div>
 
-          <!----------if the user is logged show this---------->
+          <!----------if the user is logged in show this---------->
           <div v-show="currentUser != 'guest'">
-            <button class="btn btn-warning m-3" type="button" onclick="createGame()">Ready, set, go!</button>
+            <button class="btn btn-warning shadow-lg m-3" type="button" onclick="createGame()">Ready, set, go!</button>
           </div>
 
         </div>
@@ -101,11 +112,9 @@
             <th>Player 2</th>
 
             <!----------if no user is logged in show this---------->
-
             <th v-show="currentUser != 'guest'"></th>
 
             <!----------if a user is logged in show this---------->
-
             <th v-show="currentUser != 'guest'">Join Game</th>
 
           </tr>
@@ -115,27 +124,23 @@
           <tr v-for="(game, index) in vueGames">
             <td class="text-center">{{game.gameID}}</td>
             <!--<td>{{game.created}}</td>-->
-            <td>{{game.player[0].user}}</td>
-            <td>{{game.player[1] == null ? "" : game.player[1].user}}</td>
+            <td>{{game.player[0].user.split("@")[0]}}</td>
+            <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
             <!----------if no user is logged in---------->
-
             <td v-show="currentUser != 'guest'"></td>
 
             <!----------if the game is full---------->
-
             <td v-show="currentUser != 'guest' && game.player[0] && game.player[1]">Room Full</td>
 
             <!----------option to join a game---------->
-
             <td v-show="currentUser == 'game.player[1].user'">
-              <button type="button" class="btn btn-warning btn-sm" onclick="joinGame(game.player[0].playerID)">Join</button>
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="joinGame(game.player[1].gamePlayerID)">Join</button>
             </td>
 
             <!----------option to return to a game---------->
-
             <td v-show="currentUser != 'guest' && game.player[1] == null">
-              <button type="button" class="btn btn-warning btn-sm" onclick="joinGame(game.player[1].playerID)">Return</button>
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="returnGame(game.player[1].gamePlayerID)">Return</button>
             </td>
 
           </tr>
@@ -158,7 +163,7 @@
 
           <tbody>
           <tr v-for="player in vueScore">
-            <td>{{player.user}}</td>
+            <td>{{player.user.split("@")[0]}}</td>
             <td class="text-center">{{player.won}}</td>
             <td class="text-center">{{player.tied}}</td>
             <td class="text-center">{{player.lost}}</td>

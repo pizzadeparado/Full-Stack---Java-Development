@@ -6,56 +6,56 @@ body {
 }
 
 #title {
-	font-family: ccbiffbamboomoutline,sans-serif;
-	font-style: normal;
-	font-size: 45px;
+  font-family: ccbiffbamboomoutline, sans-serif;
+  font-style: normal;
+  font-size: 45px;
 }
 
 
 /******************** FONTS ********************/
 h3 {
-	font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee Shade', cursive;
 }
 
 h4 {
-	font-family: 'Bungee', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 h6 {
-	font-family: 'Bungee', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 p {
-	font-family: 'Roboto Condensed', sans-serif;
-	font-style: italic;
-	font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: italic;
+  font-weight: bold;
 }
 
 
 /******************** TABLES ********************/
 th {
-	font-family: 'Space Mono', monospace;
+  font-family: 'Space Mono', monospace;
 }
 
 tbody {
-	font-family: 'Roboto Condensed', sans-serif;
-	background: rgba(255, 255, 255, 0.8);
+  font-family: 'Roboto Condensed', sans-serif;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 
 /******************** DECORATIONS ********************/
 .btn {
-	font-family: 'Space Mono', monospace;
+  font-family: 'Space Mono', monospace;
 }
 
 .card {
-	min-height: 210px;
-	min-width: 330px;
+  min-height: 210px;
+  min-width: 330px;
 }
 
 .swal-text {
-	font-family: 'Bungee', cursive;
-	text-align: center;
+  font-family: 'Bungee', cursive;
+  text-align: center;
 }
 
 .swal-overlay {
