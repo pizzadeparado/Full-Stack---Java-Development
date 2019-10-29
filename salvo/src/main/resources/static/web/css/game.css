@@ -66,3 +66,12 @@ th, td {
 .card {
 	min-height: 210px;
 }
+
+.swal-text {
+  font-family: 'Bungee', cursive;
+  text-align: center;
+}
+
+.swal-overlay {
+  background-color: rgba(173, 94, 153, 0.5);
+}

@@ -207,7 +207,7 @@ $.get("/api/games")
 function newGameAlert() {
   swal("You need to log in before starting a new game!", {
     closeOnClickOutside: true,
-    icon: "info",
+    icon: "warning",
     buttons: false,
     timer: 2500,
   })

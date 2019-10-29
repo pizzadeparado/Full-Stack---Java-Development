@@ -56,3 +56,14 @@ function isHit(shipLocation, salvos, playerId) {
   });
   return hit
 };
+
+/******************** VARIOUS ACTIONS ********************/
+function backToHomepage() {
+	swal("Closing game...", {
+    closeOnClickOutside: true,
+    icon: "info",
+    buttons: false,
+    timer: 2000,
+  });
+  window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 2000);
+}

@@ -231,7 +231,11 @@ class WebSecurityAuthorization extends WebSecurityConfigurerAdapter {
 				.passwordParameter("password")
 				.loginPage("/api/login");
 
-		http.logout().logoutUrl("/api/logout");
+		//Logs out, invalidates HTTP session and deletes cookies.
+		http.logout()
+				.logoutUrl("/api/logout")
+				.invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID");
 
 		http.csrf().disable();
 
