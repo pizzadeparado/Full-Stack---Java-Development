@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Salvo | Game List</title>
@@ -137,7 +137,7 @@
             <td v-show="currentUser != 'guest' && game.player[0] && game.player[1]">Room Full</td>
 
             <!----------option to join a game---------->
-            <td v-show="currentUser == 'game.player[1].user'">
+            <td v-show="currentUser == 'game.player[0]'">
               <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="joinGame(game.player[1].gamePlayerID)">Join</button>
             </td>
 
