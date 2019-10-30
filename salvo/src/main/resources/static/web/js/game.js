@@ -59,7 +59,7 @@ function isHit(shipLocation, salvos, playerId) {
 
 /******************** VARIOUS ACTIONS ********************/
 function backToHomepage() {
-	swal("Closing game...", {
+  swal("Closing game...", {
     closeOnClickOutside: true,
     icon: "info",
     buttons: false,

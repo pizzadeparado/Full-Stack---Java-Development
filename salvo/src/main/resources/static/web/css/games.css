@@ -1,4 +1,5 @@
 body {
+  background-color: rgba(136, 176, 75, 0.7) !important;
   background-image: url(fire.png);
   background-repeat: repeat-x;
   background-size: 60%;
@@ -11,10 +12,16 @@ body {
   font-size: 45px;
 }
 
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
 
 /******************** FONTS ********************/
 h3 {
   font-family: 'Bungee Shade', cursive;
+  color: white;
 }
 
 h4 {
@@ -33,13 +40,18 @@ p {
 
 
 /******************** TABLES ********************/
+table {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
 th {
   font-family: 'Space Mono', monospace;
 }
 
 tbody {
   font-family: 'Roboto Condensed', sans-serif;
-  background: rgba(255, 255, 255, 0.8);
+  color: white;
 }
 
 
@@ -49,6 +61,8 @@ tbody {
 }
 
 .card {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: saturate(180%) blur(20px);
   min-height: 210px;
   min-width: 330px;
 }

@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Salvo | Game List</title>
   <link href="css/games.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" rel="stylesheet">
@@ -100,10 +103,10 @@
   <div class="row m-5" id="spacer"></div>
 
   <!------------------------------ GAMES & LEADERBOARD ------------------------------>
-  <div class="row m-5" id="info">
+  <div class="row m-5" id="gameInfo">
     <div class="col" id="gamesTable">
         <h4>Game List</h4>
-        <table class="table table-hover shadow">
+        <table class="table shadow">
           <thead class="thead-dark">
           <tr>
             <th class="text-center">ID</th>
@@ -150,7 +153,7 @@
 
     <div class="col" id="leaderboardTable">
         <h4>Leaderboard</h4>
-        <table class="table table-hover shadow">
+        <table class="table shadow">
           <thead class="thead-dark">
           <tr>
             <th>Player</th>
@@ -175,7 +178,7 @@
   </div>
 </div>
 
-<footer class="footer mt-auto py-3 bg-dark">
+<footer class="footer mt-auto py-3">
   <div class="container">
     <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
   </div>

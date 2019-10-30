@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Salvo | Current game...</title>
   <link href="css/game.css" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" rel="stylesheet">
@@ -22,16 +25,16 @@
   <div class="row m-5 text-center justify-content-center" id="menu">
     <div class="col-sm-4" id="currentGame">
       <div class="card shadow-lg rounded">
-        <h4 class="card-header bg-success">Current Game</h4>
+        <h3 class="card-header">Current Game</h3>
         <div class="card-body">
           <h5 class="card-title" id="playerInfo">Player 1 v Player 2</h5>
-          <button class="btn btn-warning btn-block shadow-lg" type="button" onclick="backToHomepage()">Homepage</button>
+          <button class="btn btn-warning shadow-lg m-3" type="button" onclick="backToHomepage()"><- Homepage</button>
         </div>
       </div>
     </div>
     <div class="col-sm-6" id="playerInventory">
       <div class="card shadow-lg rounded">
-        <h4 class="card-header">Your Inventory</h4>
+        <h3 class="card-header">Your Inventory</h3>
         <div class="card-body">
           <span class="card-title">Your ships, your salvos, and everything in between.</span>
         </div>
@@ -45,9 +48,9 @@
   <!------------------------------ GAME BOARDS ------------------------------>
   <div class="row m-5" id="boards">
     <div class="col">
-      <h4 class="bg-info shadow-lg">Game Board</h4>
+      <h4>Game Board</h4>
       <table class="table table-bordered shadow">
-          <thead>
+          <thead class="bg-dark">
           <tr>
             <th></th>
             <th id="G_TH0">1</th>
@@ -198,9 +201,9 @@
     </div>
 
     <div class="col">
-      <h4 class="bg-danger shadow-lg">Salvo Board</h4>
+      <h4>Salvo Board</h4>
       <table class="table table-bordered shadow">
-          <thead>
+          <thead class="bg-dark">
           <tr>
             <th></th>
             <th id="S_TH0">1</th>
@@ -352,7 +355,7 @@
   </div>
 </div>
 
-<footer class="footer mt-auto py-3 bg-dark">
+<footer class="footer mt-auto py-3">
   <div class="container">
     <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
   </div>

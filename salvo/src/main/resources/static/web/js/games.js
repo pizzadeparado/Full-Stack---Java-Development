@@ -178,8 +178,8 @@ function logout() {
 
 /******************** JOIN & RETURN ********************/
 function joinGame() {
-$.get("/api/games")
-	window.setTimeout(function () {
+  $.get("/api/games")
+  window.setTimeout(function () {
     window.location.href = "http://localhost:8080/web/game.html?gp=" + game.player[0].gamePlayerID;
   }, 2500);
   swal("Joining game. Please wait.", {
@@ -191,7 +191,7 @@ $.get("/api/games")
 }
 
 function returnGame() {
-$.get("/api/games")
+  $.get("/api/games")
   window.setTimeout(function () {
     window.location.href = "http://localhost:8080/web/game.html?gp=" + game.player[1].gamePlayerID;
   }, 2500);
