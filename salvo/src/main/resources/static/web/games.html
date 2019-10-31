@@ -113,11 +113,7 @@
             <!--<th>Date</th>-->
             <th>Player 1</th>
             <th>Player 2</th>
-
-            <!----------if no user is logged in show this---------->
-            <th v-show="currentUser != 'guest'"></th>
-
-            <!----------if a user is logged in show this---------->
+            <!----------if "user" is logged in show this---------->
             <th v-show="currentUser != 'guest'">Join Game</th>
 
           </tr>
@@ -130,14 +126,11 @@
             <td>{{game.player[0].user.split("@")[0]}}</td>
             <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
-            <!----------if no user is logged in---------->
-            <td v-show="currentUser != 'guest'"></td>
-
-            <!----------if the game is full---------->
-            <td v-show="currentUser != 'guest' && game.player[0] && game.player[1]">Room Full</td>
+            <!----------if "game" is full show this---------->
+            <td v-show="currentUser != 'guest' && game.player[1] != null">Room Full</td>
 
             <!----------option to join a game---------->
-            <td v-show="currentUser == 'game.player[0]'">
+            <td v-show="currentUser == game.player[1] && game.player[0] != null">
               <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="joinGame(game.player[1].gamePlayerID)">Join</button>
             </td>
 
@@ -145,8 +138,8 @@
             <td v-show="currentUser != 'guest' && game.player[1] == null">
               <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="returnGame(game.player[1].gamePlayerID)">Return</button>
             </td>
-
           </tr>
+
           </tbody>
         </table>
       </div>

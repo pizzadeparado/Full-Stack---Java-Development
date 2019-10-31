@@ -64,8 +64,20 @@ tbody {
 .card {
   background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: saturate(180%) blur(20px);
-  min-height: 210px;
-  min-width: 330px;
+}
+
+@media only screen and (orientation: landscape) {
+  #cardLandscape {
+    min-height: 210px;
+    min-width: 330px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  #cardPortrait {
+    min-height: 210px;
+    min-width: 330px;
+  }
 }
 
 .swal-text {
