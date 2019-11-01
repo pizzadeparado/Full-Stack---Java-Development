@@ -6,23 +6,30 @@ var app = new Vue({
     currentUser: ''
   },
   methods: {
-    gameReturn(ID) {
-      window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
-    },
     joinGame(gameID) {
-      $.post("/api/game/" + gameID + "/players")
+      $.post("/api/games/" + gameID + "/player")
         .done(function (data) {
-          window.location.href = "http://localhost:8080/web/game.html?gp=" + data.gamePlayerID;
-        })
-        .fail(function () {
-          swal("Unable to join game. Reloading", {
+          swal("Joining game...", {
             closeOnClickOutside: false,
-            icon: "warning",
+            icon: "info",
             buttons: false,
-            timer: 2500,
+            timer: 1500,
           });
-          window.setTimeout(function () { window.location.reload() }, 2500);
+          window.setTimeout(function () {
+            window.location.href = "http://localhost:8080/web/game.html?gp=" + data.player.gamePlayerID;
+          }, 1500);
         });
+    },
+    gameReturn(ID) {
+      swal("Reopening game...", {
+        closeOnClickOutside: false,
+        icon: "info",
+        buttons: false,
+        timer: 1500,
+      });
+      window.setTimeout(function () {
+        window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
+      }, 1500);
     }
   }
 });
@@ -177,6 +184,7 @@ function logout() {
 
 
 /******************** JOIN & RETURN ********************/
+/*
 function joinGame() {
   $.get("/api/games")
   window.setTimeout(function () {
@@ -202,6 +210,7 @@ function returnGame() {
     timer: 2500,
   });
 }
+*/
 
 /******************** VARIOUS ACTIONS ********************/
 function newGameAlert() {

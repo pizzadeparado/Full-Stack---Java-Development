@@ -38,6 +38,9 @@ public class GamePlayer {
     this.joinDate = joinDate;
   }
 
+  public GamePlayer(Player player, Game game) {
+  }
+
   public Set<Salvo> getSalvo() {
     return salvo;
   }

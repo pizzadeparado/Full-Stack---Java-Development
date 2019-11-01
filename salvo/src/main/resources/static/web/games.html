@@ -29,7 +29,7 @@
 
           <!----------if no user is logged in show this---------->
           <div v-show="currentUser == 'guest'">
-            <button class="btn btn-info shadow-lg m-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+            <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
             <div class="collapse" id="registrationCollapse">
               <form id="registration">
                 <div class="form-group mb-4">
@@ -45,8 +45,7 @@
 
           <!----------if the user is logged in show this---------->
           <div v-show="currentUser != 'guest'">
-            <!--<p>You already have an account. You can't sign up.</p>-->
-            <button class="btn btn-info shadow-lg m-3" type="button" onclick="signUpAfterLogIn()">Register</button>
+            <button class="btn btn-info btn-block shadow-lg my-3" type="button" onclick="signUpAfterLogIn()">Register</button>
           </div>
         </div>
       </div>
@@ -57,7 +56,7 @@
           <!----------if no user is logged in show this---------->
           <div v-show="currentUser == 'guest'">
             <h3>Log In</h3>
-            <button class="btn btn-success shadow-lg m-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+            <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
             <div class="collapse" id="loginCollapse">
               <form id="loginForm">
                 <div class="form-group mb-4">
@@ -67,7 +66,7 @@
                   <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
                 </div>
                 <div>
-                  <button class="btn btn-success shadow-lg mr-3" type="button" onclick="login()">Log In</button>
+                  <button class="btn btn-success shadow-lg" type="button" onclick="login()">Log In</button>
                 </div>
               </form>
             </div>
@@ -76,7 +75,7 @@
           <!----------if the user is logged in show this---------->
           <div v-show="currentUser != 'guest'">
             <h3>Welcome <h6 class="mt-3">{{currentUser.user}}</h6></h3>
-            <button class="btn btn-danger shadow-lg" id="logoutForm" type="button" onclick="logout()">Log Out</button>
+            <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" onclick="logout()">Log Out</button>
           </div>
         </div>
       </div>
@@ -88,12 +87,12 @@
           <!----------if no user is logged in show this---------->
           <div v-show="currentUser == 'guest'">
             <!--<p>You need to log in before starting a new game.</p>-->
-            <button class="btn btn-warning shadow-lg m-3" type="button" onclick="newGameAlert()">Ready, set, go!</button>
+            <button class="btn btn-warning btn-block shadow-lg m-3" type="button" onclick="newGameAlert()">Ready, set, go!</button>
           </div>
 
           <!----------if the user is logged in show this---------->
           <div v-show="currentUser != 'guest'">
-            <button class="btn btn-warning shadow-lg m-3" type="button" onclick="createGame()">Ready, set, go!</button>
+            <button class="btn btn-warning btn-block shadow-lg m-3" type="button" onclick="createGame()">Ready, set, go!</button>
           </div>
 
         </div>
@@ -131,12 +130,12 @@
 
             <!----------option to join a game---------->
             <td v-show="currentUser == game.player[1] && game.player[0] != null">
-              <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="joinGame(game.player[1].gamePlayerID)">Join</button>
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(games.gameID)">Join</button>
             </td>
 
             <!----------option to return to a game---------->
             <td v-show="currentUser != 'guest' && game.player[1] == null">
-              <button type="button" class="btn btn-sm btn-warning shadow-lg" onclick="returnGame(game.player[1].gamePlayerID)">Return</button>
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(games.gameID)">Return</button>
             </td>
           </tr>
 
@@ -185,12 +184,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!--vue js-->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!-- react js -->
-<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-<!-- react component -->
-<script src=""></script>
 <!-- sweetalert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--content scripts-->

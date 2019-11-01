@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(227, 116, 66, 0.7) !important;
+  background-color: rgba(173, 94, 153, 0.7) !important;
   background-image: url(fire.png);
   background-repeat: repeat-x;
   background-size: 60%;
@@ -83,10 +83,11 @@ th {
   color: white;
 }
 
+/*
 .card-header {
-  background-color: rgba(0, 0, 0, 0.4) !important;
   backdrop-filter: saturate(180%) blur(20px);
 }
+*/
 
 .swal-text {
   font-family: 'Bungee', cursive;

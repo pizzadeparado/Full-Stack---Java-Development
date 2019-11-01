@@ -1,9 +1,9 @@
-function getParameterByName(name) {
-  var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+function getParameterByName(user) {
+  var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-$.get('/api/game_view/' + getParameterByName('gp'))
+$.get('/api/game_view/' + getParameterByName('gameID'))
   .done(function (data) {
     console.log(data);
     var playerInfo;
@@ -41,7 +41,7 @@ $.get('/api/game_view/' + getParameterByName('gp'))
     });
   })
   .fail(function () {
-    swal('Failed: ' + textStatus);
+    swal('Failed: ');
   });
 
 
@@ -63,7 +63,7 @@ function backToHomepage() {
     closeOnClickOutside: true,
     icon: "info",
     buttons: false,
-    timer: 2000,
+    timer: 1500,
   });
-  window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 2000);
+  window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 1500);
 }
