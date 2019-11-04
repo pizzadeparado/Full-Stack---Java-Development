@@ -58,6 +58,8 @@ td:nth-child(1) {
 
 td,
 th {
+  height: 50px;
+  width: 50px;
   font-family: 'Space Mono', monospace;
   color: white;
 }
@@ -83,11 +85,9 @@ th {
   color: white;
 }
 
-/*
 .card-header {
-  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
-*/
 
 .swal-text {
   font-family: 'Bungee', cursive;

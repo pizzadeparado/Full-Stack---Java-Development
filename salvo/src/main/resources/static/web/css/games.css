@@ -62,10 +62,13 @@ tbody {
 }
 
 .card {
+  min-height: 210px;
+  min-width: 330px;
   background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: saturate(180%) blur(20px);
 }
 
+/*
 @media only screen and (orientation: landscape) {
   #cardLandscape {
     min-height: 210px;
@@ -79,6 +82,7 @@ tbody {
     min-width: 330px;
   }
 }
+*/
 
 .swal-text {
   font-family: 'Bungee', cursive;

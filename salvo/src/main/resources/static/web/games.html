@@ -109,7 +109,6 @@
           <thead class="thead-dark">
           <tr>
             <th class="text-center">ID</th>
-            <!--<th>Date</th>-->
             <th>Player 1</th>
             <th>Player 2</th>
             <!----------if "user" is logged in show this---------->
@@ -121,21 +120,20 @@
           <tbody>
           <tr v-for="(game, index) in vueGames">
             <td class="text-center">{{game.gameID}}</td>
-            <!--<td>{{game.created}}</td>-->
             <td>{{game.player[0].user.split("@")[0]}}</td>
             <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
             <!----------if "game" is full show this---------->
-            <td v-show="currentUser != 'guest' && game.player[1] != null">Room Full</td>
+            <td v-if="currentUser != 'guest' && game.player[0] != null && game.player[1] != null">Room Full</td>
 
             <!----------option to join a game---------->
-            <td v-show="currentUser == game.player[1] && game.player[0] != null">
-              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(games.gameID)">Join</button>
+            <td v-if="currentUser != 'guest' && game.player.length < 2 && currentUser.user != game.player[0].user">
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
             </td>
 
             <!----------option to return to a game---------->
-            <td v-show="currentUser != 'guest' && game.player[1] == null">
-              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(games.gameID)">Return</button>
+            <td v-if= "currentUser != 'guest' && (currentUser.user == game.player[0].user || currentUser.user == game.player[1])">
+              <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
             </td>
           </tr>
 

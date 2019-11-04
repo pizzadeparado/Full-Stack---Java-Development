@@ -101,7 +101,6 @@ function createGame() {
         buttons: false,
         timer: 2500,
       });
-      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
@@ -128,13 +127,15 @@ function signUp() {
         buttons: false,
         timer: 2500,
       });
-      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
 
 /******************** LOG IN ********************/
 function login() {
+  if (app.currentUser == "guest") {
+    
+  }
   $.post("/api/login", {
     username: document.getElementById("loginEmail").value,
     password: document.getElementById("loginPassword").value
@@ -155,7 +156,6 @@ function login() {
         buttons: false,
         timer: 2500,
       });
-      //window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
