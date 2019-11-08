@@ -131,7 +131,7 @@ var app = new Vue({
             timer: 1500,
           });
           window.setTimeout(function () {
-            window.location.href = "http://localhost:8080/web/game.html?gp=" + data.player.gamePlayerID;
+            window.location.href = "http://localhost:8080/web/game.html?gp=" + data.gamePlayerID;
           }, 1500);
         });
     },

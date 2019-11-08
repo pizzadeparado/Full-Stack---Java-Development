@@ -124,7 +124,7 @@
             <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
             <!----------if "game" is full show this---------->
-            <td v-if="salvoUser != 'guest' && game.player[0] != null && game.player[1] != null">Room Full</td>
+            <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">Room Full</td>
 
             <!----------option to join a game---------->
             <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
@@ -132,7 +132,7 @@
             </td>
 
             <!----------option to return to a game---------->
-            <td v-if= "salvoUser != 'guest' && (salvoUser.user == game.player[0].user || salvoUser.user == game.player[1])">
+            <td v-if= "salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
               <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
             </td>
           </tr>

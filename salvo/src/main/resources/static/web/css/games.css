@@ -4,6 +4,7 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
+
 }
 
 #title {
@@ -66,6 +67,12 @@ tbody {
   min-width: 330px;
   background-color: rgba(0, 0, 0, 0.7) !important;
   backdrop-filter: saturate(180%) blur(20px);
+  transition: transform .2s ease;
+}
+
+.card:hover {
+  transform: scale(1.1) translateZ(0);
+  backface-visibility: hidden;
 }
 
 /*

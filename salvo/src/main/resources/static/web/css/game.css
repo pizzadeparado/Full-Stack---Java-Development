@@ -4,6 +4,7 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
+  -webkit-font-smoothing: antialiased;
 }
 
 #title {
@@ -82,7 +83,6 @@ th {
   background-color: rgba(0, 0, 0, 0.6) !important;
   backdrop-filter: saturate(180%) blur(20px);
   min-height: 210px;
-  color: white;
 }
 
 .card-header {
