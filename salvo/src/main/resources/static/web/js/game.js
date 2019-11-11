@@ -11,33 +11,33 @@ function getParameterByName(user) {
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-$.get('/api/game_view/' + getParameterByName('gameID'))
+$.get("/api/game_view/" + getParameterByName("gamePlayerID"))
   .done(function (data) {
     console.log(data);
     var playerInfo;
-    if (data.gamePlayers[0].id == getParameterByName('gp')) {
-      playerInfo = [data.gamePlayers[0].name, data.gamePlayers[1].name];
+    if (data.player[0].playerID == getParameterByName("gamePlayerID")) {
+      playerInfo = [data.player[0].user, data.player[1].user];
     }
     else {
-      playerInfo = [data.gamePlayers[1].name, data.gamePlayers[0].name];
+      playerInfo = [data.player[1].user, data.player[0].user];
     }
 
-    $('#playerInfo').text(playerInfo[0].name + '(you) vs ' + playerInfo[1].name);
+    $('#playerInfo').text(playerInfo[0].user + '(you) vs ' + playerInfo[1].user);
 
     data.ships.forEach(function (shipPiece) {
       shipPiece.shipLocations.forEach(function (shipLocation) {
-        let turnHitted = isHit(shipLocation, data.salvos, playerInfo[0].id)
+        let turnHitted = isHit(shipLocation, data.salvo, playerInfo[0].gamePlayerID)
         if (turnHitted > 0) {
-          $('#B_' + shipLocation).addClass('ship-piece-hited');
+          $('#B_' + shipLocation).addClass('ship-piece-hitted');
           $('#B_' + shipLocation).text(turnHitted);
         }
         else
           $('#B_' + shipLocation).addClass('ship-piece');
       });
     });
-    data.salvos.forEach(function (salvo) {
+    data.salvo.forEach(function (salvo) {
       console.log(salvo);
-      if (playerInfo[0].id === salvo.player) {
+      if (playerInfo[0].gamePlayerID === salvo.player) {
         salvo.salvoLocations.forEach(function (location) {
           $('#S_' + location).addClass('salvo');
         });
@@ -53,10 +53,10 @@ $.get('/api/game_view/' + getParameterByName('gameID'))
   });
 
 
-function isHit(shipLocation, salvos, playerId) {
+function isHit(shipLocation, salvo, playerID) {
   var hit = 0;
-  salvos.forEach(function (salvo) {
-    if (salvo.player != playerId)
+  salvo.forEach(function (salvo) {
+    if (salvo.player != playerID)
       salvo.salvoLocations.forEach(function (location) {
         if (shipLocation === location)
           hit = salvo.turn;
@@ -75,3 +75,16 @@ function backToHomepage() {
   });
   window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 1500);
 }
+
+
+$.post("/games/player" + getParameterByName("gamePlayerID") + "/ships", {
+  shipType: "",
+  shipLocations: ""
+}
+.done(function() {
+  swal()
+})
+.fail(function() {
+  swal()
+})
+)
