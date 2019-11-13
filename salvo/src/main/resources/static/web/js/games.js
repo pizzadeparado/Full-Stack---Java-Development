@@ -3,7 +3,7 @@ var app = new Vue({
   data: {
     salvoGames: [],
     salvoScore: [],
-    salvoUser: '',
+    salvoUser: "",
     registrationEmail: "",
     registrationPassword: "",
     loginEmail: "",

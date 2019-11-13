@@ -1,4 +1,4 @@
-package com.codeoftheweb.salvo;
+package com.codeoftheweb.salvo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;

@@ -14,7 +14,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-class WebSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
+class SalvoSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
   @Autowired
   PlayerRepository playerRepository;
