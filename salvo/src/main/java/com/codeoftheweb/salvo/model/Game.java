@@ -3,6 +3,7 @@ package com.codeoftheweb.salvo.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,9 @@ public class Game {
 
   public Game(Date creationDate) {
     this.creationDate = new Date();
+  }
+
+  public Game(LocalDateTime now) {
   }
 
   public Date getCreationDate() {

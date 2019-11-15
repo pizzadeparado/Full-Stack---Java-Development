@@ -5,10 +5,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 @EnableWebSecurity
 class SalvoSecurityAuthorization extends WebSecurityConfigurerAdapter {
@@ -17,15 +17,15 @@ class SalvoSecurityAuthorization extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
         .antMatchers("/web/*",
-            "/web/**",
-            "/api/login",
-            "/api/logout",
-            "/api/games",
-            "/api/games/games/*",
-            "/api/players",
-            "/api/leaderboard").permitAll()
+                                      "/web/**",
+                                      "/api/login",
+                                      "/api/logout",
+                                      "/api/games",
+                                      "/api/games/games/*",
+                                      "/api/players",
+                                      "/api/leaderboard").permitAll()
         .antMatchers("/api/**",
-            "/web/game.html**").hasAuthority("USER")
+                                      "/web/game.html**").hasAuthority("USER")
         .antMatchers("/rest/**").hasAuthority("ADMIN")
         .anyRequest().denyAll();
 

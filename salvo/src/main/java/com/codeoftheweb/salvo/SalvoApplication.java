@@ -77,26 +77,6 @@ public class SalvoApplication {
 			Set<String> shipLocation7 = new HashSet<>(Arrays.asList("C6", "C7"));
 			Set<String> shipLocation8 = new HashSet<>(Arrays.asList("A2", "A3", "A4"));
 			Set<String> shipLocation9 = new HashSet<>(Arrays.asList("G6", "H6"));
-			/*
-			Set<String> shipLocation10 = new HashSet<>(Arrays.asList("B5", "C5", "D5"));
-			Set<String> shipLocation11 = new HashSet<>(Arrays.asList("C6", "C7"));
-			Set<String> shipLocation12 = new HashSet<>(Arrays.asList("A2", "A3", "A4"));
-			Set<String> shipLocation13 = new HashSet<>(Arrays.asList("G6", "H6"));
-			Set<String> shipLocation14 = new HashSet<>(Arrays.asList("B5", "C5", "D5"));
-			Set<String> shipLocation15 = new HashSet<>(Arrays.asList("C6", "C7"));
-			Set<String> shipLocation16 = new HashSet<>(Arrays.asList("A2", "A4", "A4"));
-			Set<String> shipLocation17 = new HashSet<>(Arrays.asList("G6", "H6"));
-			Set<String> shipLocation18 = new HashSet<>(Arrays.asList("B5", "C5", "D5"));
-			Set<String> shipLocation19 = new HashSet<>(Arrays.asList("C6", "C7"));
-			Set<String> shipLocation20 = new HashSet<>(Arrays.asList("A2", "A3", "A4"));
-			Set<String> shipLocation21 = new HashSet<>(Arrays.asList("G6", "H6"));
-			Set<String> shipLocation22 = new HashSet<>(Arrays.asList("B5", "C5", "D5"));
-			Set<String> shipLocation23 = new HashSet<>(Arrays.asList("C6", "C7"));
-			Set<String> shipLocation24 = new HashSet<>(Arrays.asList("B5", "C5", "D5"));
-			Set<String> shipLocation25 = new HashSet<>(Arrays.asList("C6", "C7"));
-			Set<String> shipLocation26 = new HashSet<>(Arrays.asList("A2", "A3", "A4"));
-			Set<String> shipLocation27 = new HashSet<>(Arrays.asList("G6", "H6"));
-			*/
 
 			Ship ship1 = new Ship(gamePlayer1,"Destroyer",shipLocation1);
 			Ship ship2 = new Ship(gamePlayer2,"Submarine",shipLocation2);
@@ -107,26 +87,6 @@ public class SalvoApplication {
 			Ship ship7 = new Ship(gamePlayer7,"Patrol Boat",shipLocation7);
 			Ship ship8 = new Ship(gamePlayer8,"Submarine",shipLocation8);
 			Ship ship9 = new Ship(gamePlayer9,"Patrol Boat",shipLocation9);
-			/*
-			Ship ship10 = new Ship(gamePlayer5,"Destroyer",shipLocation10);
-			Ship ship11 = new Ship(gamePlayer5,"Patrol Boat",shipLocation11);
-			Ship ship12 = new Ship(gamePlayer5,"Submarine",shipLocation12);
-			Ship ship13 = new Ship(gamePlayer5,"Patrol Boat",shipLocation13);
-			Ship ship14 = new Ship(gamePlayer5,"Destroyer",shipLocation14);
-			Ship ship15 = new Ship(gamePlayer5,"Patrol Boat",shipLocation15);
-			Ship ship16 = new Ship(gamePlayer5,"Submarine",shipLocation16);
-			Ship ship17 = new Ship(gamePlayer5,"Patrol Boat",shipLocation17);
-			Ship ship18 = new Ship(gamePlayer5,"Destroyer",shipLocation18);
-			Ship ship19 = new Ship(gamePlayer5,"Patrol Boat",shipLocation19);
-			Ship ship20 = new Ship(gamePlayer5,"Submarine",shipLocation20);
-			Ship ship21 = new Ship(gamePlayer5,"Patrol Boat",shipLocation21);
-			Ship ship22 = new Ship(gamePlayer5,"Destroyer",shipLocation22);
-			Ship ship23 = new Ship(gamePlayer5,"Patrol Boat",shipLocation23);
-			Ship ship24 = new Ship(gamePlayer5,"Destroyer",shipLocation24);
-			Ship ship25 = new Ship(gamePlayer5,"Patrol Boar",shipLocation25);
-			Ship ship26 = new Ship(gamePlayer5,"Submarine",shipLocation26);
-			Ship ship27 = new Ship(gamePlayer5,"Patrol Boat",shipLocation27);
-			*/
 
 			shipRepository.saveAll(Arrays.asList(ship1,ship2,ship3,ship4,ship5,ship6,ship7,ship8,ship9));
 
