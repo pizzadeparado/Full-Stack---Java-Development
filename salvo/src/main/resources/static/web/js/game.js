@@ -77,16 +77,16 @@ function backToHomepage() {
 }
 
 
-$.post({
-  url: "/api/games/player/{gamePlayerID}/ships",
-  data: JSON.stringify({shipType: "", shipLocation: ["", ""]}),
-  dataType: "text",
-  contentType: "application/json"
-}
-.done(function() {
-  swal()
-})
-.fail(function() {
-  swal()
-})
-)
+// $.post({
+//   url: "/api/games/player/{gamePlayerID}/ships",
+//   data: JSON.stringify({shipType: "", shipLocation: ["", ""]}),
+//   dataType: "text",
+//   contentType: "application/json"
+// }
+// .done(function() {
+//   swal()
+// })
+// .fail(function() {
+//   swal()
+// })
+// )
