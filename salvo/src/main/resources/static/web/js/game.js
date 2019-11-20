@@ -2,10 +2,6 @@
 
 
 /******************** Viejo Vue ********************/
-$(function() {
-  loadData();
-});
-
 function getParameterByName(user) {
   var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -75,18 +71,3 @@ function backToHomepage() {
   });
   window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 1500);
 }
-
-
-// $.post({
-//   url: "/api/games/player/{gamePlayerID}/ships",
-//   data: JSON.stringify({shipType: "", shipLocation: ["", ""]}),
-//   dataType: "text",
-//   contentType: "application/json"
-// }
-// .done(function() {
-//   swal()
-// })
-// .fail(function() {
-//   swal()
-// })
-// )

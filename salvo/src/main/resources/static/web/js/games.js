@@ -189,7 +189,6 @@ function loadGames() {
         buttons: false,
         timer: 2500,
       });
-      window.setTimeout(function () { window.location.reload() }, 2500);
     });
 }
 
