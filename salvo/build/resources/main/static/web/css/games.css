@@ -1,0 +1,100 @@
+body {
+  background-color: rgba(173, 94, 153, 0.5) !important;
+  background-image: url(fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+}
+
+#title {
+  font-family: ccbiffbamboomoutline, sans-serif;
+  font-style: normal;
+  font-size: 45px;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+
+/******************** FONTS ********************/
+h3 {
+  font-family: 'Bungee Shade', cursive;
+  color: white;
+}
+
+h4 {
+  font-family: 'Bungee', cursive;
+}
+
+h6 {
+  font-family: 'Bungee', cursive;
+  color: white;
+}
+
+p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+/******************** TABLES ********************/
+table {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+th {
+  font-family: 'Space Mono', monospace;
+}
+
+tbody {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+}
+
+
+/******************** DECORATIONS ********************/
+.btn {
+  font-family: 'Space Mono', monospace;
+}
+
+.card {
+  min-height: 210px;
+  min-width: 330px;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  /* transition: transform .2s ease; */
+}
+
+/* .card:hover {
+  transform: scale(1.1) translateZ(0);
+  backface-visibility: hidden;
+} */
+
+/*
+@media only screen and (orientation: landscape) {
+  #cardLandscape {
+    min-height: 210px;
+    min-width: 330px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  #cardPortrait {
+    min-height: 210px;
+    min-width: 330px;
+  }
+}
+*/
+
+.swal-text {
+  font-family: 'Bungee', cursive;
+  text-align: center;
+}
+
+.swal-overlay {
+  background-color: rgba(255, 204, 64, 0.4);
+}

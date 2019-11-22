@@ -8,7 +8,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Salvo | Game List</title>
   <link href="css/games.css" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    rel="stylesheet">
   <link href="https://use.typekit.net/ize1xyw.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap" rel="stylesheet">
@@ -29,7 +31,9 @@
 
           <!----------if no user is logged in show this---------->
           <div v-show="salvoUser == 'guest'">
-            <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+            <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse"
+              data-target="#registrationCollapse" aria-expanded="false"
+              aria-controls="registrationCollapse">Register</button>
             <div id="registrationCollapse" class="collapse">
               <div id="registrationForm">
                 <div class="form-group mb-4">
@@ -38,14 +42,16 @@
                 <div class="form-group mb-4">
                   <input type="password" class="form-control" v-model="registrationPassword" placeholder="Password">
                 </div>
-                <button class="btn btn-outline-info shadow-lg" type="button" v-on:click="registration()">Continue</button>
+                <button class="btn btn-outline-info shadow-lg" type="button"
+                  v-on:click="registration()">Continue</button>
               </div>
             </div>
           </div>
 
           <!----------if the user is logged in show this---------->
           <div v-show="salvoUser != 'guest'">
-            <button class="btn btn-info btn-block shadow-lg my-3" type="button" v-on:click="registrationAfterLogIn()">Register</button>
+            <button class="btn btn-info btn-block shadow-lg my-3" type="button"
+              v-on:click="registrationAfterLogIn()">Register</button>
           </div>
         </div>
       </div>
@@ -56,12 +62,14 @@
           <!----------if no user is logged in show this---------->
           <div v-show="salvoUser == 'guest'">
             <h3>Log In</h3>
-            <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
+            <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse"
+              data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
               Continue</button>
             <div id="loginCollapse" class="collapse">
               <div id="loginForm">
                 <div class="form-group mb-4">
-                  <input type="email" class="form-control" v-model="loginEmail" aria-describedby="emailHelp" placeholder="Email" required>
+                  <input type="email" class="form-control" v-model="loginEmail" aria-describedby="emailHelp"
+                    placeholder="Email" required>
                 </div>
                 <div class="form-group mb-4">
                   <input type="password" class="form-control" v-model="loginPassword" placeholder="Password" required>
@@ -75,9 +83,10 @@
 
           <!----------if the user is logged in show this---------->
           <div v-show="salvoUser != 'guest'">
-            <h3>Welcome <h6 class="my-3">{{salvoUser.user}}</h6>
+            <h3>Welcome <h6 class="mt-3">{{salvoUser.user}}</h6>
             </h3>
-            <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
+            <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button"
+              v-on:click="logout()">Log Out</button>
           </div>
         </div>
       </div>
@@ -89,13 +98,13 @@
           <!----------if no user is logged in show this---------->
           <div v-show="salvoUser == 'guest'">
             <!--<p>You need to log in before starting a new game.</p>-->
-            <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready,
+            <button class="btn btn-warning btn-block shadow-lg m-3" type="button" v-on:click="newGameAlert()">Ready,
               set, go!</button>
           </div>
 
           <!----------if the user is logged in show this---------->
           <div v-show="salvoUser != 'guest'">
-            <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set,
+            <button class="btn btn-warning btn-block shadow-lg m-3" type="button" v-on:click="createGame()">Ready, set,
               go!</button>
           </div>
 
@@ -128,17 +137,21 @@
               <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
               <!----------if "game" is full show this---------->
-              <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
+              <td
+                v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
                 Room Full</td>
 
               <!----------option to join a game---------->
               <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
-                <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
+                <button type="button" class="btn btn-sm btn-warning shadow-lg"
+                  v-on:click="joinGame(game.gameID)">Join</button>
               </td>
 
               <!----------option to return to a game---------->
-              <td v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
-                <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
+              <td
+                v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
+                <button type="button" class="btn btn-sm btn-warning shadow-lg"
+                  v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
               </td>
             </tr>
 
@@ -175,7 +188,8 @@
 
   <footer class="footer mt-auto py-3">
     <div class="container">
-      <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
+      <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado"
+          target="_blank">pizzadeparado</a> in Buenos Aires.</span>
     </div>
   </footer>
 
@@ -184,7 +198,8 @@
   <!--popper-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <!--bootstrap-->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <!--vue js-->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
