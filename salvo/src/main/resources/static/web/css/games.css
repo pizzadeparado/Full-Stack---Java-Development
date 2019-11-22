@@ -4,6 +4,7 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
+  background: fixed;
 }
 
 #title {
@@ -17,28 +18,26 @@ footer {
   backdrop-filter: saturate(180%) blur(20px);
 }
 
-
 /******************** FONTS ********************/
 h3 {
-  font-family: 'Bungee Shade', cursive;
+  font-family: "Bungee Shade", cursive;
   color: white;
 }
 
 h4 {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 h6 {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   color: white;
 }
 
 p {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-style: italic;
   font-weight: bold;
 }
-
 
 /******************** TABLES ********************/
 table {
@@ -47,18 +46,17 @@ table {
 }
 
 th {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 
 tbody {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: white;
 }
 
-
 /******************** DECORATIONS ********************/
 .btn {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 
 .card {
@@ -73,7 +71,6 @@ tbody {
   transform: scale(1.1) translateZ(0);
   backface-visibility: hidden;
 } */
-
 /*
 @media only screen and (orientation: landscape) {
   #cardLandscape {
@@ -89,12 +86,13 @@ tbody {
   }
 }
 */
-
 .swal-text {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   text-align: center;
 }
 
 .swal-overlay {
   background-color: rgba(255, 204, 64, 0.4);
 }
+
+/*# sourceMappingURL=games.css.map */

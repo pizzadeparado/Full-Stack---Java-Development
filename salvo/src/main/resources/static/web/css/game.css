@@ -18,30 +18,28 @@ footer {
   backdrop-filter: saturate(180%) blur(20px);
 }
 
-
 /******************** FONTS ********************/
 /* Card Title */
 h3 {
-  font-family: 'Bungee Shade', cursive;
+  font-family: "Bungee Shade", cursive;
   color: white;
 }
 
 /* Table Title */
 h4 {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 /* Card Info */
 h5 {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 
 p {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-style: italic;
   font-weight: bold;
 }
-
 
 /******************** TABLES ********************/
 table {
@@ -54,29 +52,28 @@ tr {
 }
 
 td:nth-child(1) {
-  background-color: rgb(52, 58, 64);
+  background-color: #343a40;
 }
 
 td,
 th {
   height: 50px;
   width: 50px;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   color: white;
 }
 
 .ship-piece {
-  background-color: rgb(0, 204, 153);
+  background-color: #00cc99;
 }
 
 .salvo {
-  background-color: rgb(255, 80, 80);
+  background-color: #ff5050;
 }
-
 
 /******************** DECORATIONS ********************/
 .btn {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
 }
 
 .card {
@@ -90,10 +87,12 @@ th {
 }
 
 .swal-text {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   text-align: center;
 }
 
 .swal-overlay {
   background-color: rgba(255, 204, 64, 0.4);
 }
+
+/*# sourceMappingURL=game.css.map */
