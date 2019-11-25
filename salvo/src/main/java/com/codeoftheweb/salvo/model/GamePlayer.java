@@ -74,8 +74,9 @@ public class GamePlayer {
   public Map<String, Object> createGamePlayerDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("playerID", this.getPlayer().getPlayerID());
-    dto.put("user", this.getPlayer().getUserName());
     dto.put("gamePlayerID", this.getGamePlayerID());
+    dto.put("user", this.getPlayer().getUserName());
+    dto.put("hasShips", this.hasShips());
     return dto;
   }
 
@@ -88,5 +89,13 @@ public class GamePlayer {
     dto.put("ships", this.getShip().stream().map(Ship::createShipDTO));
     dto.put("salvos", this.game.getGamePlayer().stream().flatMap(gamePlayer -> gamePlayer.getSalvo().stream().map(Salvo::createSalvoDTO)).collect(Collectors.toList()));
     return dto;
+  }
+
+  public String hasShips() {
+    if (this.getShip().size() > 0) {
+      return "Yes";
+    } else {
+      return "No";
+    }
   }
 }

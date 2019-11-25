@@ -136,6 +136,9 @@ var app = new Vue({
         });
     },
     gameReturn(ID) {
+      if (hasShips == "Yes") {
+        window.location.href = "http://localhost:8080/web/.html"
+      }
       swal("Reopening game...", {
         closeOnClickOutside: false,
         icon: "info",
