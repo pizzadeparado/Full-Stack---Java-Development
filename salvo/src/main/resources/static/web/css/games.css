@@ -4,7 +4,6 @@ body {
   background-repeat: repeat-x;
   background-size: 60%;
   background-position: bottom;
-  background: fixed;
 }
 
 #title {
@@ -94,5 +93,3 @@ tbody {
 .swal-overlay {
   background-color: rgba(255, 204, 64, 0.4);
 }
-
-/*# sourceMappingURL=games.css.map */

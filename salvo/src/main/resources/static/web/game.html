@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div id="app" class="container-fluid">
+  <div id="grid" class="container-fluid">
 
     <!------------------------------ TITLE ------------------------------>
     <div id="title" class="row m-5 justify-content-center">Salvo - Game On!</div>
@@ -28,7 +28,7 @@
           <h3 class="card-header">Current Game</h3>
           <div class="card-body">
             <h5 class="card-title" id="playerInfo">{{salvoUser.user}} VS</h5>
-            <h5 class="card-title" id="">{{......}}</h5>
+            <h5 class="card-title" id="">{{salvoUser.playerID != user}}</h5>
             <button class="btn btn-warning shadow-lg m-3" type="button" onclick="backToHomepage()">
               <- Homepage
             </button>

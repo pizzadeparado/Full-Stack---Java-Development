@@ -1,5 +1,5 @@
-var app = new Vue({
-  el: "#app",
+var index = new Vue({
+  el: "#index",
   data: {
     salvoGames: [],
     salvoScore: [],
@@ -12,7 +12,7 @@ var app = new Vue({
   methods: {
     registration() {
       if (
-        app.registrationEmail == "" || app.registrationPassword == ""
+        index.registrationEmail == "" || index.registrationPassword == ""
       )
         swal("Please complete the fields", {
           closeOnClickOutside: true,
@@ -23,8 +23,8 @@ var app = new Vue({
 
       else {
         $.post("/api/players", {
-          username: app.registrationEmail,
-          password: app.registrationPassword
+          username: index.registrationEmail,
+          password: index.registrationPassword
         })
           .done(function () {
             swal("Account created successfully. Redirecting...", {
@@ -47,7 +47,7 @@ var app = new Vue({
     },
     login() {
       if (
-        app.loginEmail == "" || app.loginPassword == ""
+        index.loginEmail == "" || index.loginPassword == ""
       )
         swal("Please complete the fields", {
           closeOnClickOutside: true,
@@ -58,8 +58,8 @@ var app = new Vue({
 
       else {
         $.post("/api/login", {
-          username: app.loginEmail,
-          password: app.loginPassword
+          username: index.loginEmail,
+          password: index.loginPassword
         })
           .done(function () {
             swal("You're now logged in. Redirecting you...", {
@@ -136,19 +136,29 @@ var app = new Vue({
         });
     },
     gameReturn(ID) {
-      if (hasShips == "Yes") {
-        window.location.href = "http://localhost:8080/web/.html"
-      }
-      swal("Reopening game...", {
-        closeOnClickOutside: false,
-        icon: "info",
-        buttons: false,
-        timer: 1500,
-      });
-      window.setTimeout(function () {
-        window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
-      }, 1500);
-    },
+      // if (data.hasShips == "Yes") {
+      //   swal("Reopening game...", {
+      //     closeOnClickOutside: false,
+      //     icon: "info",
+      //     buttons: false,
+      //     timer: 1500,
+      //   });
+      //   window.setTimeout(function () {
+      //     window.location.href = "http://localhost:8080/web/grid.html"
+      //   }, 1500);
+      // }
+      // else {
+        swal("Reopening game...", {
+          closeOnClickOutside: false,
+          icon: "info",
+          buttons: false,
+          timer: 1500,
+        });
+        window.setTimeout(function () {
+          window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
+        }, 1500);
+      },
+
     newGameAlert() {
       swal("You need to log in before starting a new game!", {
         closeOnClickOutside: true,
@@ -182,8 +192,8 @@ function getParameterByName(user) {
 function loadGames() {
   $.get("/api/games")
     .done(function (data) {
-      app.salvoGames = data.games;
-      app.salvoUser = data.player;
+      index.salvoGames = data.games;
+      index.salvoUser = data.player;
     })
     .fail(function () {
       swal("Failed to load the game list. Reloading.", {
@@ -199,7 +209,7 @@ function loadGames() {
 function loadScore() {
   $.get("/api/leaderboard")
     .done(function (data) {
-      app.salvoScore = data;
+      index.salvoScore = data;
     })
     .fail(function () {
       swal("Failed to load the score list. Reloading.", {

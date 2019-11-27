@@ -2,8 +2,8 @@
 
 
 /******************** Viejo Vue ********************/
-var app = new Vue({
-  el: "#app",
+var grid = new Vue({
+  el: "#grid",
   data: {
     salvoUser: "",
   },

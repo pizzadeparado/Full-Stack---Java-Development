@@ -16,162 +16,163 @@
 </head>
 
 <body>
-  <div id="app" class="container-fluid">
+  <section class="container-fluid" id="index">
 
     <!------------------------------ TITLE ------------------------------>
-    <div id="title" class="row m-5 justify-content-center">Salvo - Game On!</div>
+    <section class="container">
+      <div class="row m-5 justify-content-center" id="title">Salvo - Game On!</div>
+    </section>
 
     <!------------------------------ MENU ------------------------------>
-    <div id="playerAccess" class="row m-5 align-items-center">
-      <div id="registration" class="col-sm-4 text-center">
-        <div class="card shadow-lg rounded p-5">
-          <h3>Sign Up</h3>
-
-          <!----------if no user is logged in show this---------->
-          <div v-show="salvoUser == 'guest'">
-            <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
-            <div id="registrationCollapse" class="collapse">
-              <div id="registrationForm">
-                <div class="form-group mb-4">
-                  <input type="email" class="form-control" v-model="registrationEmail" placeholder="Email">
-                </div>
-                <div class="form-group mb-4">
-                  <input type="password" class="form-control" v-model="registrationPassword" placeholder="Password">
-                </div>
-                <button class="btn btn-outline-info shadow-lg" type="button" v-on:click="registration()">Continue</button>
-              </div>
-            </div>
-          </div>
-
-          <!----------if the user is logged in show this---------->
-          <div v-show="salvoUser != 'guest'">
-            <button class="btn btn-info btn-block shadow-lg my-3" type="button" v-on:click="registrationAfterLogIn()">Register</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="logIn" class="col-sm-4 text-center">
-        <div class="card shadow-lg rounded p-5">
-
-          <!----------if no user is logged in show this---------->
-          <div v-show="salvoUser == 'guest'">
-            <h3>Log In</h3>
-            <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
-              Continue</button>
-            <div id="loginCollapse" class="collapse">
-              <div id="loginForm">
-                <div class="form-group mb-4">
-                  <input type="email" class="form-control" v-model="loginEmail" aria-describedby="emailHelp" placeholder="Email" required>
-                </div>
-                <div class="form-group mb-4">
-                  <input type="password" class="form-control" v-model="loginPassword" placeholder="Password" required>
-                </div>
-                <div>
-                  <button class="btn btn-success shadow-lg" type="button" v-on:click="login()">Log In</button>
+    <section class="container-fluid mb-5">
+      <section class="row m-5 align-items-center" id="playerAccess">
+        <section class="col-sm-4 text-center" id="registration">
+          <div class="card shadow-lg rounded p-5">
+            <h3>Sign Up</h3>
+            <!----------if no user is logged in show this---------->
+            <div v-show="salvoUser == 'guest'">
+              <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+              <div class="collapse" id="registrationCollapse">
+                <div id="registrationForm">
+                  <div class="form-group mb-4">
+                    <input type="email" class="form-control" v-model="registrationEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group mb-4">
+                    <input type="password" class="form-control" v-model="registrationPassword" placeholder="Password">
+                  </div>
+                  <button class="btn btn-outline-info shadow-lg" type="button" v-on:click="registration()">Continue</button>
                 </div>
               </div>
             </div>
+
+            <!----------if the user is logged in show this---------->
+            <div v-show="salvoUser != 'guest'">
+              <button class="btn btn-info btn-block shadow-lg my-3" type="button" v-on:click="registrationAfterLogIn()">Register</button>
+            </div>
           </div>
+        </section>
 
-          <!----------if the user is logged in show this---------->
-          <div v-show="salvoUser != 'guest'">
-            <h3>Welcome <h6 class="my-3">{{salvoUser.user}}</h6>
-            </h3>
-            <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
+        <section class="col-sm-4 text-center" id="logIn">
+          <div class="card shadow-lg rounded p-5">
+            <!----------if no user is logged in show this---------->
+            <div v-show="salvoUser == 'guest'">
+              <h3>Log In</h3>
+              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
+                Continue</button>
+              <div class="collapse" id="loginCollapse">
+                <div id="loginForm">
+                  <div class="form-group mb-4">
+                    <input type="email" class="form-control" v-model="loginEmail" aria-describedby="emailHelp" placeholder="Email" required>
+                  </div>
+                  <div class="form-group mb-4">
+                    <input type="password" class="form-control" v-model="loginPassword" placeholder="Password" required>
+                  </div>
+                  <div>
+                    <button class="btn btn-success shadow-lg" type="button" v-on:click="login()">Log In</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!----------if the user is logged in show this---------->
+            <div v-show="salvoUser != 'guest'">
+              <h3>Welcome <h6 class="my-3">{{salvoUser.user}}</h6>
+              </h3>
+              <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
+            </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div id="startGame" class="col-sm-4 text-center">
-        <div class="card shadow-lg rounded p-5">
-          <h3>Start Game</h3>
+        <section class="col-sm-4 text-center" id="startGame">
+          <div class="card shadow-lg rounded p-5">
+            <h3>Start Game</h3>
+            <!----------if no user is logged in show this---------->
+            <div v-show="salvoUser == 'guest'">
+              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready,
+                set, go!</button>
+            </div>
 
-          <!----------if no user is logged in show this---------->
-          <div v-show="salvoUser == 'guest'">
-            <!--<p>You need to log in before starting a new game.</p>-->
-            <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready,
-              set, go!</button>
+            <!----------if the user is logged in show this---------->
+            <div v-show="salvoUser != 'guest'">
+              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set,
+                go!</button>
+            </div>
+
           </div>
-
-          <!----------if the user is logged in show this---------->
-          <div v-show="salvoUser != 'guest'">
-            <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set,
-              go!</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="spacer" class="row m-5"></div>
+        </section>
+      </section>
+    </section>
 
     <!------------------------------ GAMES & LEADERBOARD ------------------------------>
-    <div id="gameInfo" class="row m-5">
-      <div id="gamesTable" class="col">
-        <h4>Game List</h4>
-        <table class="table shadow">
-          <thead class="thead-dark">
-            <tr>
-              <th class="text-center">ID</th>
-              <th>Player 1</th>
-              <th>Player 2</th>
-              <!----------if "user" is logged in show this---------->
-              <th v-show="salvoUser != 'guest'">Join Game</th>
+    <main class="container-fluid mb-5">
+      <section id="gameInfo" class="row m-5">
+        <section class="col-md" id="gamesTable">
+          <h4>Game List</h4>
+          <table class="table shadow">
+            <thead class="thead-dark">
+              <tr>
+                <th class="text-center">ID</th>
+                <th>Player 1</th>
+                <th>Player 2</th>
+                <!----------if "user" is logged in show this---------->
+                <th v-show="salvoUser != 'guest'">Join Game</th>
 
-            </tr>
-          </thead>
+              </tr>
+            </thead>
 
-          <tbody>
-            <tr v-for="(game, index) in salvoGames">
-              <td class="text-center">{{game.gameID}}</td>
-              <td>{{game.player[0].user.split("@")[0]}}</td>
-              <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
+            <tbody>
+              <tr v-for="(game, index) in salvoGames">
+                <td class="text-center">{{game.gameID}}</td>
+                <td>{{game.player[0].user.split("@")[0]}}</td>
+                <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
-              <!----------if "game" is full show this---------->
-              <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
-                Room Full</td>
+                <!----------if "game" is full show this---------->
+                <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
+                  Room Full</td>
 
-              <!----------option to join a game---------->
-              <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
-                <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
-              </td>
+                <!----------option to join a game---------->
+                <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
+                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
+                </td>
 
-              <!----------option to return to a game---------->
-              <td v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
-                <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
-              </td>
-            </tr>
+                <!----------option to return to a game---------->
+                <td v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
+                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
+                </td>
+              </tr>
 
-          </tbody>
-        </table>
-      </div>
+            </tbody>
+          </table>
+        </section>
 
-      <div id="leaderboardTable" class="col">
-        <h4>Leaderboard</h4>
-        <table class="table shadow">
-          <thead class="thead-dark">
-            <tr>
-              <th>Player</th>
-              <th class="text-center">Won</th>
-              <th class="text-center">Tied</th>
-              <th class="text-center">Lost</th>
-              <th class="text-center">Total</th>
-            </tr>
-          </thead>
+        <section class="col-md" id="leaderboardTable">
+          <h4>Leaderboard</h4>
+          <table class="table shadow">
+            <thead class="thead-dark">
+              <tr>
+                <th>Player</th>
+                <th class="text-center">Won</th>
+                <th class="text-center">Tied</th>
+                <th class="text-center">Lost</th>
+                <th class="text-center">Total</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            <tr v-for="player in salvoScore">
-              <td>{{player.user.split("@")[0]}}</td>
-              <td class="text-center">{{player.won}}</td>
-              <td class="text-center">{{player.tied}}</td>
-              <td class="text-center">{{player.lost}}</td>
-              <td class="text-center">{{player.total}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+            <tbody>
+              <tr v-for="player in salvoScore">
+                <td>{{player.user.split("@")[0]}}</td>
+                <td class="text-center">{{player.won}}</td>
+                <td class="text-center">{{player.tied}}</td>
+                <td class="text-center">{{player.lost}}</td>
+                <td class="text-center">{{player.total}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+  </section>
 
   <footer class="footer mt-auto py-3">
     <div class="container">

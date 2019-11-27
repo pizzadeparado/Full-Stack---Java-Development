@@ -11,13 +11,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/fire.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/manager.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/manager.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/manager.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/games.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/games.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/games.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/img/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/manager.scss" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
