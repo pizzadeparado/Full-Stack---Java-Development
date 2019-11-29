@@ -148,17 +148,16 @@ var index = new Vue({
       //   }, 1500);
       // }
       // else {
-        swal("Reopening game...", {
-          closeOnClickOutside: false,
-          icon: "info",
-          buttons: false,
-          timer: 1500,
-        });
-        window.setTimeout(function () {
-          window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
-        }, 1500);
-      },
-
+      swal("Reopening game...", {
+        closeOnClickOutside: false,
+        icon: "info",
+        buttons: false,
+        timer: 1500,
+      });
+      window.setTimeout(function () {
+        window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
+      }, 1500);
+    },
     newGameAlert() {
       swal("You need to log in before starting a new game!", {
         closeOnClickOutside: true,

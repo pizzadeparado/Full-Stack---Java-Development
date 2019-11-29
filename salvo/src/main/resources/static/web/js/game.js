@@ -1,23 +1,24 @@
 /******************** Hecho con Vue ********************/
-
-
-/******************** Viejo Vue ********************/
 var grid = new Vue({
   el: "#grid",
   data: {
     salvoUser: "",
-  },
-  methods: {
-    loadGameUsers() {
+  }
+});
 
-    }
-  },
+$(function () {
+  
 });
 
 function getParameterByName(user) {
   var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
+
+
+/******************** Viejo Vue ********************/
+
+
 
 $.get("/api/game_view/" + getParameterByName("gamePlayerID"))
   .done(function (data) {
@@ -29,7 +30,6 @@ $.get("/api/game_view/" + getParameterByName("gamePlayerID"))
     // else {
     //   playerInfo = [data.player[1].user, data.player[0].user];
     // }
-
     // $('#playerInfo').text(playerInfo[0].user + '(you) vs ' + playerInfo[1].user);
 
     data.ships.forEach(function (shipPiece) {

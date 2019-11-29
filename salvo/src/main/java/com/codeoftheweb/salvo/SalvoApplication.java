@@ -103,14 +103,14 @@ public class SalvoApplication {
 
 			Salvo salvo1 = new Salvo(gamePlayer1, 1, salvoLocation1);
 			Salvo salvo2 = new Salvo(gamePlayer1, 2, salvoLocation2);
-			Salvo salvo3 = new Salvo(gamePlayer2, 3, salvoLocation3);
-			Salvo salvo4 = new Salvo(gamePlayer2, 4, salvoLocation4);
-			Salvo salvo5 = new Salvo(gamePlayer3, 5, salvoLocation5);
-			Salvo salvo6 = new Salvo(gamePlayer3, 6, salvoLocation6);
-			Salvo salvo7 = new Salvo(gamePlayer4, 7, salvoLocation7);
-			Salvo salvo8 = new Salvo(gamePlayer4, 8, salvoLocation8);
-			Salvo salvo9 = new Salvo(gamePlayer5, 9, salvoLocation9);
-			Salvo salvo10 = new Salvo(gamePlayer5, 10, salvoLocation10);
+			Salvo salvo3 = new Salvo(gamePlayer2, 1, salvoLocation3);
+			Salvo salvo4 = new Salvo(gamePlayer2, 2, salvoLocation4);
+			Salvo salvo5 = new Salvo(gamePlayer3, 1, salvoLocation5);
+			Salvo salvo6 = new Salvo(gamePlayer3, 2, salvoLocation6);
+			Salvo salvo7 = new Salvo(gamePlayer4, 1, salvoLocation7);
+			Salvo salvo8 = new Salvo(gamePlayer4, 2, salvoLocation8);
+			Salvo salvo9 = new Salvo(gamePlayer5, 1, salvoLocation9);
+			Salvo salvo10 = new Salvo(gamePlayer5, 2, salvoLocation10);
 
 			salvoRepository.saveAll(Arrays.asList(salvo1,salvo2,salvo3,salvo4,salvo5,salvo6,salvo7,salvo8,salvo9,salvo10));
 
