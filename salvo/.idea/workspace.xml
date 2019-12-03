@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3b56f5-e0b7-43c4-87f9-ba039f2b70fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/SalvoApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/controller/SalvoController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/codeoftheweb/salvo/controller/SalvoSecurityAuthentication.class" beforeDir="false" />
@@ -29,21 +26,20 @@
       <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/game.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/game.css.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/games.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/img/fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/css/games.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game-grid.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/game.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/games.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/img/fire-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/img/fire.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/game.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/games.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/grid.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/js/ships.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/img/fire-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/img/fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game-grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game-grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scss/game.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/web/scss/games.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,8 +160,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [clean]" />
+        <item itemvalue="Gradle.salvo [bootRun]" />
       </list>
     </recent_temporary>
   </component>
@@ -208,22 +204,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1575331818783">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1575342316439">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575331818783" />
-    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1575331818782">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575342316439" />
+    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1575342316436">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575331818782" />
-    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1575331818781">
+    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575342316436" />
+    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1575342316435">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575331818781" />
-    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1575331818782">
+    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575342316435" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1575342316437">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575331818782" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575342316437" />
     <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1575289794065">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
