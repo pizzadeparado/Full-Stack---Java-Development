@@ -42,7 +42,6 @@ function getGameData(gamePlayerID) {
 
   createGrid(11, document.getElementById('grid-ships'), 'ships')
 
-
   fetch(`/api/game_view/${gamePlayerID}`)
     .then(res => {
       if (res.ok) {

@@ -1,0 +1,90 @@
+/******************** Sass Variables ********************/
+$primary-colour: rgba(173, 94, 153, 0.7) !important;
+$secondary-colour: rgba(0, 0, 0, 0.8);
+$blur: saturate(180%) blur(20px);
+$title-font: ccbiffbamboomoutline, sans-serif;
+$subtitle-font: "Bungee Shade", cursive;
+$subtitle-font-simple: "Bungee", cursive;
+$text-font: "Space Mono", monospace;
+$paragraph-font: "Roboto Condensed", sans-serif;
+
+
+
+
+/******************** Layout ********************/
+body {
+  background-color: $primary-colour;
+  background-image: url(img/fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+}
+
+footer {
+  background-color: $secondary-colour;
+  backdrop-filter: $blur;
+}
+
+
+/******************** Fonts ********************/
+h1 {
+  font-family: $title-font;
+  font-style: normal;
+}
+
+h3 {
+  font-family: $subtitle-font;
+  color: white;
+}
+
+h4 {
+  font-family: $subtitle-font;
+}
+
+h6 {
+  font-family: $subtitle-font-simple;
+  color: white;
+}
+
+p {
+  font-family: $paragraph-font;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+/******************** Tables ********************/
+table {
+  background-color: $secondary-colour;
+  backdrop-filter: $blur;
+}
+
+th {
+  font-family: $text-font;
+}
+
+tbody {
+  font-family: $paragraph-font;
+  color: white;
+}
+
+/******************** Decorations ********************/
+.btn {
+  font-family: $text-font;
+}
+
+.card {
+  min-height: 210px;
+  min-width: 330px;
+  background-color: $secondary-colour;
+  backdrop-filter: $blur;
+}
+
+.swal-text {
+  font-family: $subtitle-font-simple;
+  text-align: center;
+}
+
+.swal-overlay {
+  background-color: rgba(255, 204, 64, 0.4);
+}

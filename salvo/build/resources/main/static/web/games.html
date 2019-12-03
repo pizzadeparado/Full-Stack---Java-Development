@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Salvo | Welcome</title>
-  <link href="css/games.css" rel="stylesheet">
+  <title>Welcome | Salvo</title>
+  <link rel="shortcut icon" href="img/fire-icon.png">
+  <link rel="apple-touch-icon" href="img/fire-icon.png">
+  <link rel="stylesheet" href="css/games.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
@@ -56,8 +58,7 @@
             <!----------if no user is logged in show this---------->
             <div v-show="salvoUser == 'guest'">
               <h3>Log In</h3>
-              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
-                Continue</button>
+              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
               <div class="collapse" id="loginCollapse">
                 <div id="loginForm">
                   <div class="form-group mb-4">
@@ -75,8 +76,8 @@
 
             <!----------if the user is logged in show this---------->
             <div v-show="salvoUser != 'guest'">
-              <h3>Welcome <h6 class="my-3">{{salvoUser.user}}</h6>
-              </h3>
+              <h3>Welcome</h3>
+              <h6 class="my-3">{{salvoUser.user}}</h6>
               <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
             </div>
           </div>
@@ -87,14 +88,13 @@
             <h3>Start Game</h3>
             <!----------if no user is logged in show this---------->
             <div v-show="salvoUser == 'guest'">
-              <button class="btn btn-outline-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready,
-                set, go!</button>
+              <button class="btn btn-outline-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready, set, go!</button>
+
             </div>
 
             <!----------if the user is logged in show this---------->
             <div v-show="salvoUser != 'guest'">
-              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set,
-                go!</button>
+              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set, go!</button>
             </div>
 
           </div>

@@ -27,13 +27,13 @@
 
       <!------------------------------ Menu ------------------------------>
       <section class="row m-5 text-center justify-content-center" id="menu">
-        <div class="card shadow-lg rounded" id="currentGame">
+        <section class="card shadow-lg rounded" id="currentGame">
           <h3 class="card-header">Current Game</h3>
           <div class="card-body">
-            <h5 id="playerInfo">{{salvoUser.user}} VS {{salvoUser.user}}</h5>
+            <h6 id="playerInfo">{{salvoUser.user}} VS {{salvoUser.user}}</h6>
             <button class="btn btn-warning shadow-lg m-3" type="button" onclick="backToHomepage()">Back to Homepage</button>
           </div>
-        </div>
+        </section>
       </section>
     </section>
 
@@ -41,12 +41,12 @@
     <main class="container-fluid">
       <section class="row m-5">
         <section class="col-6-md" id="grid-ships">
-          <h4>Place your Ships</h4>
+          <h3>Place your Ships</h3>
           <div id="grid" class="grid-stack grid-stack-10"></div>
           <button class="btn btn-lg btn-success shadow-lg" type="button" onclick="sendShips">💾</button>
         </section>
         <section class="col-6-md" id="grid-salvos">
-          <h4>Place your Salvos</h4>
+          <h3>Place your Salvos</h3>
         </section>
       </section>
     </main>

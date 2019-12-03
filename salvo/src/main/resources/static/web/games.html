@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Salvo | Welcome</title>
+  <title>Welcome | Salvo</title>
   <link rel="shortcut icon" href="css/img/fire-icon.png">
   <link rel="apple-touch-icon" href="css/img/fire-icon.png">
   <link rel="stylesheet" href="css/games.css">
@@ -27,11 +27,11 @@
 
       <!------------------------------ Menu ------------------------------>
       <section class="row m-5 align-items-center" id="playerAccess">
-        <section class="col-sm-4 text-center" id="registration">
-          <div class="card shadow-lg rounded p-5">
-            <h3>Sign Up</h3>
-            <!----------if no user is logged in show this---------->
+        <section class="col-md-4 text-center" id="registration">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
             <div v-show="salvoUser == 'guest'">
+              <h2>Sign Up</h2>
               <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
               <div class="collapse" id="registrationCollapse">
                 <div id="registrationForm">
@@ -46,20 +46,20 @@
               </div>
             </div>
 
-            <!----------if the user is logged in show this---------->
+            <!---------- If the user is logged in show this ---------->
             <div v-show="salvoUser != 'guest'">
+              <h2>Sign Up</h2>
               <button class="btn btn-outline-info btn-block shadow-lg my-3" type="button" v-on:click="registrationAfterLogIn()">Register</button>
             </div>
-          </div>
+          </section>
         </section>
 
-        <section class="col-sm-4 text-center" id="logIn">
-          <div class="card shadow-lg rounded p-5">
-            <!----------if no user is logged in show this---------->
+        <section class="col-md-4 text-center" id="logIn">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
             <div v-show="salvoUser == 'guest'">
-              <h3>Log In</h3>
-              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to
-                Continue</button>
+              <h2>Log In</h2>
+              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
               <div class="collapse" id="loginCollapse">
                 <div id="loginForm">
                   <div class="form-group mb-4">
@@ -75,31 +75,29 @@
               </div>
             </div>
 
-            <!----------if the user is logged in show this---------->
+            <!---------- If the user is logged in show this ---------->
             <div v-show="salvoUser != 'guest'">
-              <h3>Welcome <h6 class="my-3">{{salvoUser.user}}</h6>
-              </h3>
+              <h2>Welcome</h2>
+              <h6 class="my-3">{{salvoUser.user}}</h6>
               <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
             </div>
-          </div>
+          </section>
         </section>
 
-        <section class="col-sm-4 text-center" id="startGame">
-          <div class="card shadow-lg rounded p-5">
-            <h3>Start Game</h3>
-            <!----------if no user is logged in show this---------->
+        <section class="col-md-4 text-center" id="startGame">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
             <div v-show="salvoUser == 'guest'">
-              <button class="btn btn-outline-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready,
-                set, go!</button>
+              <h2>Start Game</h2>
+              <button class="btn btn-outline-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready, set, go!</button>
             </div>
 
-            <!----------if the user is logged in show this---------->
+            <!---------- If the user is logged in show this ---------->
             <div v-show="salvoUser != 'guest'">
-              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set,
-                go!</button>
+              <h2>Start Game</h2>
+              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set, go!</button>
             </div>
-
-          </div>
+          </section>
         </section>
       </section>
     </section>
@@ -108,7 +106,7 @@
     <main class="container-fluid mb-5">
       <section class="row m-5" id="gameInfo">
         <section class="col-md-6" id="gamesTable">
-          <h4>Game List</h4>
+          <h3>🎯 Game List</h3>
           <table class="table shadow">
             <thead class="thead-dark">
               <tr>
@@ -116,7 +114,7 @@
                 <th>Player 1</th>
                 <th>Player 2</th>
                 <!---------- If "user" is logged in show this ---------->
-                <th v-show="salvoUser != 'guest'">Join Game</th>
+                <th v-if="salvoUser != 'guest'">Join Game</th>
               </tr>
             </thead>
 
@@ -141,13 +139,12 @@
                   <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </section>
 
         <section class="col-md-6" id="leaderboardTable">
-          <h4>Leaderboard</h4>
+          <h3>🥇 Leaderboard</h3>
           <table class="table shadow">
             <thead class="thead-dark">
               <tr>

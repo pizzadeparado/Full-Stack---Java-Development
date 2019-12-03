@@ -1,0 +1,82 @@
+/******************** Sass Variables ********************/
+$primary-colour: rgba(249, 56, 34, 0.7) !important;
+$secondary-colour: rgba(255, 204, 64, 0.4); 
+$light-blur: rgba(0, 0, 0, 0.4) !important;
+$dark-blur: rgba(0, 0, 0, 0.8) !important;
+$blur: saturate(180%) blur(20px);
+$font-title: ccbiffbamboomoutline, sans-serif;
+$font-subtitle: "Bungee Shade", cursive;
+$font-subtitle-simple: "Bungee", cursive;
+$font-paragraph-heading: "Space Mono", monospace;
+$font-paragraph-text: "Roboto Condensed", sans-serif;
+
+
+/******************** Layout ********************/
+body {
+  background-color: $primary-colour;
+  background-image: url(img/fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+}
+
+footer {
+  background-color: $dark-blur;
+  backdrop-filter: $blur;
+}
+
+
+/******************** Fonts ********************/
+// Page title uses h1 (title)
+// Card title uses h3 (subtitle)
+// Table heading uses h3 (subtitle simple)
+// Sweet Alert and Card subheading uses h6 (subtitle simple)
+
+h1 {
+  font-family: $font-title;
+  font-style: normal;
+}
+
+h3 {
+  font-family: $font-subtitle;
+  color: white;
+}
+
+h6 {
+  font-family: $font-subtitle-simple;
+  color: white;
+}
+
+.btn {
+  font-family: $font-paragraph-heading;
+}
+
+
+/******************** Tables ********************/
+.ship-piece {
+  background-color: #00cc99;
+}
+
+.salvo {
+  background-color: #ff5050;
+}
+
+
+/******************** Decorations ********************/
+.card {
+  background-color: $dark-blur;
+  backdrop-filter: $blur;
+
+  .card-header {
+    background-color: $dark-blur;
+  }
+}
+
+.swal-text {
+  font-family: $font-subtitle-simple;
+  text-align: center;
+}
+
+.swal-overlay {
+  background-color: $secondary-colour;
+}

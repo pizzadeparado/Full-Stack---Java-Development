@@ -1,5 +1,7 @@
+/******************** Sass Variables ********************/
+/******************** Layout ********************/
 body {
-  background-color: rgba(173, 94, 153, 0.5) !important;
+  background-color: rgba(173, 94, 153, 0.7) !important;
   background-image: url(img/fire.png);
   background-repeat: repeat-x;
   background-size: 60%;
@@ -7,22 +9,22 @@ body {
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8) !important;
   backdrop-filter: saturate(180%) blur(20px);
 }
 
-/******************** FONTS ********************/
+/******************** Fonts ********************/
 h1 {
   font-family: ccbiffbamboomoutline, sans-serif;
   font-style: normal;
 }
 
-h3 {
+h2 {
   font-family: "Bungee Shade", cursive;
   color: white;
 }
 
-h4 {
+h3 {
   font-family: "Bungee", cursive;
 }
 
@@ -31,30 +33,26 @@ h6 {
   color: white;
 }
 
-/******************** TABLES ********************/
-table {
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: saturate(180%) blur(20px);
-}
-
-th {
-  font-family: "Space Mono", monospace;
-}
-
-tbody {
-  font-family: "Roboto Condensed", sans-serif;
-  color: white;
-}
-
-/******************** DECORATIONS ********************/
 .btn {
   font-family: "Space Mono", monospace;
 }
 
+/******************** Tables ********************/
+table {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+table th {
+  font-family: "Space Mono", monospace;
+}
+table tbody {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
+/******************** Decorations ********************/
 .card {
-  min-height: 210px;
-  min-width: 330px;
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
   backdrop-filter: saturate(180%) blur(20px);
 }
 
@@ -66,3 +64,5 @@ tbody {
 .swal-overlay {
   background-color: rgba(255, 204, 64, 0.4);
 }
+
+/*# sourceMappingURL=games.css.map */
