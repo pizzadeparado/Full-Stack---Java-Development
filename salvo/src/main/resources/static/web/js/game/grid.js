@@ -1,25 +1,18 @@
-//Creates the grid structure.
-
-/*It requires a size,
-  an element where the grid will be attached to
-  and an id to recognized it.
-*/
-
 const createGrid = function (size, element, id) {
 
-  var wrapper = document.createElement('DIV')//container of the grid
+  let wrapper = document.createElement('DIV')//container of the grid
   wrapper.classList.add('grid-wrapper')
 
   //the first loop creates the rows of the grid 
-  for (var i = 0; i < size; i++) {
-    var row = document.createElement('DIV')
+  for (let i = 0; i < size; i++) {
+    let row = document.createElement('DIV')
     row.classList.add('grid-row')
     row.id = `${id}-grid-row${i}`
     wrapper.appendChild(row)// appends the row created in each itaration to the container
 
     //the second loop creates the amount of cells needed given the size of the grid for every row
-    for (var j = 0; j < size; j++) {
-      var cell = document.createElement('DIV')
+    for (let j = 0; j < size; j++) {
+      let cell = document.createElement('DIV')
       cell.classList.add('grid-cell')
       //if j and i are greater than 0, the drop event is activated
       if (i > 0 && j > 0) {
@@ -31,13 +24,13 @@ const createGrid = function (size, element, id) {
       }
       //if j is equal to 0, the cells belongs to the first colummn, so the letter is added as text node
       if (j === 0 && i > 0) {
-        var textNode = document.createElement('SPAN')
+        let textNode = document.createElement('SPAN')
         textNode.innerText = String.fromCharCode(i + 64)
         cell.appendChild(textNode)
       }
       //if i is equal to 0, the cells belongs to the first row, so the number is added as text node
       if (i === 0 && j > 0) {
-        var textNode = document.createElement('SPAN')
+        let textNode = document.createElement('SPAN')
         textNode.innerText = j
         cell.appendChild(textNode)
       }
@@ -62,12 +55,12 @@ const createGrid = function (size, element, id) {
       return
     }
     //variables where the data of the ship beeing dragged is stored
-    var data = ev.dataTransfer.getData("ship");
-    var ship = document.getElementById(data);
+    let data = ev.dataTransfer.getData("ship");
+    let ship = document.getElementById(data);
     //variables where the data of the targeted cell is stored
-    var cell = ev.target
-    var y = cell.dataset.y.charCodeAt() - 64
-    var x = parseInt(cell.dataset.x)
+    let cell = ev.target
+    let y = cell.dataset.y.charCodeAt() - 64
+    let x = parseInt(cell.dataset.x)
 
     //Before the ship is dropped to a cell, checks if the length of the ship exceed the grid width, 
     //If true, the drop event is aborted.
@@ -76,9 +69,9 @@ const createGrid = function (size, element, id) {
         document.querySelector("#display p").innerText = 'movement not allowed'
         return
       }
-      for (var i = 1; i < ship.dataset.length; i++) {
-        var id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
-        var cellId = `${id}${cell.dataset.y}${parseInt(cell.dataset.x) + i}`
+      for (let i = 1; i < ship.dataset.length; i++) {
+        let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+        let cellId = `${id}${cell.dataset.y}${parseInt(cell.dataset.x) + i}`
         if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
           document.querySelector("#display p").innerText = 'careful'
           return
@@ -90,9 +83,9 @@ const createGrid = function (size, element, id) {
         return
       }
 
-      for (var i = 1; i < ship.dataset.length; i++) {
-        var id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
-        var cellId = `${id}${String.fromCharCode(cell.dataset.y.charCodeAt() + i)}${cell.dataset.x}`
+      for (let i = 1; i < ship.dataset.length; i++) {
+        let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+        let cellId = `${id}${String.fromCharCode(cell.dataset.y.charCodeAt() + i)}${cell.dataset.x}`
         if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
           document.querySelector("#display p").innerText = 'careful'
           return
@@ -114,14 +107,11 @@ const createGrid = function (size, element, id) {
 
 }
 
-
-
-
 function checkBusyCells(ship, cell) {
 
-  var id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
-  var y = cell.dataset.y.charCodeAt() - 64
-  var x = parseInt(cell.dataset.x)
+  let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+  let y = cell.dataset.y.charCodeAt() - 64
+  let x = parseInt(cell.dataset.x)
 
   document.querySelectorAll(`.${ship.id}-busy-cell`).forEach(cell => {
     cell.classList.remove(`${ship.id}-busy-cell`)
@@ -130,7 +120,7 @@ function checkBusyCells(ship, cell) {
 
 
 
-  for (var i = 0; i < ship.dataset.length; i++) {
+  for (let i = 0; i < ship.dataset.length; i++) {
     if (ship.dataset.orientation == 'horizontal') {
       document.querySelector(`#${id}${String.fromCharCode(y + 64)}${x + i}`).classList.add(`${ship.id}-busy-cell`)
       document.querySelector(`#${id}${String.fromCharCode(y + 64)}${x + i}`).classList.add(`busy-cell`)
@@ -140,10 +130,3 @@ function checkBusyCells(ship, cell) {
     }
   }
 }
-
-
-
-
-
-
-

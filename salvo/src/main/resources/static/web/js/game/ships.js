@@ -1,15 +1,8 @@
-//Creates the ships with the ability of been placed in the grid. 
-
-/*It requires a shipType, that is, the id by wich the ship will be recongnized;
-  the amount of cells the ship is going to occupy in the grid;
-  a parent where the ship will be appended to;
-  and a boolean that specifies whether the ship can be moved or not.
-*/
 const createShips = function (shipType, length, orientation, parent, isStatic) {
 
-  var ship = document.createElement('DIV')
-  var grip = document.createElement('DIV')
-  var content = document.createElement('DIV')
+  let ship = document.createElement('DIV')
+  let grip = document.createElement('DIV')
+  let content = document.createElement('DIV')
 
   ship.classList.add('grid-item')
   ship.dataset.length = length
@@ -102,16 +95,16 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
     ship.style.top = '';
     // put the draggable into it's new home
     if (endTarget.classList.contains('grid-cell')) {
-      var y = endTarget.dataset.y.charCodeAt() - 64
-      var x = parseInt(endTarget.dataset.x)
+      let y = endTarget.dataset.y.charCodeAt() - 64
+      let x = parseInt(endTarget.dataset.x)
       if (ship.dataset.orientation == 'horizontal') {
         if (parseInt(ship.dataset.length) + x > 11) {
           document.querySelector("#display p").innerText = 'movement not allowed'
           return
         }
-        for (var i = 1; i < ship.dataset.length; i++) {
-          var id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
-          var cellId = `${id}${endTarget.dataset.y}${x + i}`
+        for (let i = 1; i < ship.dataset.length; i++) {
+          let id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
+          let cellId = `${id}${endTarget.dataset.y}${x + i}`
           if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
             document.querySelector("#display p").innerText = 'careful'
             return
@@ -122,9 +115,9 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
           document.querySelector("#display p").innerText = 'movement not allowed'
           return
         }
-        for (var i = 1; i < ship.dataset.length; i++) {
-          var id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
-          var cellId = `${id}${String.fromCharCode(endTarget.dataset.y.charCodeAt() + i)}${x}`
+        for (let i = 1; i < ship.dataset.length; i++) {
+          let id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
+          let cellId = `${id}${String.fromCharCode(endTarget.dataset.y.charCodeAt() + i)}${x}`
           if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
             document.querySelector("#display p").innerText = 'careful'
             return
@@ -149,9 +142,9 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
 
       document.querySelector("#display p").innerText = ''
 
-      var ship = ev.target.parentNode
-      var orientation = ship.dataset.orientation
-      var cell = ship.parentElement.classList.contains('grid-cell') ? ship.parentElement : null
+      let ship = ev.target.parentNode
+      let orientation = ship.dataset.orientation
+      let cell = ship.parentElement.classList.contains('grid-cell') ? ship.parentElement : null
 
       if (cell != null) {
         if (orientation == 'horizontal') {
@@ -160,9 +153,9 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
             return
           }
 
-          for (var i = 1; i < ship.dataset.length; i++) {
-            var id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
-            var cellId = `${id}${String.fromCharCode(cell.dataset.y.charCodeAt() + i)}${cell.dataset.x}`
+          for (let i = 1; i < ship.dataset.length; i++) {
+            let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+            let cellId = `${id}${String.fromCharCode(cell.dataset.y.charCodeAt() + i)}${cell.dataset.x}`
             if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
               document.querySelector("#display p").innerText = 'careful'
               return
@@ -175,9 +168,9 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
             return
           }
 
-          for (var i = 1; i < ship.dataset.length; i++) {
-            var id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
-            var cellId = `${id}${cell.dataset.y}${parseInt(cell.dataset.x) + i}`
+          for (let i = 1; i < ship.dataset.length; i++) {
+            let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+            let cellId = `${id}${cell.dataset.y}${parseInt(cell.dataset.x) + i}`
             if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
               document.querySelector("#display p").innerText = 'careful'
               return
