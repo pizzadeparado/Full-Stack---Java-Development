@@ -1,232 +1,118 @@
-let data
-let player
-let opponet
-let params = new URLSearchParams(location.search)
-let gamePlayer = params.get("gamePlayer")
+var gamesData
+var actualPlayer
+var opponent = {
+  "email": "Waiting for opponent"
+}
 
-getGameData(gamePlayer, true)
+//Para obtener el id del gamePlayer colocado como query en la url
+var gpId = getParameterByName("gp")
+console.log(gpId)
 
-
-/******************** User ********************/
-function getParameterByName(user) {
-  var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
+function getParameterByName(name) {
+  var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-
-/******************** Functions ********************/
-function getGameData(gamePlayerID, viewShips) {
-
-  document.getElementById("grid-ships").innerHTML = ""
-  document.getElementById("grid-salvos").innerHTML = ""
-
-  createGrid(11, document.getElementById("grid-ships"), "ships")
-
-  fetch("/api/game_view/${gamePlayerID}")
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        throw new Error(res.statusText)
-      }
-    })
-    .then(json => {
-      data = json
-
-      if (data.ships.length > 0) {
-        getShips(data.ships)
-        createGrid(11, document.getElementById("grid-salvos"), "salvos")
-        document.getElementById('grid-ships').classList.add("active")
-        document.getElementById('grid-salvos').classList.remove("active")
-        document.getElementById("board").innerHTML += '<div class="hide" id="fire"><button class="btn" onclick="readyToShoot()">Fire!</button></div>'
-        document.getElementById("board").innerHTML += '<div><button id="grid-view" class="btn" onclick="gridView(event)">View salvos</button></div>'
-        if (!viewShips) {
-          document.getElementById('grid-view').click()
-        }
-        target()
-      } else {
-        document.getElementById("board").innerHTML += '<div><button class="btn" onclick="addShips()">Add Ships</button></div>'
-        createShips('carrier', 5, 'horizontal', document.getElementById('dock'), false)
-        createShips('battleship', 4, 'horizontal', document.getElementById('dock'), false)
-        createShips('submarine', 3, 'horizontal', document.getElementById('dock'), false)
-        createShips('destroyer', 3, 'horizontal', document.getElementById('dock'), false)
-        createShips('patrol_boat', 2, 'horizontal', document.getElementById('dock'), false)
-      }
-
-      data.gamePlayer.forEach(e => {
-        if (e.id == gp) {
-          player = e.player
-        } else {
-          opponent = e.player
-        }
-      })
-      if (data.salvos.length > 0) {
-        getSalvos(data.salvos, player.id)
-      }
-    })
-    .catch(error => console.log(error))
-}
-
-function getShips(ships) {
-
-  ships.forEach(ship => {
-    createShips(ship.type,
-      ship.locations.length,
-      ship.locations[0][0] == ship.locations[1][0] ? "horizontal" : "vertical",
-      document.getElementById(`ships${ship.locations[0]}`),
-      true
-    )
+fetch("/api/game_view/" + gpId)
+  .then(function (response) {
+    return response.json()
   })
-}
+  .then(function (json) {
 
-function getSalvos(salvos, playerId) {
-  salvos.forEach(salvo => {
-    salvo.locations.forEach(loc => {
-      if (salvo.player == playerId) {
-        let cell = document.getElementById("salvos" + loc)
-        salvo.hits.includes(loc) ? cell.classList.add('hit') : cell.classList.add('water')
-        cell.innerText = salvo.turn
-      } else {
-        let cell = document.getElementById("ships" + loc)
-        if (cell.classList.contains('busy-cell')) {
-          cell.style.background = "red"
-        }
-      }
-    })
+    gamesData = json
+    //Determina el jugador actual y contra quien juega
+    WhoIsWho()
 
-    if (salvo.sunken != null) {
-      salvo.sunken.forEach(ship => {
-        if (salvo.player == playerId) {
-          ship.locations.forEach(loc => {
-            let cell = document.getElementById("salvos" + loc)
-            cell.classList.add('sunken')
-          })
-        }
-      })
-    }
-  })
-}
-
-let ships = [
-  {
-    "type": "carrier",
-    "locations": ["A1", "A2", "A3", "A4", "A5"]
-  },
-  {
-    "type": "battleship",
-    "locations": ["A10", "B10", "C10", "D10"]
-  },
-  {
-    "type": "submarine",
-    "locations": ["C1", "C2", "C3"]
-  },
-  {
-    "type": "destroyer",
-    "locations": ["D1", "D2", "D3"]
-  },
-  {
-    "type": "patrol_boat",
-    "locations": ["E1", "E2"]
-  }
-]
-
-function addShips() {
-  let ships = []
-
-  document.querySelectorAll(".grid-item").forEach(item => {
-    let ship = {}
-    ship.type = item.id
-    ship.locations = []
-
-    if (item.dataset.orientation == "horizontal") {
-      for (i = 0; i < item.dataset.length; i++) {
-        ship.locations.push(item.dataset.y + (parseInt(item.dataset.x) + i))
-      }
+    //Cargamos por medio de gridstackla los barcos y chequeamos si ya hay barcos o no para hacer una grilla statica o no
+    //(En un futuro se trabajara sin la pagina intermedia de place-ship por lo que de momento esto comparacion esta demas)
+    if (gamesData.ships.length > 0) {
+      //if true, the grid is initialized in static mode, that is, the ships can't be moved
+      loadGrid(true)
     } else {
-      for (i = 0; i < item.dataset.length; i++) {
-        ship.locations.push(String.fromCharCode(item.dataset.y.charCodeAt() + i) + item.dataset.x)
-      }
+      //On the contrary, the grid is initialized in dynamic mode, allowing the user to move the ships
+      loadGrid(false)
+      //A futuro para cargar los salvos por medio de gridstack
+      //loadGridSalvo()
     }
-    ships.push(ship)
+
+    createGrid(11, $(".grid-salvoes"), 'salvoes') //carga la matriz que contendra los salvoes pero sin gridstack.js
+    setSalvoes() //carga los salvoes ya guardados
+    var contador = 0
+    //Una vez cargado los salvoes con createGrid procedemos a establecer una funcion click por cada celda de la siguiente manera
+    $('div[id^="salvoes"].grid-cell').click(function () {
+      if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
+        $(this).addClass("targetCell");
+      } else if ($(this).hasClass("targetCell")) {
+        $(this).removeClass("targetCell");
+      }
+    })
   })
-  sendShips(ships, gp)
-}
+  .catch(function (error) {
+    console.log(error)
+  })
 
-function sendShips(ships, gamePlayerId) {
-  let url = '/api/games/players/' + gamePlayerId + '/ships'
-  let init = {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(ships)
-  }
-  fetch(url, init)
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        return Promise.reject(res.json())
-      }
-    })
-    .then(json => {
-      getGameData(gp, true)
-    })
-    .catch(error => error)
-    .then(error => console.log(error))
-}
-
-function shoot(shots, gamePlayerId) {
-  let url = '/api/games/players/' + gamePlayerId + '/salvos'
-  let init = {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(shots)
-  }
-  fetch(url, init)
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        return Promise.reject(res.json())
-      }
-    })
-    .then(json => {
-      getGameData(gp, false)
-    })
-    .catch(error => error)
-    .then(error => console.log(error))
-}
-
-function readyToShoot() {
-  let shots = Array.from(document.querySelectorAll('.target')).map(cell => cell.dataset.y + cell.dataset.x)
-  shoot(shots, gp)
-}
-
-function gridView(ev) {
-
-  let text = ev.target.innerText == "View salvos" ? "View Ships" : "View salvos"
-  ev.target.innerText = text
-  document.querySelectorAll(".grid").forEach(grid => grid.classList.toggle("active"))
-  document.getElementById("fire").classList.toggle("hide")
-}
-
-function target() {
-  document.querySelectorAll("#grid-salvos.grid-cell").forEach(cell => cell.addEventListener('click', aim))
-}
-
-function aim(evt) {
-  if (!evt.target.classList.contains('hit')) {
-    if (document.querySelectorAll('.target').length < 5) {
-      evt.target.classList.toggle('target')
+function WhoIsWho() {
+  for (i = 0; i < gamesData.gamePlayers.length; i++) {
+    if (gamesData.gamePlayers[i].gpid == gpId) {
+      actualPlayer = gamesData.gamePlayers[i].player
     } else {
-      console.log('to many shots')
+      opponent = gamesData.gamePlayers[i].player
     }
+  }
+
+  let logger = document.getElementById("logger")
+  let wrapper = document.createElement('DIV')
+  let p1 = document.createElement('P')
+  p1.innerHTML = `Hi ${actualPlayer.email}!`
+  let p2 = document.createElement('P')
+  p2.innerHTML = `your opponent is: ${opponent.email}`
+  wrapper.appendChild(p1)
+  wrapper.appendChild(p2)
+  logger.appendChild(wrapper)
+}
+
+function getTurn() {
+  var arr = []
+  var turn = 0;
+  gamesData.salvoes.map(function (salvo) {
+    if (salvo.player == actualPlayer.id) {
+      arr.push(salvo.turn);
+    }
+  })
+  turn = Math.max.apply(Math, arr);
+
+  if (turn == -Infinity) {
+    return 1;
   } else {
-    console.log('You shot here already!')
+    return turn + 1;
   }
+}
+
+function shoot() {
+  var turno = getTurn();
+  var locationsToShoot = [];
+  $(".targetCell").each(function () {
+    let location = $(this).attr("id").substring(7);
+    //"00"
+    let locationConverted = String.fromCharCode(parseInt(location[0]) + 65) + (parseInt(location[1]) + 1)
+
+    locationsToShoot.push(locationConverted)
+  })
+  console.log(locationsToShoot)
+  var url = "/api/games/players/" + getParameterByName("gp") + "/salvoes"
+  $.post({
+    url: url,
+    data: JSON.stringify({ turn: turno, salvoLocations: locationsToShoot }),
+    dataType: "text",
+    contentType: "application/json"
+  })
+    .done(function (response, status, jqXHR) {
+      alert("Salvo added: " + response);
+      location.reload();
+    })
+    .fail(function (jqXHR, status, httpError) {
+      alert("Failed to add salvo: " + status + " " + httpError);
+    })
 }
 
 
