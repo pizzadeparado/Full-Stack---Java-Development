@@ -6,15 +6,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/grid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game/grid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/gridstack/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/ships.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game/ships.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,22 +182,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1575498374334">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1575646633873">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575498374334" />
-    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1575498374332">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575646633873" />
+    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1575646633870">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575498374332" />
-    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1575498374311">
+    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575646633870" />
+    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1575646633869">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575498374311" />
-    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1575498374333">
+    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575646633869" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1575646633871">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575498374333" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575646633871" />
     <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1575289794065">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

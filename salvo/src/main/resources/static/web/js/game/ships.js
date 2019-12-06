@@ -7,7 +7,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
   ship.classList.add('grid-item')
   ship.dataset.length = length
   ship.dataset.orientation = orientation
-  ship.id = shipType
+  ship.ID = shipType
 
   if (orientation == 'vertical') {
     ship.style.transform = 'rotate(90deg)'
@@ -62,7 +62,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
 
   //event to allow the ship beeing dragged
   function dragShip(ev) {
-    ev.dataTransfer.setData("ship", ev.target.parentNode.id)
+    ev.dataTransfer.setData("ship", ev.target.parentNode.ID)
 
   }
 
@@ -103,7 +103,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
           return
         }
         for (let i = 1; i < ship.dataset.length; i++) {
-          let id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
+          let id = (endTarget.ID).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
           let cellId = `${id}${endTarget.dataset.y}${x + i}`
           if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
             document.querySelector("#display p").innerText = 'careful'
@@ -116,7 +116,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
           return
         }
         for (let i = 1; i < ship.dataset.length; i++) {
-          let id = (endTarget.id).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
+          let id = (endTarget.ID).match(new RegExp(`[^${endTarget.dataset.y}|^${endTarget.dataset.x}]`, 'g')).join('')
           let cellId = `${id}${String.fromCharCode(endTarget.dataset.y.charCodeAt() + i)}${x}`
           if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
             document.querySelector("#display p").innerText = 'careful'
@@ -154,7 +154,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
           }
 
           for (let i = 1; i < ship.dataset.length; i++) {
-            let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+            let id = (cell.ID).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
             let cellId = `${id}${String.fromCharCode(cell.dataset.y.charCodeAt() + i)}${cell.dataset.x}`
             if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
               document.querySelector("#display p").innerText = 'careful'
@@ -169,7 +169,7 @@ const createShips = function (shipType, length, orientation, parent, isStatic) {
           }
 
           for (let i = 1; i < ship.dataset.length; i++) {
-            let id = (cell.id).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
+            let id = (cell.ID).match(new RegExp(`[^${cell.dataset.y}|^${cell.dataset.x}]`, 'g')).join('')
             let cellId = `${id}${cell.dataset.y}${parseInt(cell.dataset.x) + i}`
             if (document.getElementById(cellId).className.search(/busy-cell/) != -1) {
               document.querySelector("#display p").innerText = 'careful'

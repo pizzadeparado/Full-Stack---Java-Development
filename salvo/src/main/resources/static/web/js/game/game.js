@@ -1,45 +1,32 @@
-var gamesData
-var actualPlayer
-var opponent = {
-  "email": "Waiting for opponent"
-}
+var data
+var salvoUser
+var opponent
+var gamePlayerID = getParameterByName("gp")
 
-//Para obtener el id del gamePlayer colocado como query en la url
-var gpId = getParameterByName("gp")
-console.log(gpId)
-
-function getParameterByName(name) {
-  var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+function getParameterByName(user) {
+  var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-fetch("/api/game_view/" + gpId)
+fetch("/api/game_view/" + gamePlayerID)
   .then(function (response) {
     return response.json()
   })
   .then(function (json) {
-
-    gamesData = json
-    //Determina el jugador actual y contra quien juega
-    WhoIsWho()
-
-    //Cargamos por medio de gridstackla los barcos y chequeamos si ya hay barcos o no para hacer una grilla statica o no
-    //(En un futuro se trabajara sin la pagina intermedia de place-ship por lo que de momento esto comparacion esta demas)
-    if (gamesData.ships.length > 0) {
-      //if true, the grid is initialized in static mode, that is, the ships can't be moved
+    data = json
+    whoIsWho()
+    
+    if (data.ships.length > 0) {
       loadGrid(true)
     } else {
-      //On the contrary, the grid is initialized in dynamic mode, allowing the user to move the ships
       loadGrid(false)
-      //A futuro para cargar los salvos por medio de gridstack
-      //loadGridSalvo()
     }
 
-    createGrid(11, $(".grid-salvoes"), 'salvoes') //carga la matriz que contendra los salvoes pero sin gridstack.js
-    setSalvoes() //carga los salvoes ya guardados
+    createGrid(11, $(".grid-salvos"), 'salvos')
+    setSalvos()
+    
     var contador = 0
-    //Una vez cargado los salvoes con createGrid procedemos a establecer una funcion click por cada celda de la siguiente manera
-    $('div[id^="salvoes"].grid-cell').click(function () {
+    $('div[id^="salvos"].grid-cell').click(function () {
       if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
         $(this).addClass("targetCell");
       } else if ($(this).hasClass("targetCell")) {
@@ -51,19 +38,19 @@ fetch("/api/game_view/" + gpId)
     console.log(error)
   })
 
-function WhoIsWho() {
-  for (i = 0; i < gamesData.gamePlayers.length; i++) {
-    if (gamesData.gamePlayers[i].gpid == gpId) {
-      actualPlayer = gamesData.gamePlayers[i].player
+function whoIsWho() {
+  for (i = 0; i < data.games.player.length; i++) {
+    if (data.player[i].gamePlayerID == gamePlayerID) {
+      salvoUser = data.gamePlayer[i].player
     } else {
-      opponent = gamesData.gamePlayers[i].player
+      opponent = data.gamePlayer[i].player
     }
   }
 
   let logger = document.getElementById("logger")
   let wrapper = document.createElement('DIV')
   let p1 = document.createElement('P')
-  p1.innerHTML = `Hi ${actualPlayer.email}!`
+  p1.innerHTML = `Hi ${salvoUser.email}!`
   let p2 = document.createElement('P')
   p2.innerHTML = `your opponent is: ${opponent.email}`
   wrapper.appendChild(p1)
@@ -74,8 +61,8 @@ function WhoIsWho() {
 function getTurn() {
   var arr = []
   var turn = 0;
-  gamesData.salvoes.map(function (salvo) {
-    if (salvo.player == actualPlayer.id) {
+  data.salvos.map(function (salvo) {
+    if (salvo.player == salvoUser.ID) {
       arr.push(salvo.turn);
     }
   })
@@ -99,7 +86,7 @@ function shoot() {
     locationsToShoot.push(locationConverted)
   })
   console.log(locationsToShoot)
-  var url = "/api/games/players/" + getParameterByName("gp") + "/salvoes"
+  var url = "/api/games/players/" + getParameterByName("gp") + "/salvos"
   $.post({
     url: url,
     data: JSON.stringify({ turn: turno, salvoLocations: locationsToShoot }),

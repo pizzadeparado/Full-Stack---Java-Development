@@ -10,9 +10,7 @@
   <link rel="shortcut icon" href="css/img/fire-icon.png">
   <link rel="apple-touch-icon" href="css/img/fire-icon.png">
   <!-- Gridstack -->
-  <link rel="stylesheet" href="css/gridstack/normalize.css" />
-  <link rel="stylesheet" href="css/gridstack/gridstack.css" />
-  <link rel="stylesheet" href="css/gridstack/gridstack-extra.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,8 +35,8 @@
           <section class="card shadow-lg rounded" id="currentGame">
             <h3 class="card-header">Current Game</h3>
             <div class="card-body">
-              <h6 id="playerInfo">{{salvoUser.user}} VS {{salvoUser.user}}</h6>
-              <button class="btn btn-primary shadow-lg m-3" type="button" onclick="backToHomepage()">Back to Homepage</button>
+              <h6 id="playerInfo">{{salvoUser}} VS {{opponent}}</h6>
+              <button class="btn btn-primary shadow-lg m-3" type="button" onclick="backToHomepage()">Back to Homepage 🏠</button>
             </div>
           </section>
         </section>
@@ -58,20 +56,20 @@
     <!------------------------------ Ships and Salvos grid ------------------------------>
     <main class="container-fluid mb-5">
       <section class="row m-5">
-        <section class="col-6-md m-5">
+        <div class="col-6-md m-5">
           <h3>Place your Ships</h3>
-          <section class="grid-ships">
+          <div class="grid-ships">
             <div id="grid" class="grid-stack grid-stack-10"></div>
-          </section>
+          </div>
           <button class="btn btn-lg btn-success shadow-lg" type="button" onclick="sendShips">💾</button>
-        </section>
+        </div>
 
-        <section class="col-6-md m-5">
+        <div class="col-6-md m-5">
           <h3>Place your Salvos</h3>
-          <section class="grid-salvoes">
-          </section>
+          <div class="grid-salvos">
+          </div>
           <button class="btn btn-lg btn-danger shadow-lg" type="button" onclick="sendSalvos">💾</button>
-        </section>
+        </div>
       </section>
     </main>
 
@@ -86,6 +84,10 @@
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- Gridstack -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.jQueryUI.js"></script>
   <!-- Popper -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <!-- Bootstrap -->
@@ -94,14 +96,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- Sweet Alert -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <!-- Gridstack -->
-  <script src="js/game/gridstack/jquery-ui.min.js"></script>
-  <script src="js/game/gridstack/gridstack.js"></script>
-  <script src="js/game/gridstack/gridstack.jQueryUI.js"></script>
-  <script src="js/game/gridstack/jquery.ui.touch-punch.min.js"></script>
   <!-- Content scripts -->
   <!--<script src="js/game/ships.js"></script>-->
-  <script src="js/game/grid.js"></script>
+  <!-- <script src="js/game/grid.js"></script> -->
+  <script src="js/game/main.js"></script>
   <script src="js/game/game.js"></script>
 
 </body>

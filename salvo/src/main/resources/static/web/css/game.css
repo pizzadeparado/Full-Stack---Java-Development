@@ -29,6 +29,10 @@ h6 {
   color: white;
 }
 
+p {
+  font-family: "Space Mono", monospace;
+}
+
 .btn {
   font-family: "Space Mono", monospace;
 }
@@ -124,8 +128,6 @@ h6 {
 }
 
 .grid-ships {
-  background-image: url(ocean.gif);
-  background-size: cover;
   border: 2px solid gray;
   border-radius: 10px;
   height: 495px;
@@ -133,7 +135,7 @@ h6 {
   transform: rotateX(25deg);
 }
 
-.grid-salvoes {
+.grid-salvos {
   background-size: 100% 100%;
   border: 2px solid #7f4a19;
   border-radius: 10px;
@@ -179,7 +181,7 @@ h6 {
   border: 1.3px solid gray;
 }
 
-.grid-salvoes .grid-cell {
+.grid-salvos .grid-cell {
   border: 1.3px solid #7f4a19;
 }
 
@@ -195,11 +197,11 @@ h6 {
   background-color: rgba(170, 169, 173, 0.7);
 }
 
-.grid-salvoes .grid-row:first-child .grid-cell {
+.grid-salvos .grid-row:first-child .grid-cell {
   background-color: rgba(184, 115, 51, 0.7);
 }
 
-.grid-salvoes .grid-cell:first-child {
+.grid-salvos .grid-cell:first-child {
   background-color: rgba(184, 115, 51, 0.8);
 }
 
