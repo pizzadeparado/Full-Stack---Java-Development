@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Welcome | Salvo</title>
+  <link rel="shortcut icon" href="css/img/fire-icon.png">
+  <link rel="apple-touch-icon" href="css/img/fire-icon.png">
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700i&display=swap">
+</head>
+
+<body>
+  <section id="index">
+    <section class="container-fluid mb-5">
+      <!------------------------------ Title ------------------------------>
+      <section class="row m-5 justify-content-center">
+        <h1>Salvo - Game On!</h1>
+      </section>
+
+      <!------------------------------ Menu ------------------------------>
+      <section class="row m-5 align-items-center" id="playerAccess">
+        <section class="col-md-4 text-center" id="registration">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
+            <div v-show="salvoUser == 'guest'">
+              <h2>Sign Up</h2>
+              <button class="btn btn-info btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#registrationCollapse" aria-expanded="false" aria-controls="registrationCollapse">Register</button>
+              <div class="collapse" id="registrationCollapse">
+                <div id="registrationForm">
+                  <div class="form-group mb-4">
+                    <input type="email" class="form-control" v-model="registrationEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group mb-4">
+                    <input type="password" class="form-control" v-model="registrationPassword" placeholder="Password">
+                  </div>
+                  <button class="btn btn-info shadow-lg" type="button" v-on:click="registration()">Continue</button>
+                </div>
+              </div>
+            </div>
+
+            <!---------- If the user is logged in show this ---------->
+            <div v-show="salvoUser != 'guest'">
+              <h2>Sign Up</h2>
+              <button class="btn btn-outline-info btn-block shadow-lg my-3" type="button" v-on:click="registrationAfterLogIn()">Register</button>
+            </div>
+          </section>
+        </section>
+
+        <section class="col-md-4 text-center" id="logIn">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
+            <div v-show="salvoUser == 'guest'">
+              <h2>Log In</h2>
+              <button class="btn btn-success btn-block shadow-lg my-3" type="button" data-toggle="collapse" data-target="#loginCollapse" aria-expanded="false" aria-controls="loginCollapse">Press to Continue</button>
+              <div class="collapse" id="loginCollapse">
+                <div id="loginForm">
+                  <div class="form-group mb-4">
+                    <input type="email" class="form-control" v-model="loginEmail" aria-describedby="emailHelp" placeholder="Email" required>
+                  </div>
+                  <div class="form-group mb-4">
+                    <input type="password" class="form-control" v-model="loginPassword" placeholder="Password" required>
+                  </div>
+                  <div>
+                    <button class="btn btn-success shadow-lg" type="button" v-on:click="login()">Log In</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!---------- If the user is logged in show this ---------->
+            <div v-show="salvoUser != 'guest'">
+              <h2>Welcome</h2>
+              <h6 class="my-3">{{salvoUser.user}}</h6>
+              <button class="btn btn-danger btn-block shadow-lg my-3" id="logoutForm" type="button" v-on:click="logout()">Log Out</button>
+            </div>
+          </section>
+        </section>
+
+        <section class="col-md-4 text-center" id="startGame">
+          <section class="card shadow-lg rounded p-5">
+            <!---------- If no user is logged in show this ---------->
+            <div v-show="salvoUser == 'guest'">
+              <h2>Start Game</h2>
+              <button class="btn btn-outline-warning btn-block shadow-lg my-3" type="button" v-on:click="newGameAlert()">Ready, set, go!</button>
+            </div>
+
+            <!---------- If the user is logged in show this ---------->
+            <div v-show="salvoUser != 'guest'">
+              <h2>Start Game</h2>
+              <button class="btn btn-warning btn-block shadow-lg my-3" type="button" v-on:click="createGame()">Ready, set, go!</button>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
+
+    <!------------------------------ Game List and Leaderboard ------------------------------>
+    <main class="container-fluid mb-5">
+      <section class="row m-5" id="gameInfo">
+        <section class="col-md-6" id="gamesTable">
+          <h3>🎯 Game List</h3>
+          <table class="table shadow">
+            <thead class="thead-dark">
+              <tr>
+                <th class="text-center">ID</th>
+                <th>Player 1</th>
+                <th>Player 2</th>
+                <!---------- If "user" is logged in show this ---------->
+                <th v-if="salvoUser != 'guest'">Join Game</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr v-for="(game, index) in salvoGames">
+                <td class="text-center">{{game.gameID}}</td>
+                <td>{{game.player[0].user.split("@")[0]}}</td>
+                <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
+
+                <!---------- If "game" is full show this ---------->
+                <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
+                  <span>Room Full</span>
+                </td>
+
+                <!---------- Option to join a game ---------->
+                <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
+                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
+                </td>
+
+                <!---------- Option to return to a game ---------->
+                <td v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
+                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="col-md-6" id="leaderboardTable">
+          <h3>🥇 Leaderboard</h3>
+          <table class="table shadow">
+            <thead class="thead-dark">
+              <tr>
+                <th>Player</th>
+                <th class="text-center">Won</th>
+                <th class="text-center">Tied</th>
+                <th class="text-center">Lost</th>
+                <th class="text-center">Total</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr v-for="player in salvoScore">
+                <td>{{player.user.split("@")[0]}}</td>
+                <td class="text-center">{{player.won}}</td>
+                <td class="text-center">{{player.tied}}</td>
+                <td class="text-center">{{player.lost}}</td>
+                <td class="text-center">{{player.total}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+  </section>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Created with 💚 by <a href="https://github.com/pizzadeparado" target="_blank">pizzadeparado</a> in Buenos Aires.</span>
+    </div>
+  </footer>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Content scripts -->
+  <script src="js/games.js"></script>
+
+</body>
+</html>

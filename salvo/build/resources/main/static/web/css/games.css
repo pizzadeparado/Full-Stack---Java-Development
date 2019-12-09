@@ -1,0 +1,68 @@
+/******************** Sass Variables ********************/
+/******************** Layout ********************/
+body {
+  background-color: rgba(173, 94, 153, 0.7) !important;
+  background-image: url(img/fire.png);
+  background-repeat: repeat-x;
+  background-size: 60%;
+  background-position: bottom;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+/******************** Fonts ********************/
+h1 {
+  font-family: ccbiffbamboomoutline, sans-serif;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "Bungee Shade", cursive;
+  color: white;
+}
+
+h3 {
+  font-family: "Bungee", cursive;
+}
+
+h6 {
+  font-family: "Bungee", cursive;
+  color: white;
+}
+
+.btn {
+  font-family: "Space Mono", monospace;
+}
+
+/******************** Tables ********************/
+table {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+table th {
+  font-family: "Space Mono", monospace;
+}
+table tbody {
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
+/******************** Decorations ********************/
+.card {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.swal-text {
+  font-family: "Bungee", cursive;
+  text-align: center;
+}
+
+.swal-overlay {
+  background-color: rgba(255, 204, 64, 0.4);
+}
+
+/*# sourceMappingURL=games.css.map */
