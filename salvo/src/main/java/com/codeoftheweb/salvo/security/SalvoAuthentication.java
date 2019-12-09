@@ -1,4 +1,4 @@
-package com.codeoftheweb.salvo.controller;
+package com.codeoftheweb.salvo.security;
 
 import com.codeoftheweb.salvo.model.Player;
 import com.codeoftheweb.salvo.repository.PlayerRepository;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Configuration
-class SalvoSecurityAuthentication extends GlobalAuthenticationConfigurerAdapter {
+class SalvoAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
   @Autowired
   PlayerRepository playerRepository;

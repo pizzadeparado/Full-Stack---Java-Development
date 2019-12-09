@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <section id="index">
+  <section id="salvo">
     <section class="container-fluid mb-5">
       <!------------------------------ Title ------------------------------>
       <section class="row m-5 justify-content-center">
@@ -119,7 +119,7 @@
             </thead>
 
             <tbody>
-              <tr v-for="(game, index) in salvoGames">
+              <tr v-for="(game, salvo) in salvoGames">
                 <td class="text-center">{{game.gameID}}</td>
                 <td>{{game.player[0].user.split("@")[0]}}</td>
                 <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>

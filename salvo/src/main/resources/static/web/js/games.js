@@ -1,5 +1,5 @@
-var index = new Vue({
-  el: "#index",
+var salvo = new Vue({
+  el: "#salvo",
   data: {
     salvoGames: [],
     salvoScore: [],
@@ -12,7 +12,7 @@ var index = new Vue({
   methods: {
     registration() {
       if (
-        index.registrationEmail == "" || index.registrationPassword == ""
+        salvo.registrationEmail == "" || salvo.registrationPassword == ""
       )
         swal("Please complete the fields", {
           closeOnClickOutside: true,
@@ -23,8 +23,8 @@ var index = new Vue({
 
       else {
         $.post("/api/players", {
-          username: index.registrationEmail,
-          password: index.registrationPassword
+          username: salvo.registrationEmail,
+          password: salvo.registrationPassword
         })
           .done(function () {
             swal("Account created successfully. Redirecting...", {
@@ -47,7 +47,7 @@ var index = new Vue({
     },
     login() {
       if (
-        index.loginEmail == "" || index.loginPassword == ""
+        salvo.loginEmail == "" || salvo.loginPassword == ""
       )
         swal("Please complete the fields", {
           closeOnClickOutside: true,
@@ -58,8 +58,8 @@ var index = new Vue({
 
       else {
         $.post("/api/login", {
-          username: index.loginEmail,
-          password: index.loginPassword
+          username: salvo.loginEmail,
+          password: salvo.loginPassword
         })
           .done(function () {
             swal("You're now logged in. Redirecting you...", {
@@ -193,8 +193,8 @@ $(function () {
 function loadGames() {
   $.get("/api/games")
     .done(function (data) {
-      index.salvoGames = data.games;
-      index.salvoUser = data.player;
+      salvo.salvoGames = data.games;
+      salvo.salvoUser = data.player;
     })
     .fail(function () {
       swal("Failed to load the game list. Reloading.", {
@@ -210,7 +210,7 @@ function loadGames() {
 function loadScore() {
   $.get("/api/leaderboard")
     .done(function (data) {
-      index.salvoScore = data;
+      salvo.salvoScore = data;
     })
     .fail(function () {
       swal("Failed to load the score list. Reloading.", {

@@ -1,4 +1,4 @@
-package com.codeoftheweb.salvo.controller;
+package com.codeoftheweb.salvo.security;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 
 @EnableWebSecurity
-class SalvoSecurityAuthorization extends WebSecurityConfigurerAdapter {
+class SalvoAuthorization extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
