@@ -21,7 +21,7 @@ class SalvoAuthorization extends WebSecurityConfigurerAdapter {
                                       "/api/login",
                                       "/api/logout",
                                       "/api/games",
-                                      "/api/games/games/*",
+                                      "/api/games/*",
                                       "/api/players",
                                       "/api/leaderboard").permitAll()
         .antMatchers("/api/**",

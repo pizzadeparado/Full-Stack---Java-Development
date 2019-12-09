@@ -6,13 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Current game... | Salvo</title>
+  <title>Current Game | Salvo</title>
   <link rel="shortcut icon" href="css/img/fire-icon.png">
   <link rel="apple-touch-icon" href="css/img/fire-icon.png">
-  <!-- Gridstack -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.css">
+  <!-- Gridstack CSS -->
+  <link rel="stylesheet" href="css/gridstack/normalize.css">
+  <link rel="stylesheet" href="css/gridstack/gridstack.css">
+  <link rel="stylesheet" href="css/gridstack/gridstack-extra.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/game-gridstack.css">
+  <!-- Bootstrap and Fonts-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.typekit.net/ize1xyw.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono:400,700i&display=swap">
@@ -54,22 +58,22 @@
 
     <!------------------------------ Ships and Salvos grid ------------------------------>
     <main class="container-fluid mb-5">
-      <section class="row m-5">
-        <section class="col-6-md m-5">
+      <div class="row m-5">
+        <div class="col-6-md m-5">
           <h3>Place your Ships</h3>
-          <section class="grid-ships">
+          <div class="grid-ships">
             <div id="grid" class="grid-stack grid-stack-10"></div>
-          </section>
+          </div>
           <button class="btn btn-lg btn-success shadow-lg" type="button" onclick="sendShips">💾</button>
-        </section>
+        </div>
 
-        <section class="col-6-md m-5">
+        <div class="col-6-md m-5">
           <h3>Place your Salvos</h3>
-          <section class="grid-salvos">
-          </section>
+          <div class="grid-salvos">
+          </div>
           <button class="btn btn-lg btn-danger shadow-lg" type="button" onclick="sendSalvos">💾</button>
         </div>
-      </section>
+      </div>
     </main>
 
   </section>
@@ -82,13 +86,15 @@
 
 
   <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
   <!-- Gridstack -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/jquery-ui.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gridstack@0.5.5/dist/gridstack.jQueryUI.js"></script>
+  <script src="js/game/gridstack/jquery-ui.min.js"></script>
+  <script src="js/game/gridstack/gridstack.js"></script>
+  <script src="js/game/gridstack/gridstack.jQueryUI.js"></script>
+  <script src="js/game/gridstack/jquery.ui.touch-punch.min.js"></script>
   <!-- Popper -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <!-- Bootstrap -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- Sweet Alert -->
