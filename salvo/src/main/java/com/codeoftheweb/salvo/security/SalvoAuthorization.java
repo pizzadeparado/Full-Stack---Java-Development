@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 @EnableWebSecurity
 class SalvoAuthorization extends WebSecurityConfigurerAdapter {
 
@@ -24,7 +23,7 @@ class SalvoAuthorization extends WebSecurityConfigurerAdapter {
                                       "/api/games/*",
                                       "/api/players",
                                       "/api/leaderboard").permitAll()
-        .antMatchers("/api/**",
+        .antMatchers("/api/game_view/*",
                                       "/web/game.html**").hasAuthority("USER")
         .antMatchers("/rest/**").hasAuthority("ADMIN")
         .anyRequest().denyAll();

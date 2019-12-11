@@ -249,22 +249,22 @@ const createGrid = function (size, element, id) {
 };
 
 const setShips = function () {
-  for (i = 0; i < salvoGames.ships.length; i++) {
-    let shipType = salvoGames.ships[i].shipType.toLowerCase();
-    let x = +salvoGames.ships[i].locations[0][1];
-    let y = stringToInt[salvoGames.ships[i].locations[0][0].toUpperCase()];
+  for (i = 0; i < salvoGames.hasShips.length; i++) {
+    let shipType = salvoGames.hasShips[i].shipType.toLowerCase();
+    let x = +salvoGames.hasShips[i].shipLocations[0][1];
+    let y = stringToInt[salvoGames.hasShips[i].shipLocations[0][0].toUpperCase()];
     let w;
     let h;
     let orientation;
 
     if (
-      salvoGames.ships[i].locations[0][0] == salvoGames.ships[i].locations[1][0]
+      salvoGames.hasShips[i].shipLocations[0][0] == salvoGames.hasShips[i].shipLocations[1][0]
     ) {
-      w = salvoGames.ships[i].locations.length;
+      w = salvoGames.hasShips[i].shipLocations.length;
       h = 1;
       orientation = "Horizontal";
     } else {
-      h = salvoGames.ships[i].locations.length;
+      h = salvoGames.hasShips[i].shipLocations.length;
       w = 1;
       orientation = "Vertical";
     }
@@ -289,11 +289,11 @@ const setShips = function () {
 const setSalvos = function() {
   var playerOne;
   var playerTwo;
-  for (let i = 0; i < salvoGames.players.length; i++) {
-    if (salvoGames.players[i].gamePlayerID == gamePlayerID) {
-      playerOne = salvoGames.players[i].gamePlayerID;
+  for (let i = 0; i < salvoGames.gamePlayer.length; i++) {
+    if (salvoGames.gamePlayer[i].gamePlayerID == gamePlayerID) {
+      playerOne = salvoGames.gamePlayer[i].gamePlayerID;
     } else {
-      playerTwo = salvoGames.players[i].gamePlayerID;
+      playerTwo = salvoGames.gamePlayer[i].gamePlayerID;
     }
   }
 

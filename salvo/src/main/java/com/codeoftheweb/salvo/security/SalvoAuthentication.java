@@ -10,9 +10,8 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 @Configuration
 class SalvoAuthentication extends GlobalAuthenticationConfigurerAdapter {
@@ -22,7 +21,7 @@ class SalvoAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
   @Bean
   public PasswordEncoder passwordEncoder() {
-    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    return new BCryptPasswordEncoder();
   }
 
   @Override
@@ -32,10 +31,10 @@ class SalvoAuthentication extends GlobalAuthenticationConfigurerAdapter {
       if (player != null) {
         if (player.isAdmin()) {
           return new User(player.getUserName(), player.getPassword(),
-              AuthorityUtils.createAuthorityList("Admin"));
+              AuthorityUtils.createAuthorityList("ADMIN"));
         } else {
           return new User(player.getUserName(), player.getPassword(),
-              AuthorityUtils.createAuthorityList("User"));
+              AuthorityUtils.createAuthorityList("USER"));
         }
       } else {
         throw new UsernameNotFoundException("User" + inputName + "unknown.");

@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
 import java.util.*;
 
-
 @SpringBootApplication
 public class SalvoApplication {
 
@@ -27,8 +26,6 @@ public class SalvoApplication {
 	public CommandLineRunner initData(PlayerRepository playerRepository,
 																		GameRepository gameRepository,
 																		GamePlayerRepository gamePlayerRepository,
-																		ShipRepository shipRepository,
-																		SalvoRepository salvoRepository,
 																		ScoreRepository scoreRepository) {
 		return (args) -> {
 
@@ -61,7 +58,6 @@ public class SalvoApplication {
 			GamePlayer gamePlayer11 = new GamePlayer (game6, player3, LocalDateTime.now());
 			GamePlayer gamePlayer12 = new GamePlayer (game6, player4, LocalDateTime.now());
 
-			gamePlayerRepository.saveAll(Arrays.asList(gamePlayer1,gamePlayer2,gamePlayer3,gamePlayer4,gamePlayer5,gamePlayer6,gamePlayer7,gamePlayer8,gamePlayer9,gamePlayer10,gamePlayer11,gamePlayer12));
 
 			gamePlayer1.addShip(new Ship("destroyer", Arrays.asList("H2", "H3", "H4")));
 			gamePlayer1.addShip(new Ship("submarine", Arrays.asList("E1", "F1", "G1", "H1")));
@@ -83,7 +79,7 @@ public class SalvoApplication {
 			gamePlayer4.addSalvo(new Salvo(1, Arrays.asList("C6", "C7")));
 			gamePlayer4.addSalvo(new Salvo(2, Arrays.asList("A2", "A3")));
 
-			gamePlayerRepository.saveAll(Arrays.asList(gamePlayer1, gamePlayer2, gamePlayer3, gamePlayer4));
+			gamePlayerRepository.saveAll(Arrays.asList(gamePlayer1, gamePlayer2, gamePlayer3, gamePlayer4, gamePlayer5, gamePlayer6, gamePlayer7, gamePlayer8, gamePlayer9, gamePlayer10, gamePlayer11, gamePlayer12));
 
 			Score score1 = new Score(3, game1, player1, LocalDateTime.now());
 			Score score2 = new Score(1, game2, player1, LocalDateTime.now());

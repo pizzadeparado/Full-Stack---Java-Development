@@ -217,7 +217,7 @@ var playerOne
 var playerTwo = {
   "user": "Waiting for opponent."
 }
-var gamePlayerID = getParameterByName("gamePlayer")
+var gamePlayerID = getParameterByName("gp")
 
 function getParameterByName(user) {
   var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
@@ -249,7 +249,7 @@ var ships = [
 ]
 
 /******************** Games ********************/
-fetch("/api/game_view/" + gamePlayerID)
+$.get("/api/game_view/" + gamePlayerID)
   .then(function (response) {
     return response.json();
   })
@@ -257,7 +257,7 @@ fetch("/api/game_view/" + gamePlayerID)
     salvoGames = json;
     whoIsWho();
 
-    if (salvoGames.ships.length > 0) {
+    if (salvoGames.hasShips.length > 0) {
       //if true, the grid is initialized in static mode, that is, the ships can't be moved
       loadGrid(true)
     } else {
@@ -313,7 +313,7 @@ function shoot() {
     locationsToShoot.push(locationConverted)
   })
   console.log(locationsToShoot)
-  var url = "/api/games/players/" + getParameterByName("gamePlayer") + "/salvos"
+  var url = "/api/games/gamePlayers/" + getParameterByName("user") + "/salvos"
   $.post({
     url: url,
     data: JSON.stringify({ turn: turno, salvoLocations: locationsToShoot }),
