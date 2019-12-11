@@ -1,9 +1,5 @@
-body {
-  background: url(back1.jpg);
-  font-family: "Dosis", sans-serif;
-  background-size: cover;
-}
-
+/******************** Sass Variables ********************/
+/******************** Gridstack ********************/
 .grid-stack-item-content {
   background-repeat: no-repeat;
   cursor: -webkit-grab;
@@ -79,8 +75,6 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  perspective: 75em;
-  perspective-origin: center 75%;
 }
 
 .flex-container > * {
@@ -102,33 +96,12 @@ body {
 }
 
 #logger > div {
-  border-radius: 10px;
-  background-color: rgba(170, 169, 173, 0.7);
   width: 20em;
   font-weight: bold;
   text-align: center;
 }
 
-.grid-ships {
-  background-image: url(ocean.gif);
-  background-size: cover;
-  border: 2px solid gray;
-  border-radius: 10px;
-  height: 495px;
-  width: 495px;
-  transform: rotateX(25deg);
-}
-
-.grid-salvoes {
-  /*background-image: url(sonar.gif);*/
-  background-size: 100% 100%;
-  border: 2px solid #7f4a19;
-  border-radius: 10px;
-  height: 495px;
-  width: 495px;
-  transform: rotateX(25deg);
-}
-
+/******************** Grid ********************/
 #grid {
   margin: 45px 0 0 45px;
   position: absolute;
@@ -151,43 +124,58 @@ body {
   box-sizing: border-box;
   width: 45px;
   height: 45px;
-  border-radius: 10px;
   vertical-align: middle;
   font-weight: bold;
   text-align: center;
   align-items: center;
 }
-
 .grid-cell span {
   margin: auto;
 }
 
+/******************** Ships Grid ********************/
+.grid-ships {
+  width: 495px;
+  height: 495px;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
 .grid-ships .grid-cell {
-  border: 1.3px solid gray;
+  border: 1px solid white;
+}
+.grid-ships .grid-cell:first-child {
+  font-family: "Space Mono", monospace;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.grid-ships .grid-row:first-child .grid-cell {
+  font-family: "Space Mono", monospace;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
-.grid-salvoes .grid-cell {
-  border: 1.3px solid #7f4a19;
+/******************** Salvos Grid ********************/
+.grid-salvos {
+  width: 495px;
+  height: 495px;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.grid-salvos .grid-cell {
+  border: 1px solid white;
+}
+.grid-salvos .grid-cell:first-child {
+  font-family: "Space Mono", monospace;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.grid-salvos .grid-row:first-child .grid-cell {
+  font-family: "Space Mono", monospace;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
+/******************** Salvos Grid ********************/
 .busy-cell {
   background-color: rgba(0, 119, 190, 0.5);
-}
-
-.grid-ships .grid-row:first-child .grid-cell {
-  background-color: rgba(170, 169, 173, 0.7);
-}
-
-.grid-ships .grid-cell:first-child {
-  background-color: rgba(170, 169, 173, 0.7);
-}
-
-.grid-salvoes .grid-row:first-child .grid-cell {
-  background-color: rgba(184, 115, 51, 0.7);
-}
-
-.grid-salvoes .grid-cell:first-child {
-  background-color: rgba(184, 115, 51, 0.8);
 }
 
 #alert-text {
@@ -197,7 +185,6 @@ body {
 }
 
 .targetCell {
-  /*background-image: url('ships/target.png')*/
   background-color: aqua;
 }
 
@@ -207,20 +194,6 @@ body {
 
 .ship-down {
   background-color: red;
-}
-
-.boton-circular {
-  width: 85px;
-  height: 85px;
-  padding: 6px 0px;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 19px;
-  line-height: 1.42857;
-  background-color: #008f39;
-  position: absolute;
-  left: 90%;
-  top: 85%;
 }
 
 #gameRecordSelfTable {

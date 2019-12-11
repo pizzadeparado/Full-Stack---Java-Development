@@ -131,7 +131,7 @@ var salvo = new Vue({
             timer: 1500,
           });
           window.setTimeout(function () {
-            window.location.href = "http://localhost:8080/web/game.html?gp=" + data.gamePlayerID;
+            window.location.href = "http://localhost:8080/web/game.html?gp=" + ID;
           }, 1500);
         });
     },

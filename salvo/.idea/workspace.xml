@@ -10,27 +10,26 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/security/SalvoAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/security/SalvoAuthorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/Controller/SalvoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/SalvoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/GamePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Salvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Salvo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeoftheweb/salvo/model/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game-gridstack.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game-gridstack.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game-gridstack.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game-gridstack.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/asdfgg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/battleship.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/battleship_vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/carrier.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/carrier_vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/destroyer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/destroyer_vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/patrol_boat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/patrol_boat_vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/submarine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/submarine_vertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/ships/target.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/game2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game/main2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/game-gridstack.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/game-gridstack.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/game.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/scss/games.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/scss/games.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +124,25 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="salvo [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="classes" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="salvo [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -165,11 +183,13 @@
       <item itemvalue="Gradle.salvo" />
       <item itemvalue="Gradle.salvo [clean]" />
       <item itemvalue="Gradle.salvo [bootRun]" />
+      <item itemvalue="Gradle.salvo [classes]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.salvo [clean]" />
         <item itemvalue="Gradle.salvo [bootRun]" />
+        <item itemvalue="Gradle.salvo [classes]" />
+        <item itemvalue="Gradle.salvo [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -212,22 +232,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1575926752281">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1576039324992">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575926752281" />
-    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1575926752278">
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576039324992" />
+    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1576039324990">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575926752278" />
-    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1575926752277">
+    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576039324990" />
+    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1576039324986">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575926752277" />
-    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1575926752280">
+    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576039324986" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1576039324991">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575926752280" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576039324991" />
     <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1575858940956">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

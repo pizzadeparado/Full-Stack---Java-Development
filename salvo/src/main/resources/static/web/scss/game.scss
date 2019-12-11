@@ -3,7 +3,7 @@ $primary-colour: rgba(249, 56, 34, 0.7) !important;
 $secondary-colour: rgba(255, 204, 64, 0.4);
 $light-blur: rgba(0, 0, 0, 0.4) !important;
 $dark-blur: rgba(0, 0, 0, 0.8) !important;
-$blur: saturate(180%) blur(20px);
+$blur-setting: saturate(180%) blur(20px);
 $font-title: ccbiffbamboomoutline, sans-serif;
 $font-subtitle: "Bungee Shade", cursive;
 $font-subtitle-simple: "Bungee", cursive;
@@ -22,7 +22,7 @@ body {
 
 footer {
   background-color: $dark-blur;
-  backdrop-filter: $blur;
+  backdrop-filter: $blur-setting;
 }
 
 
@@ -37,9 +37,13 @@ h1 {
   font-style: normal;
 }
 
-h3 {
+h2 {
   font-family: $font-subtitle;
   color: white;
+}
+
+h3 {
+  font-family: $font-subtitle-simple;
 }
 
 h6 {
@@ -49,6 +53,7 @@ h6 {
 
 p {
   font-family: $font-paragraph-heading;
+  color: white;
 }
 
 .btn {
@@ -59,7 +64,7 @@ p {
 /******************** Decorations ********************/
 .card {
   background-color: $dark-blur;
-  backdrop-filter: $blur;
+  backdrop-filter: $blur-setting;
 
   .card-header {
     background-color: $dark-blur;

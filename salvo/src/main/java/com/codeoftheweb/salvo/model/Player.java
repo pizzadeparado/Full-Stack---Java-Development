@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 @Entity
 public class Player {
 
@@ -19,7 +18,7 @@ public class Player {
   private boolean admin;
 
   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
-  private Set<GamePlayer> gamePlayers;
+  private Set<GamePlayer> gamePlayers = new HashSet<>();
 
   @OneToMany(mappedBy="player", fetch = FetchType.EAGER)
   public Set<Score> scores = new HashSet();
@@ -40,7 +39,7 @@ public class Player {
     this.admin = isAdmin;
   }
 
-  public long getPlayerID() {
+  public long getID() {
     return this.ID;
   }
 
@@ -53,7 +52,7 @@ public class Player {
   }
 
   public String getPassword() {
-    return password;
+    return this.password;
   }
 
   public void setPassword(String password) {
@@ -73,19 +72,37 @@ public class Player {
   }
 
   public Set<GamePlayer> getGamePlayers() {
-    return gamePlayers;
+    return this.gamePlayers;
+  }
+
+  public void addGamePlayer(GamePlayer gamePlayer) {
+    this.gamePlayers.add(gamePlayer);
+    gamePlayer.setPlayer(this);
+  }
+
+  public Set<Score> getScores() {
+    return this.scores;
+  }
+
+  public void addScore(Score score) {
+    this.scores.add(score);
+    score.setPlayer(this);
+  }
+
+  public Score getGameScore(Game game) {
+    return this.scores.stream().filter(score -> score.getGame().getID() == game.getID()).findFirst().orElse(null);
   }
 
   public float scoreWon() {
-    return scores.stream().filter(score -> score.getScore() == 1).count();
+    return scores.stream().filter(score -> score.getPoints() == 1).count();
   }
 
   public float scoreLost() {
-    return scores.stream().filter(score -> score.getScore() == 0).count();
+    return scores.stream().filter(score -> score.getPoints() == 0).count();
   }
 
   public float scoreTied() {
-    return scores.stream().filter(score -> score.getScore() == 0.5).count();
+    return scores.stream().filter(score -> score.getPoints() == 0.5).count();
   }
 
   public float scoreTotal() {
@@ -99,14 +116,14 @@ public class Player {
 
   public Map<String, Object> createPlayerDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("ID", this.getPlayerID());
+    dto.put("ID", this.getID());
     dto.put("user", this.getUserName());
     return dto;
   }
 
   public Map<String, Object> createScoreDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("playerID", this.getPlayerID());
+    dto.put("playerID", this.getID());
     dto.put("user", this.getUserName());
     dto.put("won", this.scoreWon());
     dto.put("tied", this.scoreTied());

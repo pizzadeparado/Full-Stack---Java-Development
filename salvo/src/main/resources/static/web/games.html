@@ -121,22 +121,22 @@
             <tbody>
               <tr v-for="(game, salvo) in salvoGames">
                 <td class="text-center">{{game.gameID}}</td>
-                <td>{{game.player[0].user.split("@")[0]}}</td>
-                <td>{{game.player[1] != null ? game.player[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
+                <td>{{game.gamePlayers[0].user.split("@")[0]}}</td>
+                <td>{{game.gamePlayers[1] != null ? game.gamePlayers[1].user.split("@")[0] : "Waiting for opponent..."}}</td>
 
                 <!---------- If "game" is full show this ---------->
-                <td v-if="salvoUser != 'guest' && game.player[0] && game.player[1] && game.player[0].playerID != salvoUser.ID && game.player[1].playerID != salvoUser.ID">
+                <td v-if="salvoUser != 'guest' && game.gamePlayers[0] && game.gamePlayers[1] && game.gamePlayers[0].playerID != salvoUser.ID && game.gamePlayers[1].playerID != salvoUser.ID">
                   <span>Room Full</span>
                 </td>
 
                 <!---------- Option to join a game ---------->
-                <td v-if="salvoUser != 'guest' && game.player.length < 2 && salvoUser.user != game.player[0].user">
+                <td v-if="salvoUser != 'guest' && game.gamePlayers.length < 2 && salvoUser.user != game.gamePlayers[0].user">
                   <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="joinGame(game.gameID)">Join</button>
                 </td>
 
                 <!---------- Option to return to a game ---------->
-                <td v-if="salvoUser != 'guest' && (salvoUser.user == game.player[0].user || (game.player[1] && salvoUser.user == game.player[1].user))">
-                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.player[0].gamePlayerID)">Return</button>
+                <td v-if="salvoUser != 'guest' && (salvoUser.user == game.gamePlayers[0].user || (game.gamePlayers[1] && salvoUser.user == game.gamePlayers[1].user))">
+                  <button type="button" class="btn btn-sm btn-warning shadow-lg" v-on:click="gameReturn(game.gamePlayers[0].gamePlayerID)">Return</button>
                 </td>
               </tr>
             </tbody>

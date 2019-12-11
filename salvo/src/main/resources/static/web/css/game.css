@@ -19,9 +19,13 @@ h1 {
   font-style: normal;
 }
 
-h3 {
+h2 {
   font-family: "Bungee Shade", cursive;
   color: white;
+}
+
+h3 {
+  font-family: "Bungee", cursive;
 }
 
 h6 {
@@ -31,6 +35,7 @@ h6 {
 
 p {
   font-family: "Space Mono", monospace;
+  color: white;
 }
 
 .btn {

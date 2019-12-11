@@ -1,9 +1,8 @@
 package com.codeoftheweb.salvo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Score {
@@ -12,8 +11,8 @@ public class Score {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long ID;
-  private double score;
-  //private Date gameEndDate;
+  private LocalDateTime gameEndDate;
+  private int points;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name="gameID")
@@ -25,28 +24,50 @@ public class Score {
 
   public Score() {}
 
-  public Score(Game game, Player player, double score, Date gameEndDate) {
+  public Score(int points, Game game, Player player, LocalDateTime gameEndDate) {
+    this.points = points;
     this.game = game;
     this.player = player;
-    this.score = score;
-    //this.gameEndDate = gameEndDate;
+    this.gameEndDate = gameEndDate;
   }
 
-  public double getScore() {
-    return score;
+ public long getID() {
+    return ID;
   }
 
-  //public Date getGameEndDate() {
-  //return gameEndDate;
-  //}
+  public void setID(long ID) {
+    this.ID = ID;
+  }
 
-  @JsonIgnore
+  public int getPoints() {
+    return this.points;
+  }
+
+  public void setPoints(int points) {
+    this.points = points;
+  }
+
+  public LocalDateTime getGameEndDate() {
+    return gameEndDate;
+  }
+
+  public void setGameEndDate(LocalDateTime gameEndDate) {
+    this.gameEndDate = gameEndDate;
+  }
+
   public Game getGame() {
     return game;
   }
 
-  @JsonIgnore
+  public void setGame(Game game) {
+    this.game = game;
+  }
+
   public Player getPlayer() {
     return player;
+  }
+
+  public void setPlayer(Player player) {
+    this.player = player;
   }
 }

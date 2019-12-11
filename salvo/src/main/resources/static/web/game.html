@@ -37,7 +37,7 @@
         <!------------------------------ Info ------------------------------>
         <section class="col-md-4">
           <section class="card shadow-lg rounded" id="currentGame">
-            <h3 class="card-header">Current Game</h3>
+            <h2 class="card-header">Current Game</h2>
             <div class="card-body" id="logger">
             </div>
             <button class="btn btn-primary shadow-lg m-3" type="button" onclick="backToHomepage()">Back to Homepage 🏠</button>
@@ -47,7 +47,7 @@
         <!------------------------------ Stack ------------------------------>
         <section class="col-md-6">
           <section class="card shadow-lg rounded" id="currentGame">
-            <h3 class="card-header">Inventory</h3>
+            <h2 class="card-header">Inventory</h2>
             <div class="card-body">
               <p>Your ships and salvos.</p>
             </div>
@@ -61,17 +61,17 @@
       <div class="row m-5">
         <div class="col-6-md m-5">
           <h3>Place your Ships</h3>
-          <div class="grid-ships">
+          <div class="grid-ships mb-5">
             <div id="grid" class="grid-stack grid-stack-10"></div>
           </div>
-          <button class="btn btn-lg btn-success shadow-lg" type="button" onclick="sendShips">💾</button>
+          <button class="btn btn-block btn-success shadow-lg" type="button" onclick="sendShips">💾 Place your ships!</button>
         </div>
 
         <div class="col-6-md m-5">
           <h3>Place your Salvos</h3>
-          <div class="grid-salvos">
+          <div class="grid-salvos mb-5">
           </div>
-          <button class="btn btn-lg btn-danger shadow-lg" type="button" onclick="sendSalvos">💾</button>
+          <button class="btn btn-block btn-danger shadow-lg" type="button" onclick="sendSalvos">🚀 Fire your salvos!</button>
         </div>
       </div>
     </main>

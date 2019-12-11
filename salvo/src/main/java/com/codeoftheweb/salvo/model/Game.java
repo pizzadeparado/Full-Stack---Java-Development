@@ -1,6 +1,5 @@
 package com.codeoftheweb.salvo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,10 +13,10 @@ public class Game {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long ID;
-  private Date creationDate;
+  private LocalDateTime creationDate;
 
   @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-  private Set<GamePlayer> gamePlayer;
+  private Set<GamePlayer> gamePlayers = new HashSet<>();
 
   @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
   private Set<Score> scores = new HashSet<>();
@@ -25,35 +24,53 @@ public class Game {
   public Game() {
   }
 
-  public Game(Date creationDate) {
-    this.creationDate = new Date();
+  public Game(LocalDateTime creationDate) {
+    this.creationDate = creationDate;
   }
 
-  public Game(LocalDateTime now) {
-  }
-
-  public Date getCreationDate() {
-    return creationDate;
-  }
-
-  public long getGameID() {
+  public long getID() {
     return ID;
   }
 
-  @JsonIgnore
-  public List<Player> getPlayer() {
-    return gamePlayer.stream().map(GamePlayer::getPlayer).collect(Collectors.toList());
+  public void setID(long ID) {
+    this.ID = ID;
+  }
+
+  public LocalDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(LocalDateTime creationDate) {
+    this.creationDate = creationDate;
   }
 
   public Set<GamePlayer> getGamePlayer() {
-    return gamePlayer;
+    return gamePlayers;
+  }
+
+  public void addGamePlayer(GamePlayer gamePlayer) {
+    this.gamePlayers.add(gamePlayer);
+    gamePlayer.setGame(this);
+  }
+
+  public Set<Score> getScores() {
+    return this.scores;
+  }
+
+  public void addScore(Score score) {
+    this.scores.add(score);
+    score.setGame(this);
+  }
+
+  public List<Player> getPlayer() {
+    return gamePlayers.stream().map(GamePlayer::getPlayer).collect(Collectors.toList());
   }
 
   public Map<String, Object> createGameDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("gameID", this.getGameID());
-    dto.put("created", this.getCreationDate().getTime());
-    dto.put("player", this.getGamePlayer().stream().map(GamePlayer::createGamePlayerDTO));
+    dto.put("gameID", this.getID());
+    dto.put("created", this.getCreationDate());
+    dto.put("gamePlayers", this.getGamePlayer().stream().map(GamePlayer::createGamePlayerDTO).collect(Collectors.toList()));
     return dto;
   }
 }

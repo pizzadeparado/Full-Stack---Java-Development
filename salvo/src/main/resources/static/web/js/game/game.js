@@ -219,12 +219,11 @@ var playerTwo = {
 }
 var gamePlayerID = getParameterByName("gamePlayer")
 
-
-/******************** User ********************/
 function getParameterByName(user) {
   var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
+
 
 var ships = [
   {
@@ -233,19 +232,19 @@ var ships = [
   },
   {
     "type": "battleship",
-    "locations": ["A10", "B10", "C10", "D10"]
+    "locations": ["C1", "C2", "C3", "C4"]
   },
   {
     "type": "submarine",
-    "locations": ["C1", "C2", "C3"]
+    "locations": ["E1", "E2", "E3"]
   },
   {
     "type": "destroyer",
-    "locations": ["D1", "D2", "D3"]
+    "locations": ["G1", "G2", "G3"]
   },
   {
     "type": "patrol_boat",
-    "locations": ["E1", "E2"]
+    "locations": ["I1", "I2"]
   }
 ]
 
