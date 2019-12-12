@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3b56f5-e0b7-43c4-87f9-ba039f2b70fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/Full-Stack---Java-Development.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,12 +73,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Gradle.salvo [bootRun]">
+  <component name="RunManager" selected="Gradle.salvo [clean]">
     <configuration name="salvo [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -167,8 +161,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [clean]" />
+        <item itemvalue="Gradle.salvo [bootRun]" />
         <item itemvalue="Gradle.salvo [classes]" />
       </list>
     </recent_temporary>
@@ -212,25 +206,29 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1576078087598">
+    <state x="320" y="115" key="#Project_Structure" timestamp="1576115630376">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576078087598" />
+    <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1576115630376" />
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom" timestamp="1576115739016">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="155" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576115739016" />
     <state width="1419" height="303" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1576075863901" />
-    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1576078087596">
+    <state width="1419" height="155" key="GridCell.Tab.0.center" timestamp="1576115739015">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576078087596" />
+    <state width="1419" height="155" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576115739015" />
     <state width="1419" height="303" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1576075863898" />
-    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1576078087594">
+    <state width="1419" height="155" key="GridCell.Tab.0.left" timestamp="1576115739014">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576078087594" />
+    <state width="1419" height="155" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576115739014" />
     <state width="1419" height="303" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1576075863896" />
-    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1576078087597">
+    <state width="1419" height="155" key="GridCell.Tab.0.right" timestamp="1576115739016">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576078087597" />
+    <state width="1419" height="155" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576115739016" />
     <state width="1419" height="303" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1576075864043" />
     <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1576076269715">
       <screen x="0" y="0" width="1440" height="900" />
