@@ -1,5 +1,4 @@
 // $(() => loadGrid())
-
 const loadGrid = function (isStatic) {
 	var options = {
 		width: 10,
@@ -18,11 +17,11 @@ const loadGrid = function (isStatic) {
 	grid = $("#grid").data("gridstack");
 
 	if (!isStatic) {
-		grid.addWidget($('<div id="patrol_boat"><div class="grid-stack-item-content patrol_boatHorizontal"></div><div/>'), 0, 1, 2, 1);
-		grid.addWidget($('<div id="carrier"><div class="grid-stack-item-content carrierHorizontal"></div><div/>'), 0, 4, 5, 1);
-		grid.addWidget($('<div id="battleship"><div class="grid-stack-item-content battleshipHorizontal"></div><div/>'), 3, 1, 4, 1);
-		grid.addWidget($('<div id="submarine"><div class="grid-stack-item-content submarineVertical"></div><div/>'), 8, 2, 1, 3);
-		grid.addWidget($('<div id="destroyer"><div class="grid-stack-item-content destroyerHorizontal"></div><div/>'), 7, 8, 3, 1);
+		grid.addWidget($('<div id="patrol_boat"><div class="grid-stack-item-content patrol_boatHorizontal"></div></div>'), 0, 1, 2, 1);
+		grid.addWidget($('<div id="destroyer"><div class="grid-stack-item-content destroyerHorizontal"></div></div>'), 0, 3, 3, 1);
+		grid.addWidget($('<div id="submarine"><div class="grid-stack-item-content submarineHorizontal"></div></div>'), 0, 5, 3, 1);
+		grid.addWidget($('<div id="battleship"><div class="grid-stack-item-content battleshipHorizontal"></div></div>'), 0, 7, 4, 1);
+		grid.addWidget($('<div id="carrier"><div class="grid-stack-item-content carrierHorizontal"></div></div>'), 0, 9, 5, 1);
 
 		rotateShips("carrier", 5)
 		rotateShips("battleship", 4)
@@ -41,6 +40,8 @@ const loadGrid = function (isStatic) {
 	})
 }
 
+
+/******************** Load layouts ********************/
 const setShips = function () {
 	for (i = 0; i < salvoGames.ships.length; i++) {
 		let shipType = (salvoGames.ships[i].shipType).toLowerCase()
@@ -110,8 +111,6 @@ const rotateShips = function (shipType, cells) {
 					$(this).children().removeClass(`${shipType}Horizontal`);
 					$(this).children().addClass(`${shipType}Vertical`);
 				}
-			} else {
-				document.getElementById("alert-text").innerHTML = "A ship is blocking the way!"
 			}
 		} else {
 			if (x + cells - 1 < 10) {
@@ -164,38 +163,6 @@ const obtenerPosicion = function (shipType) {
 	return objShip;
 }
 
-function addShips() {
-	var carrier = obtenerPosicion("carrier")
-	var patrol = obtenerPosicion("patrol_boat")
-	var battleship = obtenerPosicion("battleship")
-	var submarine = obtenerPosicion("submarine")
-	var destroyer = obtenerPosicion("destroyer")
-
-	$.post({
-		url: "/api/games/players/" + gamePlayerID + "/ships",
-		data: JSON.stringify([carrier, patrol, battleship, submarine, destroyer]),
-		dataType: "text",
-		contentType: "application/json"
-	})
-		.done(function () {
-			swal("Ships have been placed.", {
-				closeOnClickOutside: true,
-				buttons: false,
-				timer: 1500,
-			});
-			window.setTimeout(function () {
-				window.location.href = "/web/game.html?gp=" + gamePlayerID;
-			}, 1500);
-		})
-		.fail(function () {
-			swal("Fail to add the ships. Try again.", {
-				closeOnClickOutside: true,
-				buttons: false,
-				timer: 1500,
-			})
-		});
-}
-
 const stringToInt = function (str) {
 	switch (str) {
 		case "A":
@@ -242,11 +209,44 @@ const setSalvos = function () {
 	}
 }
 
+
+/******************** Load functions ********************/
+function addShips() {
+	var carrier = obtenerPosicion("carrier")
+	var patrol = obtenerPosicion("patrol_boat")
+	var battleship = obtenerPosicion("battleship")
+	var submarine = obtenerPosicion("submarine")
+	var destroyer = obtenerPosicion("destroyer")
+
+	$.post({
+		url: "/api/games/players/" + gamePlayerID + "/ships",
+		data: JSON.stringify([carrier, patrol, battleship, submarine, destroyer]),
+		dataType: "text",
+		contentType: "application/json"
+	})
+		.done(function () {
+			swal("Ships have been placed.", {
+				closeOnClickOutside: true,
+				buttons: false,
+				timer: 1500,
+			});
+			window.setTimeout(function () {
+				window.location.href = "/web/game.html?gp=" + gamePlayerID;
+			}, 1500);
+		})
+		.fail(function () {
+			swal("Fail to add the ships. Try again.", {
+				closeOnClickOutside: true,
+				buttons: false,
+				timer: 1500,
+			})
+		});
+}
+
 function getParameterByName(name) {
 	var match = RegExp("[?&]" + name + "=([^&]*)").exec(window.location.search);
 	return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 }
-
 
 function backToHomepage() {
 	swal("Closing game...", {

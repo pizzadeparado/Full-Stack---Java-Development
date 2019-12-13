@@ -6,52 +6,52 @@ var gamePlayerID = getParameterByName("gp")
 
 /******************** Load game information ********************/
 const loadSalvoGames = function () {
-fetch("/api/game_view/" + gamePlayerID)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (json) {
-    salvoGames = json
-    whoIsWho()
-
-    if (salvoGames.ships.length > 0) {
-      loadGrid(true)
-    } else {
-      loadGrid(false)
-    }
-
-    createGrid(11, $(".grid-salvos"), "salvos")
-    setSalvos()
-    var contador = 0
-    $("div[id^='salvoes'].grid-cell").click(function () {
-      if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
-        $(this).addClass("targetCell");
-      } else if ($(this).hasClass("targetCell")) {
-        $(this).removeClass("targetCell");
-      }
+  fetch("/api/game_view/" + gamePlayerID)
+    .then(function (response) {
+      return response.json();
     })
+    .then(function (json) {
+      salvoGames = json
+      whoIsWho()
 
-    salvoGames.hits.playerTwo.forEach(function (playTurn) {
-      playTurn.location.forEach(function (hitCell) {
-        x = +(hitCell.substring(1)) - 1
-        y = stringToInt(hitCell[0].toUpperCase())
-        cellID = "#salvos" + y + x;
-        $(cellID).addClass("hitCell");
+      if (salvoGames.ships.length > 0) {
+        loadGrid(true)
+      } else {
+        loadGrid(false)
+      }
+
+      createGrid(11, $(".grid-salvos"), "salvos")
+      setSalvos()
+      var contador = 0
+      $("div[id^='salvoes'].grid-cell").click(function () {
+        if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
+          $(this).addClass("targetCell");
+        } else if ($(this).hasClass("targetCell")) {
+          $(this).removeClass("targetCell");
+        }
+      })
+
+      salvoGames.hits.playerTwo.forEach(function (playTurn) {
+        playTurn.location.forEach(function (hitCell) {
+          x = +(hitCell.substring(1)) - 1
+          y = stringToInt(hitCell[0].toUpperCase())
+          cellID = "#salvos" + y + x;
+          $(cellID).addClass("hitCell");
+        });
       });
-    });
 
-    makeGameRecordTable(salvoGames.hits.playerTwo, "gameRecordOppTable");
-    makeGameRecordTable(salvoGames.hits.playerOne, "gameRecordSelfTable");
-  })
-  .catch(function (error) {
-    console.log(error)
-  })
+      makeGameRecordTable(salvoGames.hits.playerTwo, "gameRecordOppTable");
+      makeGameRecordTable(salvoGames.hits.playerOne, "gameRecordSelfTable");
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
 }
 
-loadSalvoGames ()
+loadSalvoGames()
 
 
-/******************** Create functions ********************/
+/******************** Load functions ********************/
 function backToHomepage() {
   swal("Closing game...", {
     closeOnClickOutside: true,
@@ -126,15 +126,17 @@ function shoot() {
     .done(function () {
       swal("Salvos fired!", {
         closeOnClickOutside: true,
-        buttons: true,
+        buttons: false,
         timer: 2500,
       });
-      location.reload();
+      window.setTimeout(function () {
+        location.reload();
+      }, 1500);
     })
     .fail(function () {
       swal("Salvos couldn't be fired.", {
         closeOnClickOutside: true,
-        buttons: true,
+        buttons: false,
         timer: 2500,
       });
     })
