@@ -35,46 +35,66 @@
       <!------------------------------ Menu ------------------------------>
       <section class="row m-5 text-center justify-content-center" id="menu">
         <!------------------------------ Info ------------------------------>
+        <section class="col-md-4" id="gameRecordBlock">
+          <div id="gameRecordSelf">
+            <table id="gameRecordSelfTable" class="table table-striped table-sm">
+              <col class="columnTurn">
+              <col class="columnDamages">
+              <thead>
+                <th class="textCenter">Turn</th>
+                <th>Damages on My Fleet</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+        <!------------------------------ Current Game ------------------------------>
         <section class="col-md-4">
-          <section class="card shadow-lg rounded" id="currentGame">
+          <div class="card shadow-lg rounded" id="currentGame">
             <h2 class="card-header">Current Game</h2>
-            <div class="card-body" id="logger">
-            </div>
+            <div class="card-body" id="logger"></div>
             <button class="btn btn-primary shadow-lg m-3" type="button" onclick="backToHomepage()">Back to Homepage 🏠</button>
-          </section>
+          </div>
+        </section>
+        <!------------------------------ Info ------------------------------>
+        <section class="col-md-4" id="gameRecordOpponent">
+          <table id="gameRecordOppTable" class="table table-striped table-sm">
+            <col class="columnTurn">
+            <col class="columnDamages">
+            <thead>
+              <th class="textCenter">Turn</th>
+              <th>Damages on Opponent's Fleet</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+          </div>
         </section>
 
-        <!------------------------------ Stack ------------------------------>
-        <section class="col-md-6">
-          <section class="card shadow-lg rounded" id="currentGame">
-            <h2 class="card-header">Inventory</h2>
-            <div class="card-body">
-              <p>Your ships and salvos.</p>
-            </div>
-          </section>
-        </section>
       </section>
     </section>
+  </section>
 
-    <!------------------------------ Ships and Salvos grid ------------------------------>
-    <main class="container-fluid mb-5">
-      <div class="row m-5 justify-content-center">
-        <div class="col-6-md m-5">
-          <h3>Place your Ships</h3>
-          <div class="grid-ships mb-5">
-            <div id="grid" class="grid-stack grid-stack-10"></div>
-          </div>
-          <button class="btn btn-block btn-success shadow-lg" type="button" onclick="sendShips">💾 Place your ships!</button>
+  <!------------------------------ Ships and Salvos grid ------------------------------>
+  <main class="container-fluid mb-5">
+    <div class="row m-5 justify-content-center">
+      <div class="col-6-md m-5">
+        <h3>Your Ships</h3>
+        <div class="grid-ships mb-5">
+          <div id="grid" class="grid-stack grid-stack-10"></div>
         </div>
-
-        <div class="col-6-md m-5">
-          <h3>Place your Salvos</h3>
-          <div class="grid-salvos mb-5">
-          </div>
-          <button class="btn btn-block btn-danger shadow-lg" type="button" onclick="sendSalvos">🚀 Fire your salvos!</button>
-        </div>
+        <button class="btn btn-block btn-success shadow-lg" type="button" onclick="addShips()">💾 Place your ships!</button>
       </div>
-    </main>
+
+      <div class="col-6-md m-5">
+        <h3>Your Salvos</h3>
+        <div class="grid-salvos mb-5"></div>
+        <button class="btn btn-block btn-danger shadow-lg" type="button" onclick="shoot()">🚀 Fire your salvos!</button>
+      </div>
+    </div>
+
+
+
+  </main>
 
   </section>
 
@@ -100,8 +120,8 @@
   <!-- Sweet Alert -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Content scripts -->
-  <script src="js/game/main.js"></script>
   <script src="js/game/game.js"></script>
+  <script src="js/game/main.js"></script>
 
 </body>
 

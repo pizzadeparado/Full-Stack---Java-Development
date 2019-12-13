@@ -122,7 +122,7 @@ var salvo = new Vue({
         });
     },
     joinGame(gameID) {
-      $.post("/api/games/" + gameID + "/player")
+      $.post("/api/games/" + gameID + "/gamePlayers")
         .done(function (data) {
           swal("Joining game...", {
             closeOnClickOutside: false,

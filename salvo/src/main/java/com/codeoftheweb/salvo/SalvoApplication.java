@@ -59,23 +59,23 @@ public class SalvoApplication {
 			GamePlayer gamePlayer12 = new GamePlayer (game6, player4, LocalDateTime.now());
 
 
-			gamePlayer1.addShip(new Ship("destroyer", Arrays.asList("H2", "H3", "H4")));
-			gamePlayer1.addShip(new Ship("submarine", Arrays.asList("E1", "F1", "G1", "H1")));
+			gamePlayer1.addShip(new Ship(gamePlayer1, "destroyer", Arrays.asList("H2", "H3", "H4")));
+			gamePlayer1.addShip(new Ship(gamePlayer1, "submarine", Arrays.asList("E1", "F1", "G1", "H1")));
 			gamePlayer1.addSalvo(new Salvo(1, Arrays.asList("B5", "C5")));
 			gamePlayer1.addSalvo(new Salvo(2, Arrays.asList("F2", "D5")));
 
-			gamePlayer2.addShip(new Ship("patrol boat", Arrays.asList("B4", "B5")));
-			gamePlayer2.addShip(new Ship("destroyer", Arrays.asList("B5", "C5", "D5")));
+			gamePlayer2.addShip(new Ship(gamePlayer2, "patrol boat", Arrays.asList("B4", "B5")));
+			gamePlayer2.addShip(new Ship(gamePlayer2, "destroyer", Arrays.asList("B5", "C5", "D5")));
 			gamePlayer2.addSalvo(new Salvo(1, Arrays.asList("A2", "A4")));
 			gamePlayer2.addSalvo(new Salvo(2, Arrays.asList("A3", "H6")));
 
-			gamePlayer3.addShip(new Ship("patrol boat", Arrays.asList("F1", "F2")));
-			gamePlayer3.addShip(new Ship("destroyer", Arrays.asList("B5", "C5", "D5")));
+			gamePlayer3.addShip(new Ship(gamePlayer3, "patrol boat", Arrays.asList("F1", "F2")));
+			gamePlayer3.addShip(new Ship(gamePlayer3, "destroyer", Arrays.asList("B5", "C5", "D5")));
 			gamePlayer3.addSalvo(new Salvo(1, Arrays.asList("G6", "H6")));
 			gamePlayer3.addSalvo(new Salvo(2, Arrays.asList("B5", "C5")));
 
-			gamePlayer4.addShip(new Ship("patrol boat", Arrays.asList("C6", "C7")));
-			gamePlayer4.addShip(new Ship("submarine", Arrays.asList("A2", "A3", "A4", "A5")));
+			gamePlayer4.addShip(new Ship(gamePlayer4, "patrol boat", Arrays.asList("C6", "C7")));
+			gamePlayer4.addShip(new Ship(gamePlayer4, "submarine", Arrays.asList("A2", "A3", "A4", "A5")));
 			gamePlayer4.addSalvo(new Salvo(1, Arrays.asList("C6", "C7")));
 			gamePlayer4.addSalvo(new Salvo(2, Arrays.asList("A2", "A3")));
 

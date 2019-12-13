@@ -24,7 +24,8 @@ public class Ship {
   public Ship() {
   }
 
-  public Ship(String shipType, List<String> shipLocation) {
+  public Ship(GamePlayer gamePlayer, String shipType, List<String> shipLocation) {
+    this.gamePlayer = gamePlayer;
     this.shipType = shipType;
     this.shipLocation = shipLocation;
   }
@@ -59,8 +60,29 @@ public class Ship {
 
   public Map<String, Object> createShipDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
-    dto.put("type", this.getShipType());
-    dto.put("location", this.getShipLocation());
+    dto.put("shipType", this.getShipType());
+    dto.put("shipLocation", this.getShipLocation());
     return dto;
   }
+
+  public long getShipLength(Ship ship){
+    long length = 0;
+    switch (ship.getShipType()){
+      case "carrier":
+        length = 5;
+        break ;
+      case "battleship" :
+        length = 4;
+        break;
+      case "submarine":
+      case "destroyer":
+        length = 3;
+        break;
+      case "patrol_boat":
+        length = 2;
+        break;
+    }
+    return length;
+  }
+
 }

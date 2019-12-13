@@ -1,287 +1,90 @@
-// var gamesData
-// var actualPlayer
-// var opponent = {
-//   "email": "Waiting for opponent"
-// }
-
-
-
-// //Para obtener el id del gamePlayer colocado como query en la url
-// var gpId = getParameterByName("gp")
-// console.log(gpId)
-
-// function getParameterByName(name) {
-//   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-//   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-// }
-
-// fetch("/api/game_view/" + gpId)
-//   .then(function (response) {
-//     return response.json()
-//   })
-//   .then(function (json) {
-
-//     gamesData = json
-//     //Determina el jugador actual y contra quien juega
-//     WhoIsWho()
-
-//     //Cargamos por medio de gridstackla los barcos y chequeamos si ya hay barcos o no para hacer una grilla statica o no
-//     //(En un futuro se trabajara sin la pagina intermedia de place-ship por lo que de momento esto comparacion esta demas)
-//     if (gamesData.ships.length > 0) {
-//       //if true, the grid is initialized in static mode, that is, the ships can't be moved
-//       loadGrid(true)
-//     } else {
-//       //On the contrary, the grid is initialized in dynamic mode, allowing the user to move the ships
-//       loadGrid(false)
-//       //A futuro para cargar los salvos por medio de gridstack
-//       //loadGridSalvo()
-//     }
-
-
-//     createGrid(11, $(".grid-salvoes"), 'salvoes') //carga la matriz que contendra los salvoes pero sin gridstack.js
-//     setSalvoes() //carga los salvoes ya guardados
-//     var contador = 0
-//     //Una vez cargado los salvoes con createGrid procedemos a establecer una funcion click por cada celda de la siguiente manera
-//     $('div[id^="salvoes"].grid-cell').click(function () {
-//       if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
-//         $(this).addClass("targetCell");
-//       } else if ($(this).hasClass("targetCell")) {
-//         $(this).removeClass("targetCell");
-//       }
-//     })
-
-//     //Determino que celdas golpee y las 'pinto'
-//     gamesData.hits.opponent.forEach(function (playTurn) {
-//       playTurn.hitLocations.forEach(function (hitCell) {
-//         x = +(hitCell.substring(1)) - 1
-//         y = stringToInt(hitCell[0].toUpperCase())
-//         cellID = "#salvoes" + y + x;
-//         $(cellID).addClass("hitCell");
-//       });
-//     });
-//     makeGameRecordTable(gamesData.hits.opponent, "gameRecordOppTable");
-//     makeGameRecordTable(gamesData.hits.self, "gameRecordSelfTable");
-//   })
-//   .catch(function (error) {
-//     console.log(error)
-//   })
-
-// function WhoIsWho() {
-//   for (i = 0; i < gamesData.gamePlayers.length; i++) {
-//     if (gamesData.gamePlayers[i].gpid == gpId) {
-//       actualPlayer = gamesData.gamePlayers[i].player
-//     } else {
-//       opponent = gamesData.gamePlayers[i].player
-//     }
-//   }
-
-//   let logger = document.getElementById("logger")
-//   let wrapper = document.createElement('DIV')
-//   let p1 = document.createElement('P')
-//   p1.innerHTML = `Hi ${actualPlayer.email}!`
-//   let p2 = document.createElement('P')
-//   p2.innerHTML = `your opponent is: ${opponent.email}`
-//   wrapper.appendChild(p1)
-//   wrapper.appendChild(p2)
-//   logger.appendChild(wrapper)
-// }
-
-// function getTurn() {
-//   var arr = []
-//   var turn = 0;
-//   gamesData.salvoes.map(function (salvo) {
-//     if (salvo.player == actualPlayer.id) {
-//       arr.push(salvo.turn);
-//     }
-//   })
-//   turn = Math.max.apply(Math, arr);
-
-//   if (turn == -Infinity) {
-//     return 1;
-//   } else {
-//     return turn + 1;
-//   }
-
-// }
-
-// function shoot() {
-//   var turno = getTurn();
-//   var locationsToShoot = [];
-//   $(".targetCell").each(function () {
-//     let location = $(this).attr("id").substring(7);
-//     //"00"
-//     let locationConverted = String.fromCharCode(parseInt(location[0]) + 65) + (parseInt(location[1]) + 1)
-
-//     locationsToShoot.push(locationConverted)
-//   })
-//   console.log(locationsToShoot)
-//   var url = "/api/games/players/" + getParameterByName("gp") + "/salvoes"
-//   $.post({
-//     url: url,
-//     data: JSON.stringify({ turn: turno, salvoLocations: locationsToShoot }),
-//     dataType: "text",
-//     contentType: "application/json"
-//   })
-//     .done(function (response, status, jqXHR) {
-//       alert("Salvo added: " + response);
-//       location.reload();
-//     })
-//     .fail(function (jqXHR, status, httpError) {
-//       alert("Failed to add salvo: " + status + " " + httpError);
-//     })
-// }
-// function makeGameRecordTable(hitsArray, gameRecordTableId) {
-
-//   var tableId = "#" + gameRecordTableId + " tbody";
-//   $(tableId).empty();
-//   var shipsAfloat = 5;
-//   var playerTag;
-//   if (gameRecordTableId == "gameRecordOppTable") {
-//     playerTag = "#opp";
-//   }
-//   if (gameRecordTableId == "gameRecordSelfTable") {
-//     playerTag = "#";
-//   }
-
-//   hitsArray.forEach(function (playTurn) {
-//     var hitsReport = "";
-//     if (playTurn.damages.carrierHits > 0) {
-//       hitsReport += "Carrier " + addDamagesIcons(playTurn.damages.carrierHits, "hit") + " ";
-//       if (playTurn.damages.carrier === 5) {
-//         hitsReport += "SUNK! ";
-//         shipsAfloat--;
-//       }
-//     }
-
-//     if (playTurn.damages.battleshipHits > 0) {
-//       hitsReport += "Battleship " + addDamagesIcons(playTurn.damages.battleshipHits, "hit") + " ";
-//       if (playTurn.damages.battleship === 4) {
-//         hitsReport += "SUNK! ";
-//         shipsAfloat--;
-//       }
-//     }
-//     if (playTurn.damages.submarineHits > 0) {
-//       hitsReport += "Submarine " + addDamagesIcons(playTurn.damages.submarineHits, "hit") + " ";
-//       if (playTurn.damages.submarine === 3) {
-//         hitsReport += "SUNK! ";
-//         shipsAfloat--;
-//       }
-//     }
-//     if (playTurn.damages.destroyerHits > 0) {
-//       hitsReport += "Destroyer " + addDamagesIcons(playTurn.damages.destroyerHits, "hit") + " ";
-//       if (playTurn.damages.destroyer === 3) {
-//         hitsReport += "SUNK! ";
-//         shipsAfloat--;
-//       }
-//     }
-//     if (playTurn.damages.patrolboatHits > 0) {
-//       hitsReport += "Patrol Boat " + addDamagesIcons(playTurn.damages.patrolboatHits, "hit") + " ";
-//       if (playTurn.damages.patrolboat === 2) {
-//         hitsReport += "SUNK! ";
-//         shipsAfloat--;
-//       }
-//     }
-
-//     if (playTurn.missed > 0) {
-//       hitsReport += "Missed shots " + addDamagesIcons(playTurn.missed, "missed") + " ";
-//     }
-
-//     if (hitsReport === "") {
-//       hitsReport = "All salvoes missed! No damages!"
-//     }
-
-//     $('<tr><td class="textCenter">' + playTurn.turn + '</td><td>' + hitsReport + '</td></tr>').prependTo(tableId);
-
-//   });
-//   $('#shipsLeftSelfCount').text(shipsAfloat);
-// }
-
-// function addDamagesIcons(numberOfHits, hitOrMissed) {
-//   var damagesIcons = "";
-//   if (hitOrMissed === "missed") {
-//     for (var i = 0; i < numberOfHits; i++) {
-//       damagesIcons += "<img class='hitblast' src='img/missed.png'>"
-//     }
-//   }
-//   if (hitOrMissed === "hit") {
-//     for (var i = 0; i < numberOfHits; i++) {
-//       damagesIcons += "<img class='hitblast' src='img/redhit.png'>"
-//     }
-//   }
-//   return damagesIcons;
-// }
-
-
 var salvoGames
 var playerOne
-var playerTwo = {
-  "user": "Waiting for opponent."
-}
+var playerTwo
 var gamePlayerID = getParameterByName("gp")
+
+
+/******************** Load game information ********************/
+const loadSalvoGames = function () {
+fetch("/api/game_view/" + gamePlayerID)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (json) {
+    salvoGames = json
+    whoIsWho()
+
+    if (salvoGames.ships.length > 0) {
+      loadGrid(true)
+    } else {
+      loadGrid(false)
+    }
+
+    createGrid(11, $(".grid-salvos"), "salvos")
+    setSalvos()
+    var contador = 0
+    $("div[id^='salvoes'].grid-cell").click(function () {
+      if (!$(this).hasClass("salvo") && !$(this).hasClass("targetCell") && $(".targetCell").length < 5) {
+        $(this).addClass("targetCell");
+      } else if ($(this).hasClass("targetCell")) {
+        $(this).removeClass("targetCell");
+      }
+    })
+
+    salvoGames.hits.playerTwo.forEach(function (playTurn) {
+      playTurn.location.forEach(function (hitCell) {
+        x = +(hitCell.substring(1)) - 1
+        y = stringToInt(hitCell[0].toUpperCase())
+        cellID = "#salvos" + y + x;
+        $(cellID).addClass("hitCell");
+      });
+    });
+
+    makeGameRecordTable(salvoGames.hits.playerTwo, "gameRecordOppTable");
+    makeGameRecordTable(salvoGames.hits.playerOne, "gameRecordSelfTable");
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
+}
+
+loadSalvoGames ()
+
+
+/******************** Create functions ********************/
+function backToHomepage() {
+  swal("Closing game...", {
+    closeOnClickOutside: true,
+    icon: "info",
+    buttons: false,
+    timer: 1500,
+  });
+  window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 1500);
+}
 
 function getParameterByName(user) {
   var match = RegExp('[?&]' + user + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-
-var ships = [
-  {
-    "type": "carrier",
-    "locations": ["A1", "A2", "A3", "A4", "A5"]
-  },
-  {
-    "type": "battleship",
-    "locations": ["C1", "C2", "C3", "C4"]
-  },
-  {
-    "type": "submarine",
-    "locations": ["E1", "E2", "E3"]
-  },
-  {
-    "type": "destroyer",
-    "locations": ["G1", "G2", "G3"]
-  },
-  {
-    "type": "patrol_boat",
-    "locations": ["I1", "I2"]
-  }
-]
-
-/******************** Games ********************/
-$.get("/api/game_view/" + gamePlayerID)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (json) {
-    salvoGames = json;
-    whoIsWho();
-
-    if (salvoGames.hasShips.length > 0) {
-      //if true, the grid is initialized in static mode, that is, the ships can't be moved
-      loadGrid(true)
-    } else {
-      //On the contrary, the grid is initialized in dynamic mode, allowing the user to move the ships
-      loadGrid(false)
-    }
-  });
-
-/******************** Functions ********************/
 function whoIsWho() {
-  for (i = 0; i < salvoGames.gamePlayer; i++) {
-    if (salvoGames.gamePlayer[i].gamePlayerID == gamePlayerID) {
-      playerOne = salvoGames.gamePlayer[i].user
+  for (i = 0; i < salvoGames.gamePlayers.length; i++) {
+    if (salvoGames.gamePlayers[i].gamePlayerID == gamePlayerID) {
+      playerOne = salvoGames.gamePlayers[i].user
     } else {
-      playerTwo = salvoGames.gamePlayer[i].user
+      playerTwo = salvoGames.gamePlayers[i].user
     }
   }
   let logger = document.getElementById("logger")
   let wrapper = document.createElement("div")
   let p1 = document.createElement("h6")
-  p1.innerHTML = `${playerOne} VS`
+  p1.innerHTML = `${playerOne}`
+  let vs = document.createElement("h2")
+  vs.innerHTML = `VS`
   let p2 = document.createElement("h6")
   p2.innerHTML = `${playerTwo}`
   wrapper.appendChild(p1)
+  wrapper.appendChild(vs)
   wrapper.appendChild(p2)
   logger.appendChild(wrapper)
 }
@@ -289,8 +92,8 @@ function whoIsWho() {
 function getTurn() {
   var arr = []
   var turn = 0;
-  data.salvos.map(function (salvo) {
-    if (salvo.player == salvoUser.ID) {
+  salvoGames.salvos.map(function (salvo) {
+    if (salvo.player == playerOne.playerID) {
       arr.push(salvo.turn);
     }
   })
@@ -301,7 +104,7 @@ function getTurn() {
   } else {
     return turn + 1;
   }
-};
+}
 
 function shoot() {
   var turno = getTurn();
@@ -309,11 +112,11 @@ function shoot() {
   $(".targetCell").each(function () {
     let location = $(this).attr("id").substring(7);
     let locationConverted = String.fromCharCode(parseInt(location[0]) + 65) + (parseInt(location[1]) + 1)
-
     locationsToShoot.push(locationConverted)
   })
   console.log(locationsToShoot)
-  var url = "/api/games/gamePlayers/" + getParameterByName("user") + "/salvos"
+
+  var url = "/api/games/gamePlayers/" + getParameterByName("gp") + "/salvos"
   $.post({
     url: url,
     data: JSON.stringify({ turn: turno, salvoLocations: locationsToShoot }),
@@ -335,15 +138,74 @@ function shoot() {
         timer: 2500,
       });
     })
-};
+}
 
-/******************** Actions ********************/
-function backToHomepage() {
-  swal("Closing game...", {
-    closeOnClickOutside: true,
-    icon: "info",
-    buttons: false,
-    timer: 1500,
+function makeGameRecordTable(hitsArray, gameRecordTableID) {
+  var tableID = "#" + gameRecordTableID + " tbody";
+  $(tableID).empty();
+  var shipsAfloat = 5;
+  var playerTag;
+  if (gameRecordTableID == "gameRecordPlayerTwoTable") {
+    playerTag = "#opp";
+  } if (gameRecordTableID == "gameRecordPlayerOneTable") {
+    playerTag = "#";
+  }
+
+  hitsArray.forEach(function (playTurn) {
+    var hitsReport = "";
+    if (playTurn.damages.carrierHits > 0) {
+      hitsReport += "Carrier " + addDamagesIcons(playTurn.damages.carrierHits, "hit") + " ";
+      if (playTurn.damages.carrier === 5) {
+        hitsReport += "SUNK! ";
+        shipsAfloat--;
+      }
+    } if (playTurn.damages.battleshipHits > 0) {
+      hitsReport += "Battleship " + addDamagesIcons(playTurn.damages.battleshipHits, "hit") + " ";
+      if (playTurn.damages.battleship === 4) {
+        hitsReport += "SUNK! ";
+        shipsAfloat--;
+      }
+    } if (playTurn.damages.submarineHits > 0) {
+      hitsReport += "Submarine " + addDamagesIcons(playTurn.damages.submarineHits, "hit") + " ";
+      if (playTurn.damages.submarine === 3) {
+        hitsReport += "SUNK! ";
+        shipsAfloat--;
+      }
+    } if (playTurn.damages.destroyerHits > 0) {
+      hitsReport += "Destroyer " + addDamagesIcons(playTurn.damages.destroyerHits, "hit") + " ";
+      if (playTurn.damages.destroyer === 3) {
+        hitsReport += "SUNK! ";
+        shipsAfloat--;
+      }
+    } if (playTurn.damages.patrolboatHits > 0) {
+      hitsReport += "Patrol Boat " + addDamagesIcons(playTurn.damages.patrolboatHits, "hit") + " ";
+      if (playTurn.damages.patrolboat === 2) {
+        hitsReport += "SUNK! ";
+        shipsAfloat--;
+      }
+    } if (playTurn.missed > 0) {
+      hitsReport += "Missed shots " + addDamagesIcons(playTurn.missed, "missed") + " ";
+    } if (hitsReport === "") {
+      hitsReport = "All salvoes missed! No damages!"
+    }
+
+    $('<tr><td class="textCenter">' + playTurn.turn + '</td><td>' + hitsReport + '</td></tr>').prependTo(tableID);
+
   });
-  window.setTimeout(function () { window.location.href = "http://localhost:8080/web/games.html" }, 1500);
+  $('#shipsLeftSelfCount').text(shipsAfloat);
+}
+
+function addDamagesIcons(numberOfHits, hitOrMissed) {
+  var damagesIcons = "";
+  if (hitOrMissed === "missed") {
+    for (var i = 0; i < numberOfHits; i++) {
+      damagesIcons += "<img class='hitblast' src='img/missed.png'>"
+    }
+  }
+  if (hitOrMissed === "hit") {
+    for (var i = 0; i < numberOfHits; i++) {
+      damagesIcons += "<img class='hitblast' src='img/redhit.png'>"
+    }
+  }
+  return damagesIcons;
 }

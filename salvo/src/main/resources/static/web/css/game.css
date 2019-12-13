@@ -43,6 +43,16 @@ p {
 }
 
 /******************** Decorations ********************/
+table thead {
+  font-family: "Space Mono", monospace;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+table tbody {
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
 .card {
   background-color: rgba(0, 0, 0, 0.8) !important;
   backdrop-filter: saturate(180%) blur(20px);

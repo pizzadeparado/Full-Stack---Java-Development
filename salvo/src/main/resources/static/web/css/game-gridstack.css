@@ -8,97 +8,67 @@
 
 .carrierHorizontal {
   background-image: url("gridstack/ships/carrier.png");
-  background-size: 85% 100%;
+  background-size: 90%;
   background-position: center;
 }
 
 .carrierVertical {
   background-image: url("gridstack/ships/carrier_vertical.png");
-  background-size: 100% 85%;
+  background-size: 90%;
   background-position: center;
   width: 45px !important;
 }
 
 .battleshipHorizontal {
   background-image: url("gridstack/ships/battleship.png");
-  background-size: 85% 100%;
+  background-size: 90%;
   background-position: center;
 }
 
 .battleshipVertical {
   background-image: url("gridstack/ships/battleship_vertical.png");
-  background-size: 100% 85%;
+  background-size: 90%;
   background-position: center;
   width: 45px !important;
 }
 
 .submarineHorizontal {
   background-image: url("gridstack/ships/submarine.png");
-  background-size: 90% 100%;
+  background-size: 90%;
   background-position: center;
 }
 
 .submarineVertical {
   background-image: url("gridstack/ships/submarine_vertical.png");
-  background-size: 100% 90%;
+  background-size: 90%;
   background-position: center;
   width: 45px !important;
 }
 
 .destroyerHorizontal {
   background-image: url("gridstack/ships/destroyer.png");
-  background-size: 100% 150%;
+  background-size: 90%;
   background-position: center;
 }
 
 .destroyerVertical {
   background-image: url("gridstack/ships/destroyer_vertical.png");
-  background-size: 150% 100%;
+  background-size: 90%;
   background-position: center;
   width: 45px !important;
 }
 
 .patrol_boatHorizontal {
   background-image: url("gridstack/ships/patrol_boat.png");
-  background-size: 100% 150%;
+  background-size: 90%;
   background-position: center;
 }
 
 .patrol_boatVertical {
   background-image: url("gridstack/ships/patrol_boat_vertical.png");
-  background-size: 150% 100%;
+  background-size: 90%;
   background-position: center;
   width: 45px !important;
-}
-
-.flex-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-.flex-container > * {
-  margin: 1em;
-}
-
-#logger {
-  flex-basis: 90%;
-}
-
-#logger {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-#logger > * {
-  margin: 0.5em;
-}
-
-#logger > div {
-  width: 20em;
-  font-weight: bold;
-  text-align: center;
 }
 
 /******************** Grid ********************/
@@ -193,15 +163,8 @@
 }
 
 .ship-down {
+  color: white;
   background-color: red;
-}
-
-#gameRecordSelfTable {
-  color: #0d71d6;
-}
-
-#gameRecordOppTable {
-  color: #ebeef1;
 }
 
 .hitCell {

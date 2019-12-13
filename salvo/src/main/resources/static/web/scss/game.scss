@@ -62,6 +62,19 @@ p {
 
 
 /******************** Decorations ********************/
+table {
+  thead {
+    font-family: $font-paragraph-heading;
+    color: white;
+    background-color: $dark-blur;
+  }
+
+  tbody {
+    font-family: $font-paragraph-text;
+    background-color: $light-blur;
+  }
+}
+
 .card {
   background-color: $dark-blur;
   backdrop-filter: $blur-setting;
