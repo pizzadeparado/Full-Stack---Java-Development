@@ -1,6 +1,6 @@
-$(() => loadGrid())
+// $(() => loadGrid())
 
-const loadGrid = function () {
+const loadGrid = function (isStatic) {
 	var options = {
 		width: 10,
 		height: 10,
@@ -9,28 +9,31 @@ const loadGrid = function () {
 		disableResize: true,
 		float: true,
 		disableOneColumnMode: true,
-		staticGrid: false,
+		staticGrid: isStatic,
 		animate: true
 	}
 
 	$(".grid-stack").gridstack(options);
 
 	grid = $("#grid").data("gridstack");
-	grid.addWidget($('<div id="patrol_boat"><div class="grid-stack-item-content patrol_boatHorizontal"></div><div/>'), 0, 1, 2, 1);
-	grid.addWidget($('<div id="carrier"><div class="grid-stack-item-content carrierHorizontal"></div><div/>'), 0, 4, 5, 1);
-	grid.addWidget($('<div id="battleship"><div class="grid-stack-item-content battleshipHorizontal"></div><div/>'), 3, 1, 4, 1);
-	grid.addWidget($('<div id="submarine"><div class="grid-stack-item-content submarineVertical"></div><div/>'), 8, 2, 1, 3);
-	grid.addWidget($('<div id="destroyer"><div class="grid-stack-item-content destroyerHorizontal"></div><div/>'), 7, 8, 3, 1);
 
-	setShips()
+	if (!isStatic) {
+		grid.addWidget($('<div id="patrol_boat"><div class="grid-stack-item-content patrol_boatHorizontal"></div><div/>'), 0, 1, 2, 1);
+		grid.addWidget($('<div id="carrier"><div class="grid-stack-item-content carrierHorizontal"></div><div/>'), 0, 4, 5, 1);
+		grid.addWidget($('<div id="battleship"><div class="grid-stack-item-content battleshipHorizontal"></div><div/>'), 3, 1, 4, 1);
+		grid.addWidget($('<div id="submarine"><div class="grid-stack-item-content submarineVertical"></div><div/>'), 8, 2, 1, 3);
+		grid.addWidget($('<div id="destroyer"><div class="grid-stack-item-content destroyerHorizontal"></div><div/>'), 7, 8, 3, 1);
+
+		rotateShips("carrier", 5)
+		rotateShips("battleship", 4)
+		rotateShips("submarine", 3)
+		rotateShips("destroyer", 3)
+		rotateShips("patrol_boat", 2)
+	} else {
+		setShips()
+	}
 
 	createGrid(11, $(".grid-ships"), "ships")
-
-	rotateShips("carrier", 5)
-	rotateShips("battleship", 4)
-	rotateShips("submarine", 3)
-	rotateShips("destroyer", 3)
-	rotateShips("patrol_boat", 2)
 
 	listenBusyCells("ships")
 	$(".grid-stack").on("change", function () {
@@ -91,7 +94,6 @@ const createGrid = function (size, element, id) {
 
 const rotateShips = function (shipType, cells) {
 	$(`#${shipType}`).click(function () {
-		document.getElementById("alert-text").innerHTML = `Rotaste: ${shipType}`
 		console.log($(this))
 		let x = +($(this).attr("data-gs-x"))
 		let y = +($(this).attr("data-gs-y"))
@@ -149,16 +151,16 @@ const obtenerPosicion = function (shipType) {
 
 	if (ship.height == 1) {
 		for (i = 1; i <= ship.width; i++) {
-			ship.shipLocation.push(String.fromCharCode(parseInt(ship.y) + 65) + (parseInt(ship.x) + i))
+			ship.positions.push(String.fromCharCode(parseInt(ship.y) + 65) + (parseInt(ship.x) + i))
 		}
 	} else {
 		for (i = 0; i < ship.height; i++) {
-			ship.shipLocation.push(String.fromCharCode(parseInt(ship.y) + 65 + i) + (parseInt(ship.x) + 1))
+			ship.positions.push(String.fromCharCode(parseInt(ship.y) + 65 + i) + (parseInt(ship.x) + 1))
 		}
 	}
 	var objShip = new Object();
-	objShip["type"] = ship.shipType;
-	objShip["location"] = ship.shipLocation;
+	objShip["shipType"] = ship.name;
+	objShip["shipLocation"] = ship.positions;
 	return objShip;
 }
 
@@ -176,20 +178,22 @@ function addShips() {
 		contentType: "application/json"
 	})
 		.done(function () {
-			swal("Ships added successfully.", {
+			swal("Ships have been placed.", {
 				closeOnClickOutside: true,
-				buttons: true,
-				timer: 2000,
-			})
-			location.href = "/web/game.html?gp=" + getParameterByName("gamePlayerID");
+				buttons: false,
+				timer: 1500,
+			});
+			window.setTimeout(function () {
+				window.location.href = "/web/game.html?gp=" + gamePlayerID;
+			}, 1500);
 		})
 		.fail(function () {
 			swal("Fail to add the ships. Try again.", {
 				closeOnClickOutside: true,
-				buttons: true,
-				timer: 2000,
+				buttons: false,
+				timer: 1500,
 			})
-		})
+		});
 }
 
 const stringToInt = function (str) {

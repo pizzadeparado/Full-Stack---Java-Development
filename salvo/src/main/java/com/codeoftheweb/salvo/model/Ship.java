@@ -11,6 +11,7 @@ public class Ship {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
   @GenericGenerator(name = "native", strategy = "native")
   private long ID;
+
   private String shipType;
 
   @ElementCollection
@@ -46,7 +47,7 @@ public class Ship {
     return shipType;
   }
 
-  public void setShipType(String type) {
+  public void setShipType(String shipType) {
     this.shipType = shipType;
   }
 
