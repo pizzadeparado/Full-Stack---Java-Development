@@ -62,6 +62,9 @@ const setShips = function () {
 		grid.addWidget($("<div id='" + shipType + "'><div class='grid-stack-item-content " + shipType + orientation + "'></div></div>"), x, y, w, h);
 	}
 }
+const setShipsNew = function () {
+	let shipType = shipType.map ( => ship  )
+}
 
 const createGrid = function (size, element, id) {
 	let wrapper = document.createElement("DIV")
